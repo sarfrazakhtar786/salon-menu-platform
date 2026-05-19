@@ -161,7 +161,10 @@ function getSalonSlug() {
   // 2. Check for subdomain (e.g. noor.salonmenu.pk)
   const host = window.location.hostname; 
   const parts = host.split('.');
-  if (parts.length >= 3 && parts[0] !== 'www') return parts[0]; 
+  // Vercel auto-assigns .vercel.app domains, so we must ignore them for subdomains
+  if (!host.includes('vercel.app') && parts.length >= 3 && parts[0] !== 'www') {
+    return parts[0]; 
+  }
 
   // 3. Fallback: Path-based (e.g. /salons/noor)
   const path = window.location.pathname;

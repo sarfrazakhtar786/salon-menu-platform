@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/salons/:slug((?!data\\.json).*)",
+      "destination": "/salon.html"
+    }
+  ]
+}

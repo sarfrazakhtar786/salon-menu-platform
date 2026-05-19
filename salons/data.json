@@ -1,0 +1,88 @@
+{
+  "noor": {
+    "name": "Noor Beauty Salon",
+    "tagline": "خوبصورتی آپ کا حق ہے",
+    "city": "Lahore",
+    "area": "Gulberg III",
+    "address": "12-A Main Blvd, Gulberg III, Lahore",
+    "phone": "0300-1234567",
+    "whatsapp": "923001234567",
+    "timings": "Mon–Sat: 10am – 8pm",
+    "color": "#c8705a",
+    "stats": {
+      "clients": "500+",
+      "experience": "8yr",
+      "rating": "4.9"
+    },
+    "services": {
+      "Facial": [
+        { "name": "Basic Facial", "time": "45 min", "price": 1200 },
+        { "name": "Gold Facial", "time": "60 min", "price": 2500 },
+        { "name": "Diamond Facial", "time": "75 min", "price": 3800 },
+        { "name": "Whitening Facial", "time": "60 min", "price": 2800 }
+      ],
+      "Hair": [
+        { "name": "Hair Cut & Style", "time": "30 min", "price": 800 },
+        { "name": "Hair Color (Full)", "time": "120 min", "price": 4500 },
+        { "name": "Keratin Treatment", "time": "180 min", "price": 8000 },
+        { "name": "Blow Dry", "time": "45 min", "price": 1200 }
+      ],
+      "Makeup": [
+        { "name": "Party Makeup", "time": "60 min", "price": 3500 },
+        { "name": "Bridal Makeup", "time": "180 min", "price": 18000 },
+        { "name": "Engagement Makeup", "time": "120 min", "price": 12000 },
+        { "name": "Mehndi Makeup", "time": "90 min", "price": 8000 }
+      ],
+      "Nails": [
+        { "name": "Basic Manicure", "time": "30 min", "price": 800 },
+        { "name": "Gel Nails", "time": "60 min", "price": 2200 },
+        { "name": "Nail Art (per nail)", "time": "45 min", "price": 150 },
+        { "name": "Pedicure", "time": "45 min", "price": 1200 }
+      ]
+    },
+    "reviews": [
+      { "text": "Bridal makeup bilkul amazing tha! Sari family ne tarif ki.", "author": "Ayesha Malik, DHA Lahore", "stars": 5 },
+      { "text": "Gold facial ke baad skin ekdum glow kar rahi thi!", "author": "Sana Tariq, Gulberg", "stars": 5 },
+      { "text": "Keratin treatment ne baalon ko ekdum straight kar diya.", "author": "Hina Baig, Model Town", "stars": 4 }
+    ]
+  },
+
+  "glamour": {
+    "name": "Glamour Studio",
+    "tagline": "جہاں حسن کھلتا ہے",
+    "city": "Karachi",
+    "area": "DHA Phase 5",
+    "address": "Shop 7, DHA Phase 5, Karachi",
+    "phone": "0321-9876543",
+    "whatsapp": "923219876543",
+    "timings": "Tue–Sun: 11am – 9pm",
+    "color": "#7c5cbf",
+    "stats": {
+      "clients": "300+",
+      "experience": "5yr",
+      "rating": "4.8"
+    },
+    "services": {
+      "Facial": [
+        { "name": "Basic Facial", "time": "45 min", "price": 1500 },
+        { "name": "Hydra Facial", "time": "60 min", "price": 4000 }
+      ],
+      "Hair": [
+        { "name": "Hair Cut", "time": "30 min", "price": 1000 },
+        { "name": "Balayage", "time": "150 min", "price": 7000 }
+      ],
+      "Makeup": [
+        { "name": "Party Makeup", "time": "60 min", "price": 4000 },
+        { "name": "Bridal Makeup", "time": "180 min", "price": 22000 }
+      ],
+      "Nails": [
+        { "name": "Gel Nails", "time": "60 min", "price": 2500 },
+        { "name": "Nail Extensions", "time": "90 min", "price": 3500 }
+      ]
+    },
+    "reviews": [
+      { "text": "Hydra facial ne skin ko bilkul transform kar diya!", "author": "Fatima R., DHA", "stars": 5 },
+      { "text": "Best bridal makeup in Karachi, highly recommend!", "author": "Zara K., Clifton", "stars": 5 }
+    ]
+  }
+}

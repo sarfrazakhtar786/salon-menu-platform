@@ -22,12 +22,7 @@
       "facebook": "https://facebook.com/noorbeautysalon",
       "tiktok": ""
     },
-    "business_tags": [
-      "Ladies Only",
-      "Bridal Expert",
-      "Home Service",
-      "Parking"
-    ],
+    "business_tags": ["Ladies Only", "Bridal Expert", "Home Service", "Parking"],
     "stats": {
       "clients": "500+",
       "experience": "8yr",
@@ -53,25 +48,21 @@
       "Facial": [
         { "name": "Basic Facial", "time": "45 min", "price": 1200, "desc": "Deep cleansing and exfoliation for a fresh, glowing look." },
         { "name": "Gold Facial", "time": "60 min", "price": 2500, "desc": "A rich facial treatment for instant radiance." },
-        { "name": "Diamond Facial", "time": "75 min", "price": 3800, "desc": "Premium brightening facial for special occasions." },
-        { "name": "Whitening Facial", "time": "60 min", "price": 2800, "desc": "Skin polishing treatment for a more even glow." }
+        { "name": "Hydra Facial", "time": "60 min", "price": 4200, "desc": "Hydrating facial for fresh, clean, plump skin." }
       ],
       "Hair": [
         { "name": "Hair Cut & Style", "time": "30 min", "price": 800, "desc": "Fresh cut with basic styling." },
-        { "name": "Hair Color (Full)", "time": "120 min", "price": 4500, "desc": "Full hair color with consultation." },
-        { "name": "Keratin Treatment", "time": "180 min", "price": 8000, "desc": "Smoothing treatment for softer, straighter hair." },
-        { "name": "Blow Dry", "time": "45 min", "price": 1200, "desc": "Salon finish blow dry for daily or event styling." }
+        { "name": "Hair Color Full", "time": "120 min", "price": 4500, "desc": "Full hair color with consultation." },
+        { "name": "Keratin Treatment", "time": "180 min", "price": 8000, "desc": "Smoothing treatment for softer, straighter hair." }
       ],
       "Makeup": [
         { "name": "Party Makeup", "time": "60 min", "price": 3500, "desc": "Elegant party look with long-lasting finish." },
         { "name": "Bridal Makeup", "time": "180 min", "price": 18000, "desc": "Complete bridal makeup with premium products." },
-        { "name": "Engagement Makeup", "time": "120 min", "price": 12000, "desc": "Soft glam engagement look." },
-        { "name": "Mehndi Makeup", "time": "90 min", "price": 8000, "desc": "Fresh mehndi event makeup." }
+        { "name": "Engagement Makeup", "time": "120 min", "price": 12000, "desc": "Soft glam engagement look." }
       ],
       "Nails": [
         { "name": "Basic Manicure", "time": "30 min", "price": 800, "desc": "Classic nail cleanup and polish." },
         { "name": "Gel Nails", "time": "60 min", "price": 2200, "desc": "Long-lasting gel nail finish." },
-        { "name": "Nail Art (per nail)", "time": "45 min", "price": 150, "desc": "Custom nail art per nail." },
         { "name": "Pedicure", "time": "45 min", "price": 1200, "desc": "Relaxing foot care and polish." }
       ]
     },
@@ -104,12 +95,7 @@
       "facebook": "",
       "tiktok": "https://tiktok.com/@glamourstudio"
     },
-    "business_tags": [
-      "Unisex",
-      "Premium Makeup",
-      "Nail Art",
-      "Card Payment"
-    ],
+    "business_tags": ["Unisex", "Premium Makeup", "Nail Art", "Card Payment"],
     "stats": {
       "clients": "300+",
       "experience": "5yr",
@@ -134,19 +120,23 @@
     "services": {
       "Facial": [
         { "name": "Basic Facial", "time": "45 min", "price": 1500, "desc": "A relaxing facial to rejuvenate your skin." },
-        { "name": "Hydra Facial", "time": "60 min", "price": 4000, "desc": "Hydrating facial for fresh, clean skin." }
+        { "name": "Hydra Facial", "time": "60 min", "price": 4000, "desc": "Hydrating facial for fresh, clean skin." },
+        { "name": "Vitamin C Facial", "time": "60 min", "price": 3500, "desc": "Brightening facial for dull and tired skin." }
       ],
       "Hair": [
         { "name": "Hair Cut", "time": "30 min", "price": 1000, "desc": "Modern haircut and shape." },
-        { "name": "Balayage", "time": "150 min", "price": 7000, "desc": "Soft blended color for a premium look." }
+        { "name": "Balayage", "time": "150 min", "price": 7000, "desc": "Soft blended color for a premium look." },
+        { "name": "Protein Treatment", "time": "90 min", "price": 5200, "desc": "Repair treatment for dry or damaged hair." }
       ],
       "Makeup": [
         { "name": "Party Makeup", "time": "60 min", "price": 4000, "desc": "Event-ready makeup with clean finish." },
-        { "name": "Bridal Makeup", "time": "180 min", "price": 22000, "desc": "Premium bridal makeup package." }
+        { "name": "Bridal Makeup", "time": "180 min", "price": 22000, "desc": "Premium bridal makeup package." },
+        { "name": "Soft Glam Makeup", "time": "75 min", "price": 5500, "desc": "Natural glam for dinners, shoots, and events." }
       ],
       "Nails": [
         { "name": "Gel Nails", "time": "60 min", "price": 2500, "desc": "Glossy gel nails with long wear." },
-        { "name": "Nail Extensions", "time": "90 min", "price": 3500, "desc": "Beautiful extensions with custom shape." }
+        { "name": "Nail Extensions", "time": "90 min", "price": 3500, "desc": "Beautiful extensions with custom shape." },
+        { "name": "Luxury Pedicure", "time": "60 min", "price": 2200, "desc": "Relaxing pedicure with scrub, massage, and polish." }
       ]
     },
     "reviews": [

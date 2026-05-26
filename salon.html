@@ -781,7 +781,7 @@
           return;
         }
 
-        activeCategory = Object.keys(currentSalon.services || {})[0] || "";
+        activeCategory = "All Services";
         document.documentElement.style.setProperty("--primary", currentSalon.color || "#845051");
         document.title = `${currentSalon.name} - ${currentSalon.city}`;
         render();
@@ -796,7 +796,7 @@
 
     function render() {
       const salon = currentSalon;
-      const categories = Object.keys(salon.services || {});
+      const categories = ["All Services", ...Object.keys(salon.services || {})];
       const tags = salon.business_tags || [];
       const socials = Object.entries(salon.socials || {}).filter(([, url]) => url);
       const gallery = salon.gallery || [];
@@ -920,7 +920,9 @@
     }
 
     function renderServices() {
-      const services = currentSalon.services?.[activeCategory] || [];
+      const services = activeCategory === "All Services"
+        ? Object.entries(currentSalon.services || {}).flatMap(([category, items]) => items.map(item => ({ ...item, category })))
+        : (currentSalon.services?.[activeCategory] || []).map(item => ({ ...item, category: activeCategory }));
       if (!services.length) return "<div class='booking-card'>No services available in this category.</div>";
 
       return services.map(service => {
@@ -931,7 +933,7 @@
             <div>
               <h3>${service.name}</h3>
               <p>${service.desc || "Premium salon service."}</p>
-              <div class="service-meta"><span>${service.time || "Ask timing"}</span><span>${activeCategory}</span></div>
+              <div class="service-meta"><span>${service.time || "Ask timing"}</span><span>${service.category}</span></div>
             </div>
             <div>
               <div class="price">${money(service.price)}</div>

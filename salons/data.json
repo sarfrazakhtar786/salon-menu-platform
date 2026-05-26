@@ -86,7 +86,13 @@
     "reviews": [
       { "text": "Bridal makeup bilkul amazing tha. Sari family ne tarif ki.", "author": "Ayesha Malik, DHA Lahore", "stars": 5, "verified": true },
       { "text": "Gold facial ke baad skin bohat fresh lag rahi thi.", "author": "Sana Tariq, Gulberg", "stars": 5, "verified": true },
-      { "text": "Keratin treatment ne baalon ko smooth kar diya.", "author": "Hina Baig, Model Town", "stars": 4, "verified": false }
+      { "text": "Keratin treatment ne baalon ko smooth kar diya.", "author": "Hina Baig, Model Town", "stars": 4, "verified": false },
+      { "text": "Staff very polite tha aur service time par start hui.", "author": "Maham R., Gulberg", "stars": 5, "verified": true },
+      { "text": "Party makeup natural aur long lasting tha.", "author": "Zainab Ali, Cantt", "stars": 5, "verified": true },
+      { "text": "Manicure clean tha, polish finish bohat achi thi.", "author": "Iqra N., Johar Town", "stars": 4, "verified": false },
+      { "text": "Salon ka environment neat aur comfortable hai.", "author": "Rabia Sheikh, Garden Town", "stars": 5, "verified": true },
+      { "text": "Hair color consultation helpful thi, result exactly waisa aya.", "author": "Komal A., DHA", "stars": 5, "verified": true },
+      { "text": "Facial ke baad skin soft feel hui. Good value.", "author": "Mina K., Liberty", "stars": 4, "verified": false }
     ]
   },
   "glamour": {
@@ -176,7 +182,13 @@
     "reviews": [
       { "author": "Ayesha K.", "text": "Best facial experience ever. Glow is unreal.", "stars": 5, "verified": true },
       { "author": "Sana M.", "text": "Very professional staff and clean environment.", "stars": 4, "verified": true },
-      { "author": "Hira B.", "text": "Loved my new haircut. Highly recommended.", "stars": 5, "verified": false }
+      { "author": "Hira B.", "text": "Loved my new haircut. Highly recommended.", "stars": 5, "verified": false },
+      { "author": "Fatima A.", "text": "Bridal trial was detailed and the artist listened carefully.", "stars": 5, "verified": true },
+      { "author": "Maha F.", "text": "Balayage blend bohat soft aur premium laga.", "stars": 5, "verified": true },
+      { "author": "Nida W.", "text": "Gel nails lasted longer than expected.", "stars": 5, "verified": true },
+      { "author": "Rabia R.", "text": "Weekend par thora rush tha, but service quality excellent thi.", "stars": 4, "verified": false },
+      { "author": "Komal S.", "text": "Soft glam makeup exactly meri reference photo jaisa tha.", "stars": 5, "verified": true },
+      { "author": "Laiba T.", "text": "Hydra facial relaxing tha aur staff friendly tha.", "stars": 4, "verified": false }
     ]
   }
 }

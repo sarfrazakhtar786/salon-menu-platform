@@ -740,6 +740,7 @@
     let currentSlug = "";
     let activeCategory = "";
     let cart = [];
+    const platformBookingWhatsapp = "923007666376";
 
     function getSalonSlug() {
       if (window.location.hash) return window.location.hash.substring(1);
@@ -825,7 +826,7 @@
             <h1>${salon.name}</h1>
             <p class="tagline">${salon.tagline || "Premium beauty services and appointment booking."}</p>
             <div class="hero-actions">
-              <a class="btn whatsapp" href="https://wa.me/${salon.whatsapp}?text=${encodeURIComponent(`Hi! I want to book an appointment at ${salon.name}.`)}" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn whatsapp" href="https://wa.me/${platformBookingWhatsapp}?text=${encodeURIComponent(`Hi! I want to book an appointment at ${salon.name}.`)}" target="_blank" rel="noopener">WhatsApp</a>
               <a class="btn light" href="tel:${salon.phone}">Call Now</a>
               <a class="btn light" href="https://maps.google.com/?q=${encodeURIComponent(salon.address)}" target="_blank" rel="noopener">Directions</a>
               <button class="btn light" type="button" onclick="shareSalon()">Share</button>
@@ -1072,7 +1073,7 @@
         `Notes: ${details.notes || "None"}`
       ].join("\n");
 
-      window.open(`https://wa.me/${currentSalon.whatsapp}?text=${encodeURIComponent(message)}`, "_blank");
+      window.open(`https://wa.me/${platformBookingWhatsapp}?text=${encodeURIComponent(message)}`, "_blank");
     });
 
     document.getElementById("booking-modal").addEventListener("click", event => {

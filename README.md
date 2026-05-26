@@ -1,147 +1,118 @@
-# 💄 SalonMenu.pk — Digital Salon Menu Platform
+# SalonMenu.pk - Digital Salon Menu Platform
 
-Ek codebase, 100+ salons. Har salon ka apna URL.
+Ek codebase, multiple salons. Har salon ka apna public menu URL.
 
----
+## Project Structure
 
-## 📁 Project Structure
-
-```
+```txt
 salon-menu-platform/
-├── index.html        ← Platform homepage
-├── salon.html        ← Single template (sab salons ke liye)
+├── index.html
+├── salon.html
 ├── salons/
-│   └── data.json         ← Har client ka data yahan
-├── vercel.json           ← Routing rules
-└── README.md
+│   └── data.json
+├── vercel.json
+├── PRODUCT_UPGRADE_PLAN.md
+└── DESIGN_HANDOFF_NOTES.md
 ```
 
----
+## Current Stack
 
-## ➕ Naya Salon Add Karna
+- HTML
+- CSS
+- Vanilla JavaScript
+- JSON data source
+- Vercel hosting and rewrites
 
-Sirf `salons/data.json` open karo aur naya entry add karo:
+Future SaaS stack: Next.js, TypeScript, Tailwind CSS, Supabase, and Vercel.
+
+## URL Formats
+
+```txt
+/salons/noor
+/salons/glamour
+/salon.html#noor
+/salon.html?salon=noor
+```
+
+## Add A New Salon
+
+Open `salons/data.json` and add a new salon object using a unique slug.
 
 ```json
 "mynewsalon": {
   "name": "My New Salon",
-  "tagline": "آپ کا خیرمقدم",
+  "tagline": "خوبصورتی آپ کا حق ہے",
   "city": "Islamabad",
   "area": "F-7",
   "address": "Shop 3, F-7 Markaz, Islamabad",
   "phone": "0300-0000000",
   "whatsapp": "923000000000",
-  "timings": "Mon–Sat: 10am – 8pm",
-  "color": "#7c5cbf",
+  "timings": "Mon-Sat: 10am - 8pm",
+  "weekly_off": "Sunday",
+  "color": "#845051",
+  "price_level": "$$",
+  "hero_image": "https://example.com/cover.jpg",
+  "gallery": ["https://example.com/photo.jpg"],
+  "socials": {
+    "instagram": "https://instagram.com/example",
+    "facebook": "",
+    "tiktok": ""
+  },
+  "business_tags": ["Ladies Only", "Bridal Expert", "Parking"],
   "stats": {
     "clients": "200+",
     "experience": "3yr",
     "rating": "4.7"
   },
+  "packages": [
+    {
+      "name": "Bridal Glow Package",
+      "includes": ["Gold Facial", "Hair Styling", "Party Makeup"],
+      "price": 9500,
+      "original_price": 12000,
+      "tag": "Best Value"
+    }
+  ],
   "services": {
     "Facial": [
-      { "name": "Basic Facial", "time": "45 min", "price": 1200 }
-    ],
-    "Hair": [
-      { "name": "Hair Cut", "time": "30 min", "price": 800 }
+      {
+        "name": "Basic Facial",
+        "time": "45 min",
+        "price": 1200,
+        "desc": "Deep cleansing and exfoliation."
+      }
     ]
   },
   "reviews": [
-    { "text": "Bohat acha salon hai!", "author": "Ayesha, F-7", "stars": 5 }
+    {
+      "text": "Bohat acha salon hai.",
+      "author": "Ayesha, F-7",
+      "stars": 5,
+      "verified": true
+    }
   ]
 }
 ```
 
-Phir GitHub pe push karo — **Vercel automatic deploy kar dega** ✅
+## Important Data Rules
 
----
+- `whatsapp` should use country code format without `+`, for example `923001234567`.
+- `price` and `original_price` should be numbers, not strings.
+- `rating` can be a string like `"4.9"` for display.
+- Optional fields should be left empty instead of removed if you want consistent data entry.
 
-## 🌐 URL Formats
+## Deployment
 
-| Format | Example |
-|--------|---------|
-| Path-based (free) | `yourapp.vercel.app/salons/noor` |
-| Custom subdomain | `noor.salonmenu.pk` |
+This project is designed for Vercel static hosting.
 
----
+1. Push changes to GitHub.
+2. Connect the repository to Vercel.
+3. Vercel will deploy automatically after each push.
 
-## 🚀 GitHub + Vercel Setup (Step by Step)
+## Product Plan
 
-### Step 1 — GitHub Pe Upload Karo
+See [PRODUCT_UPGRADE_PLAN.md](PRODUCT_UPGRADE_PLAN.md) for the roadmap.
 
-1. GitHub.com pe jao → **New Repository**
-2. Naam rakho: `salon-menu-platform`
-3. **Public** rakho
-4. Apna computer mein terminal kholo:
+## Design Reference
 
-```bash
-cd salon-menu-platform
-git init
-git add .
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/TUMHARA_USERNAME/salon-menu-platform.git
-git push -u origin main
-```
-
----
-
-### Step 2 — Vercel Pe Deploy Karo
-
-1. **vercel.com** pe jao → Login with GitHub
-2. **"Add New Project"** click karo
-3. Apni repo select karo: `salon-menu-platform`
-4. **Deploy** click karo
-
-**Done! Tumhara platform live hai** 🎉
-
----
-
-### Step 3 — Apni Domain Lagao (Optional)
-
-1. `salonmenu.pk` ya koi bhi domain khareedo (Pknic.pk se)
-2. Vercel dashboard → Project → **Domains**
-3. `salonmenu.pk` add karo
-4. DNS settings mein jo Vercel bole woh CNAME add karo
-
----
-
-### Step 4 — Har Client Ka Subdomain
-
-Jab naya client aaye:
-1. `data.json` mein entry add karo (e.g. slug: `glamour`)
-2. Vercel Domains mein `glamour.salonmenu.pk` add karo
-3. Client ko link do: `glamour.salonmenu.pk`
-
----
-
-## 💰 Pricing Model
-
-| Cheez | Tumhara Kharcha |
-|-------|----------------|
-| Vercel (hosting) | Free |
-| salonmenu.pk domain | ~Rs. 1,500/saal |
-| Per client kharcha | Rs. 0 |
-
-| Cheez | Client Se Lo |
-|-------|-------------|
-| One-time setup | Rs. 15,000 |
-| Annual renewal | Rs. 5,000/saal |
-
-**10 clients = Rs. 50,000/saal sirf renewal se** 🔥
-
----
-
-## 🎨 Brand Color Change
-
-Har salon ka `"color"` field alag rakh sakte ho:
-- `"#c8705a"` → Rose (default)
-- `"#7c5cbf"` → Purple
-- `"#2e7d32"` → Green
-- `"#1565c0"` → Blue
-
----
-
-## 📞 Support
-
-Koi masla ho toh WhatsApp karo: **0300-XXXXXXX**
+See [DESIGN_HANDOFF_NOTES.md](DESIGN_HANDOFF_NOTES.md) and the extracted Stitch design files in `design/stitch-premium-ui-system`.

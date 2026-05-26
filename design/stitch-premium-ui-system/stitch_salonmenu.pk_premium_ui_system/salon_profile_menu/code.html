@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Grand Spa | Premium Salon Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fcf9f8",
+                    "warm-rose": "#BD8282",
+                    "on-surface": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#340f11",
+                    "surface-container-high": "#eae7e7",
+                    "background": "#fcf9f8",
+                    "soft-gold": "#D4AF37",
+                    "success-sage": "#7A9E7E",
+                    "tertiary-fixed": "#e5e2dd",
+                    "on-primary-fixed-variant": "#68393a",
+                    "surface-dim": "#dcd9d9",
+                    "primary": "#845051",
+                    "secondary-container": "#fed65b",
+                    "primary-container": "#bd8282",
+                    "surface-container": "#f0eded",
+                    "surface-tint": "#845051",
+                    "on-primary": "#ffffff",
+                    "pure-white": "#FFFFFF",
+                    "primary-fixed": "#ffdad9",
+                    "surface": "#fcf9f8",
+                    "tertiary-container": "#93918d",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-tertiary-container": "#2a2a27",
+                    "outline": "#847373",
+                    "outline-variant": "#d6c2c1",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#745c00",
+                    "inverse-surface": "#303030",
+                    "on-primary-container": "#461e1f",
+                    "tertiary": "#5f5e5b",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#241a00",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#574500",
+                    "secondary-fixed": "#ffe088",
+                    "surface-variant": "#e4e2e1",
+                    "deep-charcoal": "#2D2D2D",
+                    "inverse-on-surface": "#f3f0f0",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "primary-fixed-dim": "#f8b6b6",
+                    "on-surface-variant": "#514343",
+                    "ivory-surface": "#F9F6F1",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "secondary": "#735c00",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c8c6c2",
+                    "inverse-primary": "#f8b6b6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "button": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Playfair Display"],
+                    "headline-xl-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "button": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(45, 45, 45, 0.4), rgba(45, 45, 45, 0.8));
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #BD8282;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="bg-white/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-ivory-surface shadow-sm shadow-warm-rose/5 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-warm-rose italic font-bold">SalonMenu.pk</span>
+<div class="hidden md:flex gap-6">
+<a class="text-warm-rose border-b-2 border-warm-rose font-semibold font-body-md text-body-md" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-warm-rose transition-colors font-body-md text-body-md" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-warm-rose transition-colors font-body-md text-body-md" href="#">Gallery</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-ivory-surface/50 p-2 rounded-full transition-all duration-300 active:scale-95">notifications</button>
+<button class="hidden md:block font-button text-button text-on-surface-variant hover:text-warm-rose transition-colors">Sign In</button>
+<button class="bg-primary text-on-primary font-button text-button px-6 py-2 rounded-lg hover:bg-warm-rose transition-all active:scale-95">List Your Salon</button>
+</div>
+</nav>
+<!-- Premium Hero Section -->
+<header class="relative h-[716px] w-full flex items-end overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A luxurious high-end salon interior with plush velvet seating, warm golden lighting, and elegant minimalist decor. The space is captured in a wide shot with soft-focus depth, highlighting the premium Ivory and Warm Rose color palette of the brand. Polished marble floors and large windows create a sense of exclusivity and bright, airy sophisticated atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="relative w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-16">
+<div class="max-w-3xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-soft-gold text-on-primary text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Premium Member</span>
+<div class="flex text-soft-gold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+</div>
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-white mb-2">The Grand Spa</h1>
+<p class="font-body-lg text-body-lg text-white/90 mb-8 italic">Where Elegance Meets Artistry. Your sanctuary for bespoke beauty transformations.</p>
+<div class="flex flex-wrap gap-4">
+<button class="flex items-center gap-2 bg-success-sage text-white font-button text-button px-8 py-4 rounded-xl shadow-lg hover:shadow-success-sage/20 transition-all active:scale-95">
+<span class="material-symbols-outlined">chat</span> WhatsApp
+                    </button>
+<button class="flex items-center gap-2 glass-card text-on-surface font-button text-button px-8 py-4 rounded-xl hover:bg-white transition-all active:scale-95">
+<span class="material-symbols-outlined">call</span> Call Now
+                    </button>
+<button class="flex items-center gap-2 glass-card text-on-surface font-button text-button px-8 py-4 rounded-xl hover:bg-white transition-all active:scale-95">
+<span class="material-symbols-outlined">near_me</span> Directions
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Services & Gallery -->
+<div class="lg:col-span-8 space-y-20">
+<!-- Services Section -->
+<section id="services">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-2">Our Services</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Curated treatments for the modern individual.</p>
+</div>
+</div>
+<!-- Category Tabs -->
+<div class="flex gap-4 mb-12 overflow-x-auto pb-4 custom-scrollbar whitespace-nowrap">
+<button class="bg-primary text-on-primary font-label-lg text-label-lg px-8 py-3 rounded-full transition-all">All Services</button>
+<button class="bg-white border border-outline-variant/30 text-on-surface-variant hover:border-warm-rose hover:text-warm-rose font-label-lg text-label-lg px-8 py-3 rounded-full transition-all">Hair Artistry</button>
+<button class="bg-white border border-outline-variant/30 text-on-surface-variant hover:border-warm-rose hover:text-warm-rose font-label-lg text-label-lg px-8 py-3 rounded-full transition-all">Bridal Couture</button>
+<button class="bg-white border border-outline-variant/30 text-on-surface-variant hover:border-warm-rose hover:text-warm-rose font-label-lg text-label-lg px-8 py-3 rounded-full transition-all">Skin Therapy</button>
+<button class="bg-white border border-outline-variant/30 text-on-surface-variant hover:border-warm-rose hover:text-warm-rose font-label-lg text-label-lg px-8 py-3 rounded-full transition-all">Nail Care</button>
+</div>
+<!-- Services Bento-esque List -->
+<div class="space-y-4">
+<!-- Service Card -->
+<div class="group bg-white border border-ivory-surface p-6 rounded-2xl flex items-center justify-between hover:shadow-xl hover:shadow-warm-rose/5 transition-all duration-300">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-xl bg-ivory-surface flex items-center justify-center text-warm-rose">
+<span class="material-symbols-outlined text-3xl">content_cut</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Signature Couture Cut</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Personalized styling including wash and luxury blow-dry.</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md text-primary">Rs. 4,500</span>
+<button class="bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary w-12 h-12 rounded-full flex items-center justify-center transition-all active:scale-90">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<div class="group bg-white border border-ivory-surface p-6 rounded-2xl flex items-center justify-between hover:shadow-xl hover:shadow-warm-rose/5 transition-all duration-300">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-xl bg-ivory-surface flex items-center justify-center text-warm-rose">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Royal Bridal Glow Facial</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">24k Gold infused treatment for ultimate radiance.</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md text-primary">Rs. 12,000</span>
+<button class="bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary w-12 h-12 rounded-full flex items-center justify-center transition-all active:scale-90">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<div class="group bg-white border border-ivory-surface p-6 rounded-2xl flex items-center justify-between hover:shadow-xl hover:shadow-warm-rose/5 transition-all duration-300">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-xl bg-ivory-surface flex items-center justify-center text-warm-rose">
+<span class="material-symbols-outlined text-3xl">face</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Balayage Masterclass</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Multi-dimensional hand-painted highlights.</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md text-primary">Rs. 18,500</span>
+<button class="bg-surface-container-low text-primary hover:bg-primary hover:text-on-primary w-12 h-12 rounded-full flex items-center justify-center transition-all active:scale-90">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Grid Section -->
+<section id="gallery">
+<h2 class="font-headline-lg text-headline-lg mb-8">Salon Gallery</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="col-span-2 row-span-2 relative group overflow-hidden rounded-2xl aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A detailed close-up of a luxury bridal hair styling process featuring intricate braids and floral accessories. The lighting is soft and warm, emphasizing the texture of the hair and the elegant craftsmanship. The background is a soft Ivory blur, maintaining a premium and high-end aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="relative group overflow-hidden rounded-2xl aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A modern nail art display on a marble surface, featuring minimalist geometric designs in Warm Rose and Soft Gold. The shot is high-key and professional, suitable for a luxury beauty salon marketing material with clean lines and sophisticated vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+</div>
+<div class="relative group overflow-hidden rounded-2xl aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional aesthetician performing a high-end facial treatment in a serene, spa-like environment. The focus is on the calm atmosphere and clinical precision, featuring clean white towels and soft lighting that reflects a trustworthy and premium skincare experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+</div>
+<div class="col-span-2 relative group overflow-hidden rounded-2xl h-48">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide angle shot of the salon's reception and waiting lounge, designed with mid-century modern furniture in neutral tones and Warm Rose accents. The space looks inviting and incredibly upscale, showcasing the 'effortless luxury' personality of The Grand Spa." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Business Info & Booking Summary -->
+<aside class="lg:col-span-4 space-y-8">
+<!-- Business Info Card -->
+<div class="bg-white border border-ivory-surface p-8 rounded-3xl sticky top-28 shadow-xl shadow-warm-rose/5">
+<h3 class="font-headline-md text-headline-md mb-6">Business Information</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-warm-rose">location_on</span>
+<div>
+<p class="font-label-lg text-label-lg mb-1">Location</p>
+<p class="text-on-surface-variant font-body-sm text-body-sm">42-L, Gulberg III, Main Boulevard, Lahore, Pakistan</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-warm-rose">schedule</span>
+<div class="w-full">
+<p class="font-label-lg text-label-lg mb-1">Opening Hours</p>
+<div class="space-y-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex justify-between">
+<span>Mon - Fri</span>
+<span class="font-semibold text-on-surface">10:00 AM - 09:00 PM</span>
+</div>
+<div class="flex justify-between">
+<span>Sat - Sun</span>
+<span class="font-semibold text-on-surface">11:00 AM - 10:00 PM</span>
+</div>
+<p class="text-success-sage font-semibold flex items-center gap-1 mt-2">
+<span class="w-2 h-2 rounded-full bg-success-sage"></span> Open Now
+                                    </p>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-warm-rose">share</span>
+<div class="w-full">
+<p class="font-label-lg text-label-lg mb-3">Follow Us</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-ivory-surface flex items-center justify-center text-on-surface hover:bg-warm-rose hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-lg">public</span></a>
+<a class="w-10 h-10 rounded-full bg-ivory-surface flex items-center justify-center text-on-surface hover:bg-warm-rose hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-lg">camera</span></a>
+<a class="w-10 h-10 rounded-full bg-ivory-surface flex items-center justify-center text-on-surface hover:bg-warm-rose hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-lg">videocam</span></a>
+</div>
+</div>
+</div>
+</div>
+<hr class="my-8 border-outline-variant/20"/>
+<!-- Booking Summary / CTA Placeholder -->
+<div class="space-y-4">
+<div class="p-4 rounded-xl bg-ivory-surface/50 border border-dashed border-outline-variant text-center">
+<p class="text-on-surface-variant font-body-sm text-body-sm">No services selected yet</p>
+</div>
+<button class="w-full bg-primary text-on-primary font-button text-button py-4 rounded-xl shadow-lg hover:shadow-primary/20 transition-all active:scale-95 disabled:opacity-50">
+                            Book Appointment
+                        </button>
+</div>
+</div>
+<!-- Small Map Placeholder -->
+<div class="h-64 rounded-3xl overflow-hidden grayscale contrast-125 border border-ivory-surface shadow-sm relative group">
+<img class="w-full h-full object-cover" data-alt="A stylistic, minimalist digital map of a metropolitan Gulberg area in Lahore, highlighting the location of The Grand Spa. The map uses a neutral color palette of ivory and charcoal with a single Warm Rose pin indicating the destination, reflecting high-end design sensibilities." data-location="Lahore" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+<div class="absolute inset-0 bg-warm-rose/10 group-hover:bg-transparent transition-all"></div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-ivory-surface dark:bg-surface-container-highest w-full py-12 border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-4">
+<span class="font-headline-md text-warm-rose">SalonMenu.pk</span>
+<p class="text-on-surface-variant font-body-sm text-body-sm max-w-sm">© 2024 SalonMenu.pk. Elevating Beauty Standards. Pakistan's most exclusive salon management and booking ecosystem.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<a class="block text-on-surface-variant hover:text-warm-rose transition-colors font-body-sm text-body-sm underline underline-offset-4" href="#">About Us</a>
+<a class="block text-on-surface-variant hover:text-warm-rose transition-colors font-body-sm text-body-sm underline underline-offset-4" href="#">Terms of Service</a>
+</div>
+<div class="space-y-2">
+<a class="block text-on-surface-variant hover:text-warm-rose transition-colors font-body-sm text-body-sm underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="block text-on-surface-variant hover:text-warm-rose transition-colors font-body-sm text-body-sm underline underline-offset-4" href="#">Contact Support</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Mobile Navigation Shell -->
+<nav class="fixed bottom-0 w-full lg:hidden rounded-t-xl bg-white/90 dark:bg-deep-charcoal/90 backdrop-blur-lg border-t border-ivory-surface shadow-[0_-4px_20px_rgba(189,130,130,0.1)] flex justify-around items-center h-16 w-full z-50">
+<a class="flex flex-col items-center text-on-surface-variant py-2 scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-md text-label-md">Explore</span>
+</a>
+<a class="flex flex-col items-center text-warm-rose font-bold py-2 scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant py-2 scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Favorites</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant py-2 scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interactions for service adding
+        document.querySelectorAll('button.group-hover\\:bg-primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                if (icon.innerText === 'add') {
+                    icon.innerText = 'check';
+                    this.classList.replace('bg-surface-container-low', 'bg-success-sage');
+                    this.classList.replace('text-primary', 'text-white');
+                } else {
+                    icon.innerText = 'add';
+                    this.classList.replace('bg-success-sage', 'bg-surface-container-low');
+                    this.classList.replace('text-white', 'text-primary');
+                }
+            });
+        });
+
+        // Sticky header transition
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

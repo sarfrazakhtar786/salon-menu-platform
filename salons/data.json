@@ -7,46 +7,80 @@
     "address": "12-A Main Blvd, Gulberg III, Lahore",
     "phone": "0300-1234567",
     "whatsapp": "923001234567",
-    "timings": "Mon–Sat: 10am – 8pm",
-    "color": "#c8705a",
+    "timings": "Mon-Sat: 10am - 8pm",
+    "weekly_off": "Sunday",
+    "color": "#845051",
+    "price_level": "$$",
+    "hero_image": "https://images.unsplash.com/photo-1522335133618-2c06159670eb?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800"
+    ],
+    "socials": {
+      "instagram": "https://instagram.com/noorbeautysalon",
+      "facebook": "https://facebook.com/noorbeautysalon",
+      "tiktok": ""
+    },
+    "business_tags": [
+      "Ladies Only",
+      "Bridal Expert",
+      "Home Service",
+      "Parking"
+    ],
     "stats": {
       "clients": "500+",
       "experience": "8yr",
       "rating": "4.9"
     },
+    "packages": [
+      {
+        "name": "Bridal Glow Package",
+        "includes": ["Gold Facial", "Hair Styling", "Party Makeup"],
+        "price": 9500,
+        "original_price": 12000,
+        "tag": "Best Value"
+      },
+      {
+        "name": "Eid Ready Combo",
+        "includes": ["Basic Facial", "Blow Dry", "Basic Manicure"],
+        "price": 3000,
+        "original_price": 3800,
+        "tag": "Limited Offer"
+      }
+    ],
     "services": {
       "Facial": [
-        { "name": "Basic Facial", "time": "45 min", "price": 1200 },
-        { "name": "Gold Facial", "time": "60 min", "price": 2500 },
-        { "name": "Diamond Facial", "time": "75 min", "price": 3800 },
-        { "name": "Whitening Facial", "time": "60 min", "price": 2800 }
+        { "name": "Basic Facial", "time": "45 min", "price": 1200, "desc": "Deep cleansing and exfoliation for a fresh, glowing look." },
+        { "name": "Gold Facial", "time": "60 min", "price": 2500, "desc": "A rich facial treatment for instant radiance." },
+        { "name": "Diamond Facial", "time": "75 min", "price": 3800, "desc": "Premium brightening facial for special occasions." },
+        { "name": "Whitening Facial", "time": "60 min", "price": 2800, "desc": "Skin polishing treatment for a more even glow." }
       ],
       "Hair": [
-        { "name": "Hair Cut & Style", "time": "30 min", "price": 800 },
-        { "name": "Hair Color (Full)", "time": "120 min", "price": 4500 },
-        { "name": "Keratin Treatment", "time": "180 min", "price": 8000 },
-        { "name": "Blow Dry", "time": "45 min", "price": 1200 }
+        { "name": "Hair Cut & Style", "time": "30 min", "price": 800, "desc": "Fresh cut with basic styling." },
+        { "name": "Hair Color (Full)", "time": "120 min", "price": 4500, "desc": "Full hair color with consultation." },
+        { "name": "Keratin Treatment", "time": "180 min", "price": 8000, "desc": "Smoothing treatment for softer, straighter hair." },
+        { "name": "Blow Dry", "time": "45 min", "price": 1200, "desc": "Salon finish blow dry for daily or event styling." }
       ],
       "Makeup": [
-        { "name": "Party Makeup", "time": "60 min", "price": 3500 },
-        { "name": "Bridal Makeup", "time": "180 min", "price": 18000 },
-        { "name": "Engagement Makeup", "time": "120 min", "price": 12000 },
-        { "name": "Mehndi Makeup", "time": "90 min", "price": 8000 }
+        { "name": "Party Makeup", "time": "60 min", "price": 3500, "desc": "Elegant party look with long-lasting finish." },
+        { "name": "Bridal Makeup", "time": "180 min", "price": 18000, "desc": "Complete bridal makeup with premium products." },
+        { "name": "Engagement Makeup", "time": "120 min", "price": 12000, "desc": "Soft glam engagement look." },
+        { "name": "Mehndi Makeup", "time": "90 min", "price": 8000, "desc": "Fresh mehndi event makeup." }
       ],
       "Nails": [
-        { "name": "Basic Manicure", "time": "30 min", "price": 800 },
-        { "name": "Gel Nails", "time": "60 min", "price": 2200 },
-        { "name": "Nail Art (per nail)", "time": "45 min", "price": 150 },
-        { "name": "Pedicure", "time": "45 min", "price": 1200 }
+        { "name": "Basic Manicure", "time": "30 min", "price": 800, "desc": "Classic nail cleanup and polish." },
+        { "name": "Gel Nails", "time": "60 min", "price": 2200, "desc": "Long-lasting gel nail finish." },
+        { "name": "Nail Art (per nail)", "time": "45 min", "price": 150, "desc": "Custom nail art per nail." },
+        { "name": "Pedicure", "time": "45 min", "price": 1200, "desc": "Relaxing foot care and polish." }
       ]
     },
     "reviews": [
-      { "text": "Bridal makeup bilkul amazing tha! Sari family ne tarif ki.", "author": "Ayesha Malik, DHA Lahore", "stars": 5 },
-      { "text": "Gold facial ke baad skin ekdum glow kar rahi thi!", "author": "Sana Tariq, Gulberg", "stars": 5 },
-      { "text": "Keratin treatment ne baalon ko ekdum straight kar diya.", "author": "Hina Baig, Model Town", "stars": 4 }
+      { "text": "Bridal makeup bilkul amazing tha. Sari family ne tarif ki.", "author": "Ayesha Malik, DHA Lahore", "stars": 5, "verified": true },
+      { "text": "Gold facial ke baad skin bohat fresh lag rahi thi.", "author": "Sana Tariq, Gulberg", "stars": 5, "verified": true },
+      { "text": "Keratin treatment ne baalon ko smooth kar diya.", "author": "Hina Baig, Model Town", "stars": 4, "verified": false }
     ]
   },
-
   "glamour": {
     "name": "Glamour Studio",
     "tagline": "جہاں حسن کھلتا ہے",
@@ -55,34 +89,70 @@
     "address": "Shop 7, DHA Phase 5, Karachi",
     "phone": "0321-9876543",
     "whatsapp": "923219876543",
-    "timings": "Tue–Sun: 11am – 9pm",
+    "timings": "Tue-Sun: 11am - 9pm",
+    "weekly_off": "Monday",
     "color": "#7c5cbf",
+    "price_level": "$$$",
+    "hero_image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&q=80&w=1200",
+    "gallery": [
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800"
+    ],
+    "socials": {
+      "instagram": "https://instagram.com/glamourstudio",
+      "facebook": "",
+      "tiktok": "https://tiktok.com/@glamourstudio"
+    },
+    "business_tags": [
+      "Unisex",
+      "Premium Makeup",
+      "Nail Art",
+      "Card Payment"
+    ],
     "stats": {
       "clients": "300+",
       "experience": "5yr",
       "rating": "4.8"
     },
+    "packages": [
+      {
+        "name": "Party Ready Package",
+        "includes": ["Party Makeup", "Blow Dry", "Gel Nails"],
+        "price": 6500,
+        "original_price": 8200,
+        "tag": "Popular"
+      },
+      {
+        "name": "Hair Color Refresh",
+        "includes": ["Balayage", "Hair Wash", "Blow Dry"],
+        "price": 8500,
+        "original_price": 10000,
+        "tag": "New"
+      }
+    ],
     "services": {
       "Facial": [
-        { "name": "Basic Facial", "time": "45 min", "price": 1500 },
-        { "name": "Hydra Facial", "time": "60 min", "price": 4000 }
+        { "name": "Basic Facial", "time": "45 min", "price": 1500, "desc": "A relaxing facial to rejuvenate your skin." },
+        { "name": "Hydra Facial", "time": "60 min", "price": 4000, "desc": "Hydrating facial for fresh, clean skin." }
       ],
       "Hair": [
-        { "name": "Hair Cut", "time": "30 min", "price": 1000 },
-        { "name": "Balayage", "time": "150 min", "price": 7000 }
+        { "name": "Hair Cut", "time": "30 min", "price": 1000, "desc": "Modern haircut and shape." },
+        { "name": "Balayage", "time": "150 min", "price": 7000, "desc": "Soft blended color for a premium look." }
       ],
       "Makeup": [
-        { "name": "Party Makeup", "time": "60 min", "price": 4000 },
-        { "name": "Bridal Makeup", "time": "180 min", "price": 22000 }
+        { "name": "Party Makeup", "time": "60 min", "price": 4000, "desc": "Event-ready makeup with clean finish." },
+        { "name": "Bridal Makeup", "time": "180 min", "price": 22000, "desc": "Premium bridal makeup package." }
       ],
       "Nails": [
-        { "name": "Gel Nails", "time": "60 min", "price": 2500 },
-        { "name": "Nail Extensions", "time": "90 min", "price": 3500 }
+        { "name": "Gel Nails", "time": "60 min", "price": 2500, "desc": "Glossy gel nails with long wear." },
+        { "name": "Nail Extensions", "time": "90 min", "price": 3500, "desc": "Beautiful extensions with custom shape." }
       ]
     },
     "reviews": [
-      { "text": "Hydra facial ne skin ko bilkul transform kar diya!", "author": "Fatima R., DHA", "stars": 5 },
-      { "text": "Best bridal makeup in Karachi, highly recommend!", "author": "Zara K., Clifton", "stars": 5 }
+      { "author": "Ayesha K.", "text": "Best facial experience ever. Glow is unreal.", "stars": 5, "verified": true },
+      { "author": "Sana M.", "text": "Very professional staff and clean environment.", "stars": 4, "verified": true },
+      { "author": "Hira B.", "text": "Loved my new haircut. Highly recommended.", "stars": 5, "verified": false }
     ]
   }
 }

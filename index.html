@@ -3,22 +3,824 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SalonMenu.pk - Digital Salon Menu</title>
+  <title>SalonMenu.pk - Discover Premium Salons</title>
+  <meta name="description" content="Discover premium salons, compare services, and book appointments on WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background: #fdf6ee;
-      color: #3d2b1f;
+    :root {
+      --surface: #fcf9f8;
+      --surface-soft: #f6f1ee;
+      --card: #ffffff;
+      --text: #1b1c1c;
+      --muted: #675858;
+      --line: #eadcda;
+      --primary: #845051;
+      --primary-soft: #bd8282;
+      --gold: #d4af37;
+      --charcoal: #2d2d2d;
+      --success: #7a9e7e;
+      --shadow: 0 24px 60px rgba(132, 80, 81, 0.12);
     }
-    h1 { color: #c8705a; }
-    p { color: #8a6f5e; }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--surface);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(132, 80, 81, 0.12);
+      background: rgba(252, 249, 248, 0.86);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 24px rgba(132, 80, 81, 0.12);
+      color: var(--gold);
+      font-family: Inter, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .nav-links a:first-child {
+      color: var(--primary);
+      font-weight: 700;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 4px;
+    }
+
+    .owner-cta {
+      border: 1px solid var(--gold);
+      color: #735c00;
+      background: #fff;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(rgba(45, 45, 45, 0.46), rgba(45, 45, 45, 0.52)),
+        url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=82&w=1800") center/cover;
+    }
+
+    .hero h1 {
+      margin: 0 0 18px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      width: min(640px, 100%);
+      margin: 0 auto 34px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .search-panel {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr auto;
+      align-items: end;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow);
+      text-align: left;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      min-width: 0;
+      padding: 0 8px;
+    }
+
+    .field label {
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      min-height: 44px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .find-btn {
+      min-height: 56px;
+      padding: 0 28px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--primary-soft);
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 16px 30px rgba(132, 80, 81, 0.24);
+    }
+
+    .category-band {
+      background: var(--surface-soft);
+      border-bottom: 1px solid rgba(132, 80, 81, 0.08);
+      padding: 28px 0;
+    }
+
+    .chips {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .chips::-webkit-scrollbar { display: none; }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--charcoal);
+      border-radius: 999px;
+      min-height: 42px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 0.86rem;
+      cursor: pointer;
+    }
+
+    .chip.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: white;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .eyebrow {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--primary-soft);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.15;
+    }
+
+    .result-count {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .salon-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .salon-card {
+      overflow: hidden;
+      border: 1px solid rgba(132, 80, 81, 0.1);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: 0 20px 48px rgba(45, 45, 45, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .salon-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: var(--surface-soft);
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .rating {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--charcoal);
+      padding: 7px 11px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .rating span { color: var(--gold); }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .card-title-row h3 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+
+    .price-level {
+      color: var(--primary-soft);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .location {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .view-btn {
+      display: grid;
+      place-items: center;
+      min-height: 46px;
+      border: 1px solid var(--primary-soft);
+      border-radius: 8px;
+      color: var(--primary);
+      font-weight: 800;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .view-btn:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .owner-section {
+      padding: 84px 0;
+      background:
+        radial-gradient(circle at 78% 45%, rgba(189, 130, 130, 0.16), transparent 34%),
+        #fff;
+      border-top: 1px solid rgba(132, 80, 81, 0.08);
+    }
+
+    .owner-layout {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .owner-copy p {
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 620px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin: 28px 0 34px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: #f7e9e7;
+      color: var(--primary);
+    }
+
+    .primary-link {
+      display: inline-grid;
+      place-items: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      box-shadow: var(--shadow);
+    }
+
+    .metric-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .metric-card {
+      min-height: 150px;
+      padding: 22px;
+      border-radius: 16px;
+      background: white;
+      border: 1px solid rgba(132, 80, 81, 0.1);
+      box-shadow: 0 20px 40px rgba(45, 45, 45, 0.08);
+    }
+
+    .metric-card.dark {
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .metric-card.rose {
+      background: var(--primary-soft);
+      color: white;
+    }
+
+    .metric-card strong {
+      display: block;
+      margin-top: 36px;
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(132, 80, 81, 0.1);
+      padding: 34px 0;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      padding: 48px;
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+      background: white;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .mobile-bottom {
+      display: none;
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      left: 16px;
+      z-index: 20;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid rgba(132, 80, 81, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-bottom a {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      min-height: 44px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .mobile-bottom a:first-child {
+      background: var(--primary);
+      color: white;
+    }
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .search-panel { grid-template-columns: 1fr 1fr; }
+      .find-btn { grid-column: 1 / -1; }
+      .salon-grid { grid-template-columns: repeat(2, 1fr); }
+      .owner-layout { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 32px, 1180px); }
+      .topbar .owner-cta { display: none; }
+      .hero {
+        min-height: 620px;
+        text-align: left;
+      }
+      .hero p { margin-left: 0; }
+      .search-panel {
+        grid-template-columns: 1fr;
+        padding: 14px;
+      }
+      .field {
+        border-bottom: 1px solid var(--line);
+        padding: 8px 4px;
+      }
+      .field:last-of-type { border-bottom: 0; }
+      .section { padding: 64px 0; }
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+        margin-bottom: 26px;
+      }
+      .salon-grid { grid-template-columns: 1fr; }
+      .owner-section { padding: 64px 0 96px; }
+      .metric-board { grid-template-columns: 1fr; }
+      .footer-inner {
+        align-items: start;
+        flex-direction: column;
+      }
+      .mobile-bottom { display: flex; }
+    }
   </style>
 </head>
 <body>
-  <h1>Welcome to SalonMenu.pk</h1>
-  <p>Your digital salon menu platform.</p>
-  <p>Visit <a href="/salons/noor">/salons/noor</a> or <a href="/salons/glamour">/salons/glamour</a> to see it in action.</p>
+  <header class="topbar">
+    <div class="shell nav">
+      <a class="brand" href="/">
+        <span class="brand-mark">SM</span>
+        <span>SalonMenu.pk</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#explore">Explore</a>
+        <a href="#categories">Services</a>
+        <a href="#for-salons">For Salons</a>
+      </nav>
+      <a class="owner-cta" href="#for-salons">List Your Salon</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell">
+        <h1>Discover luxury in every treatment</h1>
+        <p>Find premium salons, compare services, and send booking requests on WhatsApp with a polished digital menu experience.</p>
+        <form class="search-panel" id="search-form">
+          <div class="field">
+            <label for="search">Search</label>
+            <input id="search" type="search" placeholder="Salon, area, or service">
+          </div>
+          <div class="field">
+            <label for="city-filter">City</label>
+            <select id="city-filter">
+              <option value="">All Cities</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="service-filter">Service</label>
+            <select id="service-filter">
+              <option value="">All Services</option>
+            </select>
+          </div>
+          <button class="find-btn" type="submit">Find Beauty</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="category-band" id="categories">
+      <div class="shell">
+        <div class="chips" id="category-chips" aria-label="Service categories"></div>
+      </div>
+    </section>
+
+    <section class="section" id="explore">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">The Elite Collection</span>
+            <h2>Featured salons</h2>
+          </div>
+          <span class="result-count" id="result-count">Loading salons...</span>
+        </div>
+        <div class="salon-grid" id="salon-grid"></div>
+      </div>
+    </section>
+
+    <section class="owner-section" id="for-salons">
+      <div class="shell owner-layout">
+        <div class="owner-copy">
+          <span class="eyebrow">For Salon Partners</span>
+          <h2>Elevate your business with a premium digital menu.</h2>
+          <p>Salon owners can showcase services, packages, gallery, reviews, and booking CTAs in one beautiful link made for Pakistani beauty businesses.</p>
+          <div class="feature-list">
+            <div class="feature"><span class="feature-icon">01</span> Customized digital service menus</div>
+            <div class="feature"><span class="feature-icon">02</span> WhatsApp-first lead generation</div>
+            <div class="feature"><span class="feature-icon">03</span> Ready for future owner dashboard and analytics</div>
+          </div>
+          <a class="primary-link" href="https://wa.me/923000000000?text=Hi! I want to list my salon on SalonMenu.pk." target="_blank" rel="noopener">Create your digital salon menu</a>
+        </div>
+        <div class="metric-board" aria-label="Platform highlights">
+          <div class="metric-card dark">
+            Premium partner experience
+            <strong>Pro</strong>
+          </div>
+          <div class="metric-card">
+            Interactive menus
+            <strong>24/7</strong>
+          </div>
+          <div class="metric-card rose">
+            WhatsApp-ready leads
+            <strong>Fast</strong>
+          </div>
+          <div class="metric-card">
+            Future dashboard
+            <strong>SaaS</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <strong>SalonMenu.pk</strong>
+      <span>Premium salon menus and booking experiences for Pakistan.</span>
+    </div>
+  </footer>
+
+  <nav class="mobile-bottom" aria-label="Mobile quick navigation">
+    <a href="#explore">Explore</a>
+    <a href="#categories">Services</a>
+    <a href="#for-salons">Owners</a>
+  </nav>
+
+  <script>
+    const state = {
+      salons: [],
+      category: "",
+      query: "",
+      city: "",
+      service: ""
+    };
+
+    const grid = document.getElementById("salon-grid");
+    const resultCount = document.getElementById("result-count");
+    const searchInput = document.getElementById("search");
+    const cityFilter = document.getElementById("city-filter");
+    const serviceFilter = document.getElementById("service-filter");
+    const categoryChips = document.getElementById("category-chips");
+
+    function unique(values) {
+      return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+    }
+
+    function getServiceNames(salon) {
+      return Object.values(salon.services || {}).flat().map(service => service.name);
+    }
+
+    function getCategories(salon) {
+      return Object.keys(salon.services || {});
+    }
+
+    function salonMatches(salon) {
+      const haystack = [
+        salon.name,
+        salon.city,
+        salon.area,
+        salon.tagline,
+        ...(salon.business_tags || []),
+        ...getCategories(salon),
+        ...getServiceNames(salon)
+      ].join(" ").toLowerCase();
+
+      const matchesQuery = !state.query || haystack.includes(state.query.toLowerCase());
+      const matchesCity = !state.city || salon.city === state.city;
+      const selectedService = state.service || state.category;
+      const matchesService = !selectedService || getCategories(salon).includes(selectedService);
+
+      return matchesQuery && matchesCity && matchesService;
+    }
+
+    function renderFilters() {
+      const cities = unique(state.salons.map(({ salon }) => salon.city));
+      const categories = unique(state.salons.flatMap(({ salon }) => getCategories(salon)));
+
+      cityFilter.innerHTML = '<option value="">All Cities</option>' + cities.map(city => `<option value="${city}">${city}</option>`).join("");
+      serviceFilter.innerHTML = '<option value="">All Services</option>' + categories.map(category => `<option value="${category}">${category}</option>`).join("");
+
+      categoryChips.innerHTML = [
+        `<button class="chip active" data-category="">All Services</button>`,
+        ...categories.map(category => `<button class="chip" data-category="${category}">${category}</button>`)
+      ].join("");
+
+      categoryChips.querySelectorAll(".chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+          state.category = chip.dataset.category;
+          state.service = "";
+          serviceFilter.value = "";
+          categoryChips.querySelectorAll(".chip").forEach(item => item.classList.remove("active"));
+          chip.classList.add("active");
+          renderSalons();
+        });
+      });
+    }
+
+    function renderSalons() {
+      const filtered = state.salons.filter(({ salon }) => salonMatches(salon));
+      resultCount.textContent = `${filtered.length} salon${filtered.length === 1 ? "" : "s"} found`;
+
+      if (!filtered.length) {
+        grid.innerHTML = '<div class="empty">No salons match this search yet. Try another city or service.</div>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(({ slug, salon }) => {
+        const tags = (salon.business_tags || getCategories(salon)).slice(0, 3);
+        const rating = salon.stats?.rating || "New";
+        const image = salon.hero_image || "";
+        return `
+          <article class="salon-card">
+            <div class="card-media">
+              <img src="${image}" alt="${salon.name} cover image" loading="lazy">
+              <div class="rating"><span>*</span> ${rating}</div>
+            </div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3>${salon.name}</h3>
+                <span class="price-level">${salon.price_level || "$$"}</span>
+              </div>
+              <p class="location">${salon.area}, ${salon.city}</p>
+              <div class="tag-row">
+                ${tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+              </div>
+              <a class="view-btn" href="/salon.html?salon=${slug}">View Menu</a>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    async function init() {
+      try {
+        const response = await fetch("/salons/data.json");
+        const data = await response.json();
+        state.salons = Object.entries(data).map(([slug, salon]) => ({ slug, salon }));
+        renderFilters();
+        renderSalons();
+      } catch (error) {
+        resultCount.textContent = "Unable to load salons";
+        grid.innerHTML = '<div class="empty">Salon data could not be loaded. Please refresh the page.</div>';
+      }
+    }
+
+    document.getElementById("search-form").addEventListener("submit", event => {
+      event.preventDefault();
+      state.query = searchInput.value.trim();
+      state.city = cityFilter.value;
+      state.service = serviceFilter.value;
+      if (state.service) {
+        state.category = "";
+        categoryChips.querySelectorAll(".chip").forEach(item => item.classList.toggle("active", item.dataset.category === ""));
+      }
+      renderSalons();
+      document.getElementById("explore").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    searchInput.addEventListener("input", () => {
+      state.query = searchInput.value.trim();
+      renderSalons();
+    });
+
+    cityFilter.addEventListener("change", () => {
+      state.city = cityFilter.value;
+      renderSalons();
+    });
+
+    serviceFilter.addEventListener("change", () => {
+      state.service = serviceFilter.value;
+      state.category = "";
+      categoryChips.querySelectorAll(".chip").forEach(item => item.classList.toggle("active", item.dataset.category === ""));
+      renderSalons();
+    });
+
+    init();
+  </script>
 </body>
 </html>

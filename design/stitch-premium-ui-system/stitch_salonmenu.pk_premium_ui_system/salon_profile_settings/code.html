@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Salon Profile &amp; Settings | SalonMenu.pk</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fcf9f8",
+                    "warm-rose": "#BD8282",
+                    "on-surface": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#340f11",
+                    "surface-container-high": "#eae7e7",
+                    "background": "#fcf9f8",
+                    "soft-gold": "#D4AF37",
+                    "success-sage": "#7A9E7E",
+                    "tertiary-fixed": "#e5e2dd",
+                    "on-primary-fixed-variant": "#68393a",
+                    "surface-dim": "#dcd9d9",
+                    "primary": "#845051",
+                    "secondary-container": "#fed65b",
+                    "primary-container": "#bd8282",
+                    "surface-container": "#f0eded",
+                    "surface-tint": "#845051",
+                    "on-primary": "#ffffff",
+                    "pure-white": "#FFFFFF",
+                    "primary-fixed": "#ffdad9",
+                    "surface": "#fcf9f8",
+                    "tertiary-container": "#93918d",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-tertiary-container": "#2a2a27",
+                    "outline": "#847373",
+                    "outline-variant": "#d6c2c1",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#745c00",
+                    "inverse-surface": "#303030",
+                    "on-primary-container": "#461e1f",
+                    "tertiary": "#5f5e5b",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#241a00",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#574500",
+                    "secondary-fixed": "#ffe088",
+                    "surface-variant": "#e4e2e1",
+                    "deep-charcoal": "#2D2D2D",
+                    "inverse-on-surface": "#f3f0f0",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "primary-fixed-dim": "#f8b6b6",
+                    "on-surface-variant": "#514343",
+                    "ivory-surface": "#F9F6F1",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "secondary": "#735c00",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c8c6c2",
+                    "inverse-primary": "#f8b6b6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "button": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Playfair Display"],
+                    "headline-xl-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "button": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md selection:bg-warm-rose selection:text-white">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-white/80 dark:bg-deep-charcoal/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-ivory-surface dark:border-outline-variant shadow-sm shadow-warm-rose/5">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-warm-rose italic font-bold">SalonMenu.pk</span>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-warm-rose transition-colors font-body-md text-body-md" href="#">Explore</a>
+<a class="text-on-surface-variant hover:text-warm-rose transition-colors font-body-md text-body-md" href="#">Dashboard</a>
+<a class="text-warm-rose border-b-2 border-warm-rose font-semibold font-body-md text-body-md" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 text-on-surface-variant hover:bg-ivory-surface/50 rounded-full transition-all">notifications</button>
+<div class="h-10 w-10 rounded-full bg-primary-container/20 flex items-center justify-center text-warm-rose overflow-hidden border border-outline-variant">
+<img alt="User" class="w-full h-full object-cover" data-alt="A clean, minimalist portrait of a professional woman with a welcoming smile, shot in a high-end salon environment. The background features soft, blurred pastel tones of ivory and warm rose, creating a premium and professional atmosphere. The lighting is soft and flattering, highlighting a clean, modern aesthetic consistent with luxury hospitality and beauty services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="bg-pure-white dark:bg-surface-dim h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col border-r border-ivory-surface dark:border-outline-variant shadow-xl shadow-warm-rose/5 z-40 pt-20">
+<div class="flex flex-col justify-between h-full py-8">
+<div class="space-y-1">
+<div class="px-6 mb-6">
+<h3 class="font-headline-md text-warm-rose font-bold">The Grand Spa</h3>
+<p class="text-on-surface-variant text-label-md font-label-md">Premium Member</p>
+</div>
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200 ease-in-out font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+                    </a>
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200 ease-in-out font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">calendar_month</span> Bookings
+                    </a>
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200 ease-in-out font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">content_cut</span> Services
+                    </a>
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200 ease-in-out font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">photo_library</span> Gallery
+                    </a>
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200 ease-in-out font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">group</span> Leads
+                    </a>
+<a class="bg-primary-container/10 text-primary font-bold border-r-4 border-primary px-6 py-4 flex items-center gap-3 duration-200 ease-in-out font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                    </a>
+</div>
+<div class="px-6 space-y-4">
+<button class="w-full bg-warm-rose text-white py-3 rounded-xl font-button text-button active:scale-95 transition-transform">Upgrade Plan</button>
+<div class="pt-6 border-t border-outline-variant/20">
+<a class="flex items-center gap-3 text-on-surface-variant py-2 hover:text-warm-rose transition-colors text-label-lg font-label-lg" href="#">
+<span class="material-symbols-outlined">help</span> Help Center
+                        </a>
+<a class="flex items-center gap-3 text-on-surface-variant py-2 hover:text-warm-rose transition-colors text-label-lg font-label-lg" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+                        </a>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-64 px-margin-mobile md:px-margin-desktop py-12 mb-20 lg:mb-0">
+<!-- Header Section -->
+<div class="max-w-4xl mx-auto mb-12">
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-2">Salon Identity</h1>
+<p class="text-on-surface-variant text-body-lg font-body-lg">Curate your brand presence to attract and delight your clientele.</p>
+</div>
+<div class="max-w-4xl mx-auto space-y-12">
+<!-- Visual Identity Section (Logo & Cover) -->
+<section class="bg-pure-white rounded-xl border border-ivory-surface shadow-sm p-8 space-y-8">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-warm-rose">palette</span>
+<h2 class="font-headline-md text-headline-md">Visual Identity</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Logo Upload -->
+<div class="space-y-4">
+<label class="font-label-lg text-label-lg text-on-surface-variant">Brand Logo</label>
+<div class="relative group cursor-pointer h-40 w-40 rounded-xl bg-ivory-surface border-2 border-dashed border-outline-variant flex flex-col items-center justify-center overflow-hidden hover:border-warm-rose transition-all">
+<img alt="Logo Placeholder" class="w-full h-full object-cover" data-alt="A minimalist, high-end salon logo design displayed in a clean, modern aesthetic. The logo features elegant typography and a subtle floral motif in soft gold and warm rose tones. The image is set against a bright, airy background with soft lighting, reflecting the luxury hospitality and beauty management brand identity." id="logo-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white">add_a_photo</span>
+</div>
+</div>
+</div>
+<!-- Cover Photo Upload -->
+<div class="md:col-span-2 space-y-4">
+<label class="font-label-lg text-label-lg text-on-surface-variant">Cover Gallery Hero</label>
+<div class="relative group cursor-pointer h-40 w-full rounded-xl bg-ivory-surface border-2 border-dashed border-outline-variant flex flex-col items-center justify-center overflow-hidden hover:border-warm-rose transition-all">
+<img alt="Cover Placeholder" class="w-full h-full object-cover" data-alt="A wide-angle, cinematic view of a luxury spa interior with warm, ambient lighting. The scene shows elegant ivory-colored furniture, marble accents, and lush green plants in the background. The mood is tranquil and sophisticated, utilizing the brand's signature palette of warm rose and soft gold in the decor elements." id="cover-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white">edit</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Color Selection -->
+<div class="space-y-4 pt-4 border-t border-ivory-surface">
+<label class="font-label-lg text-label-lg text-on-surface-variant">Brand Color Accent</label>
+<div class="flex flex-wrap gap-4">
+<button class="w-12 h-12 rounded-full bg-warm-rose ring-4 ring-offset-2 ring-warm-rose transition-all"></button>
+<button class="w-12 h-12 rounded-full bg-soft-gold hover:scale-110 transition-transform"></button>
+<button class="w-12 h-12 rounded-full bg-success-sage hover:scale-110 transition-transform"></button>
+<button class="w-12 h-12 rounded-full bg-[#E5B6A3] hover:scale-110 transition-transform"></button>
+<button class="w-12 h-12 rounded-full bg-[#A3C4BC] hover:scale-110 transition-transform"></button>
+<button class="w-12 h-12 rounded-full border-2 border-outline-variant flex items-center justify-center hover:bg-ivory-surface transition-all">
+<span class="material-symbols-outlined text-sm">colorize</span>
+</button>
+</div>
+</div>
+</section>
+<!-- General Information Section -->
+<section class="bg-pure-white rounded-xl border border-ivory-surface shadow-sm p-8 space-y-8">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-warm-rose">info</span>
+<h2 class="font-headline-md text-headline-md">General Details</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant">Business Name</label>
+<input class="w-full bg-ivory-surface border-outline-variant rounded-lg px-4 py-3 focus:ring-warm-rose focus:border-warm-rose font-body-md transition-all" type="text" value="The Grand Spa &amp; Salon"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant">WhatsApp Contact</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-success-sage font-bold">+92</span>
+<input class="w-full bg-ivory-surface border-outline-variant rounded-lg pl-14 pr-4 py-3 focus:ring-warm-rose focus:border-warm-rose font-body-md transition-all" type="tel" value="300 1234567"/>
+</div>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant">Full Business Address</label>
+<textarea class="w-full bg-ivory-surface border-outline-variant rounded-lg px-4 py-3 focus:ring-warm-rose focus:border-warm-rose font-body-md transition-all" rows="3">Suite 402, Signature Plaza, Gulberg III, Lahore, Pakistan</textarea>
+</div>
+</div>
+<!-- Social Links -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant">Instagram Handle</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">@</span>
+<input class="w-full bg-ivory-surface border-outline-variant rounded-lg pl-10 pr-4 py-3 focus:ring-warm-rose focus:border-warm-rose font-body-md transition-all" type="text" value="thegrandspa.official"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant">Facebook Page</label>
+<input class="w-full bg-ivory-surface border-outline-variant rounded-lg px-4 py-3 focus:ring-warm-rose focus:border-warm-rose font-body-md transition-all" type="text" value="fb.com/thegrandspa"/>
+</div>
+</div>
+</section>
+<!-- Operational & Business Tags -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Operational Hours -->
+<section class="bg-pure-white rounded-xl border border-ivory-surface shadow-sm p-8">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-warm-rose">schedule</span>
+<h2 class="font-headline-md text-headline-md">Opening Hours</h2>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between py-2 border-b border-ivory-surface">
+<span class="font-label-lg text-label-lg">Monday - Friday</span>
+<div class="flex items-center gap-2">
+<input class="bg-ivory-surface border-none rounded text-label-md" type="time" value="10:00"/>
+<span class="text-on-surface-variant">-</span>
+<input class="bg-ivory-surface border-none rounded text-label-md" type="time" value="20:00"/>
+</div>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-ivory-surface">
+<span class="font-label-lg text-label-lg">Saturday</span>
+<div class="flex items-center gap-2">
+<input class="bg-ivory-surface border-none rounded text-label-md" type="time" value="11:00"/>
+<span class="text-on-surface-variant">-</span>
+<input class="bg-ivory-surface border-none rounded text-label-md" type="time" value="21:00"/>
+</div>
+</div>
+<div class="flex items-center justify-between py-2">
+<span class="font-label-lg text-label-lg">Sunday</span>
+<span class="text-error font-semibold text-label-md px-3 py-1 bg-error-container rounded-full">Closed</span>
+</div>
+</div>
+</section>
+<!-- Business Tags (Bento Style Chips) -->
+<section class="bg-pure-white rounded-xl border border-ivory-surface shadow-sm p-8">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-warm-rose">sell</span>
+<h2 class="font-headline-md text-headline-md">Business Tags</h2>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="bg-primary-container text-white px-4 py-2 rounded-full text-label-md font-semibold flex items-center gap-2 transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">done</span> Ladies Only
+                            </button>
+<button class="bg-ivory-surface text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full text-label-md font-semibold flex items-center gap-2 hover:border-warm-rose transition-colors">
+                                Home Service
+                            </button>
+<button class="bg-primary-container text-white px-4 py-2 rounded-full text-label-md font-semibold flex items-center gap-2 transition-transform hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">done</span> Bridal Expert
+                            </button>
+<button class="bg-ivory-surface text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full text-label-md font-semibold flex items-center gap-2 hover:border-warm-rose transition-colors">
+                                Organic Products
+                            </button>
+<button class="bg-ivory-surface text-on-surface-variant border border-outline-variant px-4 py-2 rounded-full text-label-md font-semibold flex items-center gap-2 hover:border-warm-rose transition-colors">
+                                Instant Booking
+                            </button>
+<button class="border-2 border-dashed border-outline-variant px-4 py-2 rounded-full text-label-md text-on-surface-variant font-semibold flex items-center gap-2 hover:bg-ivory-surface transition-all">
+<span class="material-symbols-outlined text-sm">add</span> Add Custom
+                            </button>
+</div>
+<p class="mt-4 text-on-surface-variant text-body-sm italic">These tags help customers filter your salon in the marketplace.</p>
+</section>
+</div>
+<!-- Action Bar -->
+<div class="flex flex-col md:flex-row items-center justify-end gap-4 py-8 border-t border-outline-variant/20">
+<button class="w-full md:w-auto px-8 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-button hover:bg-ivory-surface transition-all active:scale-95">Discard Changes</button>
+<button class="w-full md:w-auto px-12 py-3 rounded-xl bg-warm-rose text-white font-button shadow-lg shadow-warm-rose/20 transition-all hover:brightness-110 active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">save</span>
+                        Save Salon Profile
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Shared Component Mobile Only) -->
+<nav class="fixed bottom-0 w-full lg:hidden rounded-t-xl bg-white/90 dark:bg-deep-charcoal/90 backdrop-blur-lg border-t border-ivory-surface dark:border-outline-variant shadow-[0_-4px_20px_rgba(189,130,130,0.1)] flex justify-around items-center h-16 w-full z-50">
+<a class="flex flex-col items-center text-on-surface-variant py-2" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-md font-label-md">Explore</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant py-2" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="text-label-md font-label-md">Bookings</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant py-2" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-label-md font-label-md">Favorites</span>
+</a>
+<a class="flex flex-col items-center text-warm-rose font-bold py-2 scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</a>
+</nav>
+<!-- Footer (Shared Component) -->
+<footer class="bg-ivory-surface dark:bg-surface-container-highest w-full py-12 border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-4">
+<span class="font-headline-md text-warm-rose">SalonMenu.pk</span>
+<p class="text-on-surface-variant font-body-sm text-body-sm max-w-sm">
+                    © 2024 SalonMenu.pk. Elevating Beauty Standards through professional management tools tailored for Pakistan's premier salons.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-warm-rose transition-opacity opacity-80 hover:opacity-100 font-body-sm text-body-sm underline underline-offset-4" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-warm-rose transition-opacity opacity-80 hover:opacity-100 font-body-sm text-body-sm underline underline-offset-4" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-warm-rose transition-opacity opacity-80 hover:opacity-100 font-body-sm text-body-sm underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-warm-rose transition-opacity opacity-80 hover:opacity-100 font-body-sm text-body-sm underline underline-offset-4" href="#">Contact Support</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Interaction logic
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Subtle feedback animation logic could go here
+            });
+        });
+
+        // Sticky Header transition on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

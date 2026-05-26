@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Service Management | SalonMenu.pk</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fcf9f8",
+                    "warm-rose": "#BD8282",
+                    "on-surface": "#1b1c1c",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#340f11",
+                    "surface-container-high": "#eae7e7",
+                    "background": "#fcf9f8",
+                    "soft-gold": "#D4AF37",
+                    "success-sage": "#7A9E7E",
+                    "tertiary-fixed": "#e5e2dd",
+                    "on-primary-fixed-variant": "#68393a",
+                    "surface-dim": "#dcd9d9",
+                    "primary": "#845051",
+                    "secondary-container": "#fed65b",
+                    "primary-container": "#bd8282",
+                    "surface-container": "#f0eded",
+                    "surface-tint": "#845051",
+                    "on-primary": "#ffffff",
+                    "pure-white": "#FFFFFF",
+                    "primary-fixed": "#ffdad9",
+                    "surface": "#fcf9f8",
+                    "tertiary-container": "#93918d",
+                    "surface-container-highest": "#e4e2e1",
+                    "on-tertiary-container": "#2a2a27",
+                    "outline": "#847373",
+                    "outline-variant": "#d6c2c1",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#745c00",
+                    "inverse-surface": "#303030",
+                    "on-primary-container": "#461e1f",
+                    "tertiary": "#5f5e5b",
+                    "surface-container-low": "#f6f3f2",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#241a00",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#574500",
+                    "secondary-fixed": "#ffe088",
+                    "surface-variant": "#e4e2e1",
+                    "deep-charcoal": "#2D2D2D",
+                    "inverse-on-surface": "#f3f0f0",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "primary-fixed-dim": "#f8b6b6",
+                    "on-surface-variant": "#514343",
+                    "ivory-surface": "#F9F6F1",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "secondary": "#735c00",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c8c6c2",
+                    "inverse-primary": "#f8b6b6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "button": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Playfair Display"],
+                    "headline-xl-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "button": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F9F6F1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #BD8282;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar (Desktop Only) -->
+<aside class="h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col bg-pure-white border-r border-ivory-surface shadow-xl shadow-warm-rose/5 z-40 py-8 justify-between">
+<div>
+<div class="px-6 mb-10 flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-warm-rose/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-warm-rose" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-warm-rose font-bold">The Grand Spa</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Premium Member</p>
+</div>
+</div>
+<nav class="flex flex-col">
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-lg text-label-lg">Bookings</span>
+</a>
+<a class="bg-primary-container/10 text-primary font-bold border-r-4 border-primary px-6 py-4 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">content_cut</span>
+<span class="font-label-lg text-label-lg">Services</span>
+</a>
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200" href="#">
+<span class="material-symbols-outlined">photo_library</span>
+<span class="font-label-lg text-label-lg">Gallery</span>
+</a>
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-lg text-label-lg">Leads</span>
+</a>
+<a class="text-on-surface-variant px-6 py-4 flex items-center gap-3 hover:bg-surface-container-low transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+</nav>
+</div>
+<div class="px-6 space-y-4">
+<button class="w-full py-3 bg-warm-rose text-white rounded-lg font-button text-button shadow-lg shadow-warm-rose/20 active:scale-95 transition-transform">
+                Upgrade Plan
+            </button>
+<div class="pt-4 border-t border-ivory-surface">
+<a class="text-on-surface-variant py-2 flex items-center gap-3 hover:text-warm-rose transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-lg text-label-lg">Help Center</span>
+</a>
+<a class="text-on-surface-variant py-2 flex items-center gap-3 hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-lg text-label-lg">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-64 w-full min-h-screen pb-24 md:pb-12">
+<!-- TopAppBar -->
+<header class="bg-white/80 backdrop-blur-xl sticky top-0 z-30 border-b border-ivory-surface shadow-sm shadow-warm-rose/5 px-margin-mobile md:px-margin-desktop py-4 flex justify-between items-center w-full">
+<div class="flex items-center gap-4">
+<span class="lg:hidden material-symbols-outlined text-on-surface-variant">menu</span>
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface">Service Management</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-ivory-surface px-4 py-2 rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search services..." type="text"/>
+</div>
+<button class="bg-warm-rose text-white px-6 py-2.5 rounded-full font-button text-button flex items-center gap-2 shadow-md hover:shadow-lg active:scale-95 transition-all" id="openModal">
+<span class="material-symbols-outlined text-lg">add</span>
+                    Add New Service
+                </button>
+</div>
+</header>
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Service Stats / Bento Overview -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-pure-white p-6 rounded-xl border border-ivory-surface shadow-sm group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-warm-rose/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-warm-rose">inventory_2</span>
+</div>
+<span class="text-success-sage font-label-lg bg-success-sage/10 px-2 py-1 rounded">+4 this month</span>
+</div>
+<h3 class="text-on-surface-variant font-label-lg">Total Services</h3>
+<p class="text-headline-lg font-headline-lg mt-1">32</p>
+</div>
+<div class="bg-pure-white p-6 rounded-xl border border-ivory-surface shadow-sm group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-soft-gold/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-soft-gold">star</span>
+</div>
+<span class="text-on-surface-variant font-label-lg bg-surface-container px-2 py-1 rounded">Popular</span>
+</div>
+<h3 class="text-on-surface-variant font-label-lg">Top Performer</h3>
+<p class="text-headline-lg font-headline-lg mt-1">Bridal Glow</p>
+</div>
+<div class="bg-pure-white p-6 rounded-xl border border-ivory-surface shadow-sm group hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-symbols-outlined text-primary">payments</span>
+</div>
+</div>
+<h3 class="text-on-surface-variant font-label-lg">Avg. Ticket Value</h3>
+<p class="text-headline-lg font-headline-lg mt-1">Rs. 4,500</p>
+</div>
+</div>
+<!-- Category Tabs -->
+<div class="flex gap-4 mb-8 overflow-x-auto pb-4 custom-scrollbar">
+<button class="bg-warm-rose text-white px-6 py-2 rounded-full whitespace-nowrap font-button text-button">All Services</button>
+<button class="bg-pure-white text-on-surface-variant border border-outline-variant px-6 py-2 rounded-full whitespace-nowrap font-button text-button hover:bg-ivory-surface transition-colors">Hair Styling</button>
+<button class="bg-pure-white text-on-surface-variant border border-outline-variant px-6 py-2 rounded-full whitespace-nowrap font-button text-button hover:bg-ivory-surface transition-colors">Facials</button>
+<button class="bg-pure-white text-on-surface-variant border border-outline-variant px-6 py-2 rounded-full whitespace-nowrap font-button text-button hover:bg-ivory-surface transition-colors">Manicure</button>
+<button class="bg-pure-white text-on-surface-variant border border-outline-variant px-6 py-2 rounded-full whitespace-nowrap font-button text-button hover:bg-ivory-surface transition-colors">Bridal</button>
+</div>
+<!-- Service List Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-pure-white rounded-xl border border-ivory-surface overflow-hidden group hover:shadow-xl hover:shadow-warm-rose/5 transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A luxurious salon interior with professional hair styling equipment. The lighting is soft and golden, illuminating a stylist's workstation featuring premium products. The aesthetic is modern and high-end with warm rose accents and ivory marble textures, creating an atmosphere of professional beauty management and luxury hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-soft-gold text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-label-md">Popular</span>
+</div>
+<div class="absolute top-4 right-4 bg-success-sage text-white px-3 py-1 rounded-full text-label-md font-label-md">
+                            Active
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-warm-rose font-label-lg uppercase tracking-wider mb-1">Hair Styling</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">Royal Blowout</h4>
+</div>
+<button class="text-on-surface-variant hover:text-warm-rose transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<p class="text-on-surface-variant text-body-sm line-clamp-2 mb-4">Deep conditioning treatment followed by our signature volume-enhancing blowout technique for a regal finish.</p>
+<div class="flex justify-between items-center pt-4 border-t border-ivory-surface">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span class="text-label-md font-label-md">45m</span>
+</div>
+</div>
+<p class="text-primary font-bold text-body-lg">Rs. 3,500</p>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-pure-white rounded-xl border border-ivory-surface overflow-hidden group hover:shadow-xl hover:shadow-warm-rose/5 transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close-up of a high-end skincare treatment in progress. A professional therapist applies a creamy mask to a client's face. The lighting is bright and clean, emphasizing a sterile yet luxurious spa environment. Subtle warm rose and ivory colors define the palette, conveying a sense of premium beauty service and calm refinement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+<div class="absolute top-4 right-4 bg-success-sage text-white px-3 py-1 rounded-full text-label-md font-label-md">
+                            Active
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-warm-rose font-label-lg uppercase tracking-wider mb-1">Facials</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">Hydra-Refresh</h4>
+</div>
+<button class="text-on-surface-variant hover:text-warm-rose transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<p class="text-on-surface-variant text-body-sm line-clamp-2 mb-4">An intensive hydration treatment using organic botanical extracts to restore your skin's natural moisture barrier.</p>
+<div class="flex justify-between items-center pt-4 border-t border-ivory-surface">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span class="text-label-md font-label-md">60m</span>
+</div>
+</div>
+<p class="text-primary font-bold text-body-lg">Rs. 6,000</p>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-pure-white rounded-xl border border-ivory-surface overflow-hidden group hover:shadow-xl hover:shadow-warm-rose/5 transition-all duration-300">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Elegantly displayed bridal jewelry and a silk gown in a bright, airy bridal suite. The scene is bathed in natural morning light, creating a dreamy and exclusive atmosphere. Soft ivory and warm rose tones dominate the visual space, reflecting the sophisticated cultural resonance and luxury of a high-end Pakistani bridal salon experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+<div class="absolute top-4 right-4 bg-outline-variant text-on-surface-variant px-3 py-1 rounded-full text-label-md font-label-md">
+                            Inactive
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-warm-rose font-label-lg uppercase tracking-wider mb-1">Bridal</p>
+<h4 class="font-headline-md text-headline-md text-on-surface">Nikkah Glow</h4>
+</div>
+<button class="text-on-surface-variant hover:text-warm-rose transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+<p class="text-on-surface-variant text-body-sm line-clamp-2 mb-4">Premium bridal makeup package including traditional draping and high-definition photography-ready finish.</p>
+<div class="flex justify-between items-center pt-4 border-t border-ivory-surface">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span class="text-label-md font-label-md">120m</span>
+</div>
+</div>
+<p class="text-primary font-bold text-body-lg">Rs. 25,000</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-ivory-surface w-full py-12 border-t border-outline-variant/20 mt-12">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-warm-rose mb-4">SalonMenu.pk</h2>
+<p class="text-on-surface-variant font-body-sm text-body-sm max-w-sm">Elevating beauty standards through intelligent salon management for the modern entrepreneur.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-center">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-warm-rose underline underline-offset-4 transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-warm-rose underline underline-offset-4 transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-warm-rose underline underline-offset-4 transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-warm-rose underline underline-offset-4 transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-8 pt-8 border-t border-outline-variant/10 text-center">
+<p class="text-on-surface-variant font-body-sm text-body-sm opacity-80">© 2024 SalonMenu.pk. Elevating Beauty Standards.</p>
+</div>
+</footer>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full lg:hidden bg-white/90 backdrop-blur-lg border-t border-ivory-surface shadow-[0_-4px_20px_rgba(189,130,130,0.1)] flex justify-around items-center h-16 w-full z-50">
+<a class="flex flex-col items-center text-on-surface-variant py-2 active:bg-ivory-surface scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-md text-label-md">Explore</span>
+</a>
+<a class="flex flex-col items-center text-warm-rose font-bold py-2 active:bg-ivory-surface scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">content_cut</span>
+<span class="font-label-md text-label-md">Services</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant py-2 active:bg-ivory-surface scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</a>
+<a class="flex flex-col items-center text-on-surface-variant py-2 active:bg-ivory-surface scale-105 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<!-- Modal: Add New Service -->
+<div class="fixed inset-0 bg-deep-charcoal/40 backdrop-blur-md z-[100] hidden items-center justify-center p-4" id="modalOverlay">
+<div class="bg-pure-white w-full max-w-2xl rounded-2xl shadow-2xl border border-ivory-surface overflow-hidden transform transition-all">
+<div class="p-6 border-b border-ivory-surface flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-surface">Add New Service</h3>
+<button class="p-2 hover:bg-ivory-surface rounded-full transition-colors" id="closeModal">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="p-8 space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Service Name -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface-variant">Service Name</label>
+<input class="w-full bg-ivory-surface border-outline-variant rounded-lg px-4 py-3 focus:ring-warm-rose focus:border-warm-rose outline-none transition-all" placeholder="e.g. Signature Bridal Glow" type="text"/>
+</div>
+<!-- Category Selection -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface-variant">Category</label>
+<select class="w-full bg-ivory-surface border-outline-variant rounded-lg px-4 py-3 focus:ring-warm-rose focus:border-warm-rose outline-none transition-all">
+<option>Hair Styling</option>
+<option>Facials</option>
+<option>Manicure</option>
+<option>Bridal</option>
+<option>Makeup</option>
+</select>
+</div>
+<!-- Price -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface-variant">Price (PKR)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-label-lg">Rs.</span>
+<input class="w-full bg-ivory-surface border-outline-variant rounded-lg pl-12 pr-4 py-3 focus:ring-warm-rose focus:border-warm-rose outline-none transition-all" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Duration -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface-variant">Duration (Minutes)</label>
+<input class="w-full bg-ivory-surface border-outline-variant rounded-lg px-4 py-3 focus:ring-warm-rose focus:border-warm-rose outline-none transition-all" placeholder="e.g. 60" type="number"/>
+</div>
+</div>
+<!-- Description -->
+<div class="space-y-2">
+<label class="block font-label-lg text-label-lg text-on-surface-variant">Service Description</label>
+<textarea class="w-full bg-ivory-surface border-outline-variant rounded-lg px-4 py-3 focus:ring-warm-rose focus:border-warm-rose outline-none transition-all" placeholder="Describe the steps and benefits of this service..." rows="3"></textarea>
+</div>
+<!-- Toggles -->
+<div class="flex flex-wrap gap-8 py-4">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant rounded-full peer-checked:bg-warm-rose transition-colors"></div>
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-6 transition-transform"></div>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Mark as Popular</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-6 bg-outline-variant rounded-full peer-checked:bg-success-sage transition-colors"></div>
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-6 transition-transform"></div>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Service is Active</span>
+</label>
+</div>
+<div class="flex gap-4 pt-4">
+<button class="flex-1 py-4 border border-outline-variant rounded-lg font-button text-button hover:bg-ivory-surface transition-colors" id="cancelModal" type="button">
+                        Cancel
+                    </button>
+<button class="flex-1 py-4 bg-warm-rose text-white rounded-lg font-button text-button shadow-lg shadow-warm-rose/20 active:scale-95 transition-transform" type="submit">
+                        Save Service
+                    </button>
+</div>
+</form>
+</div>
+</div>
+<script>
+        const modalOverlay = document.getElementById('modalOverlay');
+        const openBtn = document.getElementById('openModal');
+        const closeBtn = document.getElementById('closeModal');
+        const cancelBtn = document.getElementById('cancelModal');
+
+        const toggleModal = () => {
+            modalOverlay.classList.toggle('hidden');
+            modalOverlay.classList.toggle('flex');
+            document.body.classList.toggle('overflow-hidden');
+        };
+
+        openBtn.addEventListener('click', toggleModal);
+        closeBtn.addEventListener('click', toggleModal);
+        cancelBtn.addEventListener('click', toggleModal);
+
+        // Close on escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modalOverlay.classList.contains('hidden')) {
+                toggleModal();
+            }
+        });
+
+        // Add subtle hover effect for cards using JS for smoothness
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>

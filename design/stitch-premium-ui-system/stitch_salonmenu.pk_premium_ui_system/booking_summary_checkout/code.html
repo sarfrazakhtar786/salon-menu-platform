@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Summary | SalonMenu.pk</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fcf9f8",
+                        "warm-rose": "#BD8282",
+                        "on-surface": "#1b1c1c",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#340f11",
+                        "surface-container-high": "#eae7e7",
+                        "background": "#fcf9f8",
+                        "soft-gold": "#D4AF37",
+                        "success-sage": "#7A9E7E",
+                        "tertiary-fixed": "#e5e2dd",
+                        "on-primary-fixed-variant": "#68393a",
+                        "surface-dim": "#dcd9d9",
+                        "primary": "#845051",
+                        "secondary-container": "#fed65b",
+                        "primary-container": "#bd8282",
+                        "surface-container": "#f0eded",
+                        "surface-tint": "#845051",
+                        "on-primary": "#ffffff",
+                        "pure-white": "#FFFFFF",
+                        "primary-fixed": "#ffdad9",
+                        "surface": "#fcf9f8",
+                        "tertiary-container": "#93918d",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-tertiary-container": "#2a2a27",
+                        "outline": "#847373",
+                        "outline-variant": "#d6c2c1",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#745c00",
+                        "inverse-surface": "#303030",
+                        "on-primary-container": "#461e1f",
+                        "tertiary": "#5f5e5b",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#241a00",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#574500",
+                        "secondary-fixed": "#ffe088",
+                        "surface-variant": "#e4e2e1",
+                        "deep-charcoal": "#2D2D2D",
+                        "inverse-on-surface": "#f3f0f0",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "primary-fixed-dim": "#f8b6b6",
+                        "on-surface-variant": "#514343",
+                        "ivory-surface": "#F9F6F1",
+                        "on-tertiary-fixed": "#1c1c19",
+                        "secondary": "#735c00",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#c8c6c2",
+                        "inverse-primary": "#f8b6b6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "button": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-xl-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "button": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9F6F1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #BD8282;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md min-h-screen selection:bg-warm-rose/30">
+<!-- Top Navigation -->
+<nav class="bg-white/80 dark:bg-deep-charcoal/80 backdrop-blur-xl border-b border-ivory-surface dark:border-outline-variant shadow-sm shadow-warm-rose/5 docked full-width top-0 sticky z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-warm-rose">spa</span>
+<span class="font-headline-md text-headline-md-mobile md:text-headline-md text-warm-rose italic font-bold">SalonMenu.pk</span>
+</div>
+<div class="hidden md:flex gap-8">
+<a class="text-warm-rose border-b-2 border-warm-rose font-semibold font-body-md text-body-md" href="#">Bookings</a>
+<a class="text-on-surface-variant hover:text-warm-rose transition-colors font-body-md text-body-md" href="#">Explore</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-ivory-surface/50 p-2 rounded-full transition-all">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-ivory-surface/50 p-2 rounded-full transition-all">account_circle</span>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left: Service Summary Section -->
+<div class="lg:col-span-7 space-y-8">
+<header>
+<h1 class="font-headline-xl-mobile md:font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-2">Booking Summary</h1>
+<p class="text-on-surface-variant font-body-lg text-body-lg">Review your selected services at <span class="text-warm-rose font-semibold">The Grand Spa</span></p>
+</header>
+<!-- Service List Bento -->
+<div class="space-y-4">
+<!-- Service Item -->
+<div class="group bg-pure-white border border-ivory-surface p-6 rounded-xl flex items-center justify-between shadow-sm hover:shadow-lg hover:shadow-warm-rose/5 transition-all duration-300">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Hair Styling" class="w-full h-full object-cover" data-alt="Close-up of professional hair styling tools and a stylist's hands working on elegant soft waves. The lighting is warm and cinematic, emphasizing the texture of the hair. The background is a blurred, high-end salon interior with soft gold and warm rose accents, creating a professional and luxurious atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Premium Balayage &amp; Blowout</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 120 mins
+                                </p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md text-primary">Rs. 8,500</span>
+<button class="text-on-surface-variant hover:text-error transition-colors p-2 rounded-full hover:bg-error-container/20">
+<span class="material-symbols-outlined">delete_outline</span>
+</button>
+</div>
+</div>
+<!-- Service Item -->
+<div class="group bg-pure-white border border-ivory-surface p-6 rounded-xl flex items-center justify-between shadow-sm hover:shadow-lg hover:shadow-warm-rose/5 transition-all duration-300">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Facial" class="w-full h-full object-cover" data-alt="A serene facial treatment scene in a minimalist spa. Soft, warm lighting illuminates a clear glass bowl of organic rose petals and a high-end skincare bottle. The aesthetic is clean and luxurious, featuring Ivory backgrounds and delicate Warm Rose tones to convey a sense of calm and professional beauty care." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA10BdwPuERnajyls3lhxPFkMt8ArJc-D7MjB5WKnzVoKT5uVBV_9uXfol_8Vimi02Y5VQi7bifv9-8ToZcZGZEbEspAvLtv8RCM0jt9H41aPboiJWCJjjlDYs0Kk1PDOwo7ZgHArf9q3epts4oVi8RMoVNrcOasQe9xPIRqTmr54nwzHT3DmB9vm78saf3i4oDAlAGw9ctg9R57oh5o9ysdgD9nGId2J8bv1kHXQSr9cOHxJ1zYy_yNxn2tc5CO1OUhHL5FlIp4ZnP"/>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface">Organic Hydration Facial</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 60 mins
+                                </p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md text-primary">Rs. 4,200</span>
+<button class="text-on-surface-variant hover:text-error transition-colors p-2 rounded-full hover:bg-error-container/20">
+<span class="material-symbols-outlined">delete_outline</span>
+</button>
+</div>
+</div>
+<!-- Add more CTA -->
+<button class="w-full border-2 border-dashed border-outline-variant hover:border-warm-rose p-6 rounded-xl text-on-surface-variant hover:text-warm-rose transition-all flex items-center justify-center gap-2 group">
+<span class="material-symbols-outlined group-hover:rotate-90 transition-transform">add</span>
+<span class="font-label-lg text-label-lg">Add another service</span>
+</button>
+</div>
+<!-- Total Estimate Glass Card -->
+<div class="bg-primary/5 border border-primary/10 p-8 rounded-2xl flex justify-between items-center glass-effect">
+<div>
+<p class="font-label-lg text-label-lg text-primary uppercase tracking-widest">Total Estimate</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant italic">*Prices may vary slightly based on hair length/texture</p>
+</div>
+<div class="text-right">
+<span class="font-headline-lg text-headline-lg text-primary">Rs. 12,700</span>
+</div>
+</div>
+</div>
+<!-- Right: Details Form Section -->
+<div class="lg:col-span-5">
+<div class="bg-pure-white border border-ivory-surface p-8 rounded-2xl shadow-xl shadow-warm-rose/5 sticky top-24">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8">Personal Details</h2>
+<form class="space-y-6">
+<!-- Name -->
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant px-1">Full Name</label>
+<input class="w-full bg-ivory-surface border-none rounded-lg p-4 focus:ring-2 focus:ring-warm-rose transition-all placeholder:text-on-surface-variant/40" placeholder="Sarah Khan" type="text"/>
+</div>
+<!-- Phone -->
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant px-1">Phone Number</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-medium">+92</span>
+<input class="w-full bg-ivory-surface border-none rounded-lg p-4 pl-14 focus:ring-2 focus:ring-warm-rose transition-all placeholder:text-on-surface-variant/40" placeholder="300 1234567" type="tel"/>
+</div>
+</div>
+<!-- Date & Time Row -->
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant px-1">Date</label>
+<input class="w-full bg-ivory-surface border-none rounded-lg p-4 focus:ring-2 focus:ring-warm-rose transition-all" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant px-1">Time</label>
+<input class="w-full bg-ivory-surface border-none rounded-lg p-4 focus:ring-2 focus:ring-warm-rose transition-all" type="time"/>
+</div>
+</div>
+<!-- Notes -->
+<div class="space-y-2">
+<label class="font-label-lg text-label-lg text-on-surface-variant px-1">Special Requests (Optional)</label>
+<textarea class="w-full bg-ivory-surface border-none rounded-lg p-4 focus:ring-2 focus:ring-warm-rose transition-all placeholder:text-on-surface-variant/40" placeholder="Any allergies or specific requirements?" rows="3"></textarea>
+</div>
+<!-- Primary CTA -->
+<button class="w-full bg-warm-rose text-white font-button text-button py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-primary transition-all active:scale-95 shadow-lg shadow-warm-rose/20 mt-8" type="button">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+</svg>
+                            Send Booking on WhatsApp
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 w-full lg:hidden rounded-t-xl bg-white/90 dark:bg-deep-charcoal/90 backdrop-blur-lg border-t border-ivory-surface dark:border-outline-variant shadow-[0_-4px_20px_rgba(189,130,130,0.1)] flex justify-around items-center h-16 w-full z-50">
+<div class="flex flex-col items-center text-on-surface-variant py-2">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-md text-label-md">Explore</span>
+</div>
+<div class="flex flex-col items-center text-warm-rose font-bold py-2 scale-105 transition-transform">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant py-2">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">Favorites</span>
+</div>
+<div class="flex flex-col items-center text-on-surface-variant py-2">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-12 bg-ivory-surface border-t border-outline-variant/20 mb-16 lg:mb-0">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div>
+<p class="font-headline-md text-warm-rose mb-2">SalonMenu.pk</p>
+<p class="text-on-surface-variant font-body-sm text-body-sm">© 2024 SalonMenu.pk. Elevating Beauty Standards.</p>
+</div>
+<div class="flex flex-wrap gap-6 md:justify-end">
+<a class="text-on-surface-variant hover:text-warm-rose font-body-sm text-body-sm transition-opacity hover:underline underline-offset-4" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-warm-rose font-body-sm text-body-sm transition-opacity hover:underline underline-offset-4" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-warm-rose font-body-sm text-body-sm transition-opacity hover:underline underline-offset-4" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+<!-- Success Modal (Hidden by Default) -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-6 hidden" id="successModal">
+<div class="absolute inset-0 bg-on-surface/20 backdrop-blur-md"></div>
+<div class="relative bg-pure-white p-10 rounded-3xl max-w-md w-full shadow-2xl border border-ivory-surface text-center transform transition-all">
+<div class="w-20 h-20 bg-success-sage/10 rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-success-sage text-4xl">check_circle</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-4">Request Sent!</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-8">We've redirected you to WhatsApp to confirm your appointment details with the salon.</p>
+<button class="w-full border-2 border-warm-rose text-warm-rose font-button text-button py-3 rounded-xl hover:bg-warm-rose hover:text-white transition-all" onclick="toggleModal()">
+                Close
+            </button>
+</div>
+</div>
+<script>
+        function toggleModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.toggle('hidden');
+        }
+
+        // Add interaction to the main button
+        document.querySelector('button[type="button"]').addEventListener('click', function() {
+            toggleModal();
+        });
+
+        // Atmospheric micro-interaction: subtle card hover parallax
+        document.querySelectorAll('.group').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

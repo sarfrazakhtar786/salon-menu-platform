@@ -18,14 +18,25 @@
       "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=80&w=800"
+      "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=900"
     ],
     "socials": {
       "instagram": "https://instagram.com/noorbeautysalon",
       "facebook": "https://facebook.com/noorbeautysalon",
       "tiktok": ""
     },
-    "business_tags": ["Ladies Only", "Bridal Expert", "Home Service", "Parking"],
+    "business_tags": [
+      "Ladies Only",
+      "Bridal Expert",
+      "Home Service",
+      "Parking"
+    ],
     "stats": {
       "clients": "500+",
       "experience": "8yr",
@@ -34,28 +45,44 @@
     "packages": [
       {
         "name": "Bridal Glow Package",
-        "includes": ["Gold Facial", "Hair Styling", "Party Makeup"],
+        "includes": [
+          "Gold Facial",
+          "Hair Styling",
+          "Party Makeup"
+        ],
         "price": 9500,
         "original_price": 12000,
         "tag": "Best Value"
       },
       {
         "name": "Eid Ready Combo",
-        "includes": ["Basic Facial", "Blow Dry", "Basic Manicure"],
+        "includes": [
+          "Basic Facial",
+          "Blow Dry",
+          "Basic Manicure"
+        ],
         "price": 3000,
         "original_price": 3800,
         "tag": "Limited Offer"
       },
       {
         "name": "Hair Revival Package",
-        "includes": ["Hair Cut & Style", "Keratin Treatment", "Blow Dry"],
+        "includes": [
+          "Hair Cut & Style",
+          "Keratin Treatment",
+          "Blow Dry"
+        ],
         "price": 8200,
         "original_price": 10000,
         "tag": "Hair Care"
       },
       {
         "name": "Nails & Glow Package",
-        "includes": ["Basic Manicure", "Pedicure", "Basic Facial"],
+        "includes": [
+          "Basic Manicure",
+          "Pedicure",
+          "Basic Facial"
+        ],
         "price": 2800,
         "original_price": 3500,
         "tag": "Self Care"
@@ -63,36 +90,141 @@
     ],
     "services": {
       "Facial": [
-        { "name": "Basic Facial", "time": "45 min", "price": 1200, "desc": "Deep cleansing and exfoliation for a fresh, glowing look." },
-        { "name": "Gold Facial", "time": "60 min", "price": 2500, "desc": "A rich facial treatment for instant radiance." },
-        { "name": "Hydra Facial", "time": "60 min", "price": 4200, "desc": "Hydrating facial for fresh, clean, plump skin." }
+        {
+          "name": "Basic Facial",
+          "time": "45 min",
+          "price": 1200,
+          "desc": "Deep cleansing and exfoliation for a fresh, glowing look."
+        },
+        {
+          "name": "Gold Facial",
+          "time": "60 min",
+          "price": 2500,
+          "desc": "A rich facial treatment for instant radiance."
+        },
+        {
+          "name": "Hydra Facial",
+          "time": "60 min",
+          "price": 4200,
+          "desc": "Hydrating facial for fresh, clean, plump skin."
+        }
       ],
       "Hair": [
-        { "name": "Hair Cut & Style", "time": "30 min", "price": 800, "desc": "Fresh cut with basic styling." },
-        { "name": "Hair Color Full", "time": "120 min", "price": 4500, "desc": "Full hair color with consultation." },
-        { "name": "Keratin Treatment", "time": "180 min", "price": 8000, "desc": "Smoothing treatment for softer, straighter hair." }
+        {
+          "name": "Hair Cut & Style",
+          "time": "30 min",
+          "price": 800,
+          "desc": "Fresh cut with basic styling."
+        },
+        {
+          "name": "Hair Color Full",
+          "time": "120 min",
+          "price": 4500,
+          "desc": "Full hair color with consultation."
+        },
+        {
+          "name": "Keratin Treatment",
+          "time": "180 min",
+          "price": 8000,
+          "desc": "Smoothing treatment for softer, straighter hair."
+        }
       ],
       "Makeup": [
-        { "name": "Party Makeup", "time": "60 min", "price": 3500, "desc": "Elegant party look with long-lasting finish." },
-        { "name": "Bridal Makeup", "time": "180 min", "price": 18000, "desc": "Complete bridal makeup with premium products." },
-        { "name": "Engagement Makeup", "time": "120 min", "price": 12000, "desc": "Soft glam engagement look." }
+        {
+          "name": "Party Makeup",
+          "time": "60 min",
+          "price": 3500,
+          "desc": "Elegant party look with long-lasting finish."
+        },
+        {
+          "name": "Bridal Makeup",
+          "time": "180 min",
+          "price": 18000,
+          "desc": "Complete bridal makeup with premium products."
+        },
+        {
+          "name": "Engagement Makeup",
+          "time": "120 min",
+          "price": 12000,
+          "desc": "Soft glam engagement look."
+        }
       ],
       "Nails": [
-        { "name": "Basic Manicure", "time": "30 min", "price": 800, "desc": "Classic nail cleanup and polish." },
-        { "name": "Gel Nails", "time": "60 min", "price": 2200, "desc": "Long-lasting gel nail finish." },
-        { "name": "Pedicure", "time": "45 min", "price": 1200, "desc": "Relaxing foot care and polish." }
+        {
+          "name": "Basic Manicure",
+          "time": "30 min",
+          "price": 800,
+          "desc": "Classic nail cleanup and polish."
+        },
+        {
+          "name": "Gel Nails",
+          "time": "60 min",
+          "price": 2200,
+          "desc": "Long-lasting gel nail finish."
+        },
+        {
+          "name": "Pedicure",
+          "time": "45 min",
+          "price": 1200,
+          "desc": "Relaxing foot care and polish."
+        }
       ]
     },
     "reviews": [
-      { "text": "Bridal makeup bilkul amazing tha. Sari family ne tarif ki.", "author": "Ayesha Malik, DHA Lahore", "stars": 5, "verified": true },
-      { "text": "Gold facial ke baad skin bohat fresh lag rahi thi.", "author": "Sana Tariq, Gulberg", "stars": 5, "verified": true },
-      { "text": "Keratin treatment ne baalon ko smooth kar diya.", "author": "Hina Baig, Model Town", "stars": 4, "verified": false },
-      { "text": "Staff very polite tha aur service time par start hui.", "author": "Maham R., Gulberg", "stars": 5, "verified": true },
-      { "text": "Party makeup natural aur long lasting tha.", "author": "Zainab Ali, Cantt", "stars": 5, "verified": true },
-      { "text": "Manicure clean tha, polish finish bohat achi thi.", "author": "Iqra N., Johar Town", "stars": 4, "verified": false },
-      { "text": "Salon ka environment neat aur comfortable hai.", "author": "Rabia Sheikh, Garden Town", "stars": 5, "verified": true },
-      { "text": "Hair color consultation helpful thi, result exactly waisa aya.", "author": "Komal A., DHA", "stars": 5, "verified": true },
-      { "text": "Facial ke baad skin soft feel hui. Good value.", "author": "Mina K., Liberty", "stars": 4, "verified": false }
+      {
+        "text": "Bridal makeup bilkul amazing tha. Sari family ne tarif ki.",
+        "author": "Ayesha Malik, DHA Lahore",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Gold facial ke baad skin bohat fresh lag rahi thi.",
+        "author": "Sana Tariq, Gulberg",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Keratin treatment ne baalon ko smooth kar diya.",
+        "author": "Hina Baig, Model Town",
+        "stars": 4,
+        "verified": false
+      },
+      {
+        "text": "Staff very polite tha aur service time par start hui.",
+        "author": "Maham R., Gulberg",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Party makeup natural aur long lasting tha.",
+        "author": "Zainab Ali, Cantt",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Manicure clean tha, polish finish bohat achi thi.",
+        "author": "Iqra N., Johar Town",
+        "stars": 4,
+        "verified": false
+      },
+      {
+        "text": "Salon ka environment neat aur comfortable hai.",
+        "author": "Rabia Sheikh, Garden Town",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Hair color consultation helpful thi, result exactly waisa aya.",
+        "author": "Komal A., DHA",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Facial ke baad skin soft feel hui. Good value.",
+        "author": "Mina K., Liberty",
+        "stars": 4,
+        "verified": false
+      }
     ]
   },
   "glamour": {
@@ -114,14 +246,25 @@
       "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800",
-      "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&q=80&w=800"
+      "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=900",
+      "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&q=80&w=800"
     ],
     "socials": {
       "instagram": "https://instagram.com/glamourstudio",
       "facebook": "",
       "tiktok": "https://tiktok.com/@glamourstudio"
     },
-    "business_tags": ["Unisex", "Premium Makeup", "Nail Art", "Card Payment"],
+    "business_tags": [
+      "Unisex",
+      "Premium Makeup",
+      "Nail Art",
+      "Card Payment"
+    ],
     "stats": {
       "clients": "300+",
       "experience": "5yr",
@@ -130,28 +273,44 @@
     "packages": [
       {
         "name": "Party Ready Package",
-        "includes": ["Party Makeup", "Blow Dry", "Gel Nails"],
+        "includes": [
+          "Party Makeup",
+          "Blow Dry",
+          "Gel Nails"
+        ],
         "price": 6500,
         "original_price": 8200,
         "tag": "Popular"
       },
       {
         "name": "Hair Color Refresh",
-        "includes": ["Balayage", "Hair Wash", "Blow Dry"],
+        "includes": [
+          "Balayage",
+          "Hair Wash",
+          "Blow Dry"
+        ],
         "price": 8500,
         "original_price": 10000,
         "tag": "New"
       },
       {
         "name": "Glow & Glam Package",
-        "includes": ["Hydra Facial", "Soft Glam Makeup", "Luxury Pedicure"],
+        "includes": [
+          "Hydra Facial",
+          "Soft Glam Makeup",
+          "Luxury Pedicure"
+        ],
         "price": 8500,
         "original_price": 10200,
         "tag": "Best Value"
       },
       {
         "name": "Nail Art Studio Package",
-        "includes": ["Gel Nails", "Nail Extensions", "Luxury Pedicure"],
+        "includes": [
+          "Gel Nails",
+          "Nail Extensions",
+          "Luxury Pedicure"
+        ],
         "price": 6200,
         "original_price": 8200,
         "tag": "Nails"
@@ -159,36 +318,141 @@
     ],
     "services": {
       "Facial": [
-        { "name": "Basic Facial", "time": "45 min", "price": 1500, "desc": "A relaxing facial to rejuvenate your skin." },
-        { "name": "Hydra Facial", "time": "60 min", "price": 4000, "desc": "Hydrating facial for fresh, clean skin." },
-        { "name": "Vitamin C Facial", "time": "60 min", "price": 3500, "desc": "Brightening facial for dull and tired skin." }
+        {
+          "name": "Basic Facial",
+          "time": "45 min",
+          "price": 1500,
+          "desc": "A relaxing facial to rejuvenate your skin."
+        },
+        {
+          "name": "Hydra Facial",
+          "time": "60 min",
+          "price": 4000,
+          "desc": "Hydrating facial for fresh, clean skin."
+        },
+        {
+          "name": "Vitamin C Facial",
+          "time": "60 min",
+          "price": 3500,
+          "desc": "Brightening facial for dull and tired skin."
+        }
       ],
       "Hair": [
-        { "name": "Hair Cut", "time": "30 min", "price": 1000, "desc": "Modern haircut and shape." },
-        { "name": "Balayage", "time": "150 min", "price": 7000, "desc": "Soft blended color for a premium look." },
-        { "name": "Protein Treatment", "time": "90 min", "price": 5200, "desc": "Repair treatment for dry or damaged hair." }
+        {
+          "name": "Hair Cut",
+          "time": "30 min",
+          "price": 1000,
+          "desc": "Modern haircut and shape."
+        },
+        {
+          "name": "Balayage",
+          "time": "150 min",
+          "price": 7000,
+          "desc": "Soft blended color for a premium look."
+        },
+        {
+          "name": "Protein Treatment",
+          "time": "90 min",
+          "price": 5200,
+          "desc": "Repair treatment for dry or damaged hair."
+        }
       ],
       "Makeup": [
-        { "name": "Party Makeup", "time": "60 min", "price": 4000, "desc": "Event-ready makeup with clean finish." },
-        { "name": "Bridal Makeup", "time": "180 min", "price": 22000, "desc": "Premium bridal makeup package." },
-        { "name": "Soft Glam Makeup", "time": "75 min", "price": 5500, "desc": "Natural glam for dinners, shoots, and events." }
+        {
+          "name": "Party Makeup",
+          "time": "60 min",
+          "price": 4000,
+          "desc": "Event-ready makeup with clean finish."
+        },
+        {
+          "name": "Bridal Makeup",
+          "time": "180 min",
+          "price": 22000,
+          "desc": "Premium bridal makeup package."
+        },
+        {
+          "name": "Soft Glam Makeup",
+          "time": "75 min",
+          "price": 5500,
+          "desc": "Natural glam for dinners, shoots, and events."
+        }
       ],
       "Nails": [
-        { "name": "Gel Nails", "time": "60 min", "price": 2500, "desc": "Glossy gel nails with long wear." },
-        { "name": "Nail Extensions", "time": "90 min", "price": 3500, "desc": "Beautiful extensions with custom shape." },
-        { "name": "Luxury Pedicure", "time": "60 min", "price": 2200, "desc": "Relaxing pedicure with scrub, massage, and polish." }
+        {
+          "name": "Gel Nails",
+          "time": "60 min",
+          "price": 2500,
+          "desc": "Glossy gel nails with long wear."
+        },
+        {
+          "name": "Nail Extensions",
+          "time": "90 min",
+          "price": 3500,
+          "desc": "Beautiful extensions with custom shape."
+        },
+        {
+          "name": "Luxury Pedicure",
+          "time": "60 min",
+          "price": 2200,
+          "desc": "Relaxing pedicure with scrub, massage, and polish."
+        }
       ]
     },
     "reviews": [
-      { "author": "Ayesha K.", "text": "Best facial experience ever. Glow is unreal.", "stars": 5, "verified": true },
-      { "author": "Sana M.", "text": "Very professional staff and clean environment.", "stars": 4, "verified": true },
-      { "author": "Hira B.", "text": "Loved my new haircut. Highly recommended.", "stars": 5, "verified": false },
-      { "author": "Fatima A.", "text": "Bridal trial was detailed and the artist listened carefully.", "stars": 5, "verified": true },
-      { "author": "Maha F.", "text": "Balayage blend bohat soft aur premium laga.", "stars": 5, "verified": true },
-      { "author": "Nida W.", "text": "Gel nails lasted longer than expected.", "stars": 5, "verified": true },
-      { "author": "Rabia R.", "text": "Weekend par thora rush tha, but service quality excellent thi.", "stars": 4, "verified": false },
-      { "author": "Komal S.", "text": "Soft glam makeup exactly meri reference photo jaisa tha.", "stars": 5, "verified": true },
-      { "author": "Laiba T.", "text": "Hydra facial relaxing tha aur staff friendly tha.", "stars": 4, "verified": false }
+      {
+        "author": "Ayesha K.",
+        "text": "Best facial experience ever. Glow is unreal.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Sana M.",
+        "text": "Very professional staff and clean environment.",
+        "stars": 4,
+        "verified": true
+      },
+      {
+        "author": "Hira B.",
+        "text": "Loved my new haircut. Highly recommended.",
+        "stars": 5,
+        "verified": false
+      },
+      {
+        "author": "Fatima A.",
+        "text": "Bridal trial was detailed and the artist listened carefully.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Maha F.",
+        "text": "Balayage blend bohat soft aur premium laga.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Nida W.",
+        "text": "Gel nails lasted longer than expected.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Rabia R.",
+        "text": "Weekend par thora rush tha, but service quality excellent thi.",
+        "stars": 4,
+        "verified": false
+      },
+      {
+        "author": "Komal S.",
+        "text": "Soft glam makeup exactly meri reference photo jaisa tha.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Laiba T.",
+        "text": "Hydra facial relaxing tha aur staff friendly tha.",
+        "stars": 4,
+        "verified": false
+      }
     ]
   }
 }

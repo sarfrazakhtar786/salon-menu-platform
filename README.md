@@ -113,6 +113,10 @@ This project is designed for Vercel static hosting.
 
 See [PRODUCT_UPGRADE_PLAN.md](PRODUCT_UPGRADE_PLAN.md) for the roadmap.
 
+## Salon Onboarding
+
+See [SALON_ONBOARDING_GUIDE.md](SALON_ONBOARDING_GUIDE.md) for the current managed onboarding workflow.
+
 ## Design Reference
 
 See [DESIGN_HANDOFF_NOTES.md](DESIGN_HANDOFF_NOTES.md) and the extracted Stitch design files in `design/stitch-premium-ui-system`.

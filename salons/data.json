@@ -45,6 +45,20 @@
         "price": 3000,
         "original_price": 3800,
         "tag": "Limited Offer"
+      },
+      {
+        "name": "Hair Revival Package",
+        "includes": ["Hair Cut & Style", "Keratin Treatment", "Blow Dry"],
+        "price": 8200,
+        "original_price": 10000,
+        "tag": "Hair Care"
+      },
+      {
+        "name": "Nails & Glow Package",
+        "includes": ["Basic Manicure", "Pedicure", "Basic Facial"],
+        "price": 2800,
+        "original_price": 3500,
+        "tag": "Self Care"
       }
     ],
     "services": {
@@ -121,6 +135,20 @@
         "price": 8500,
         "original_price": 10000,
         "tag": "New"
+      },
+      {
+        "name": "Glow & Glam Package",
+        "includes": ["Hydra Facial", "Soft Glam Makeup", "Luxury Pedicure"],
+        "price": 8500,
+        "original_price": 10200,
+        "tag": "Best Value"
+      },
+      {
+        "name": "Nail Art Studio Package",
+        "includes": ["Gel Nails", "Nail Extensions", "Luxury Pedicure"],
+        "price": 6200,
+        "original_price": 8200,
+        "tag": "Nails"
       }
     ],
     "services": {

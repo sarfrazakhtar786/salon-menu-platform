@@ -11,7 +11,7 @@
     "weekly_off": "Sunday",
     "color": "#845051",
     "price_level": "$$",
-    "hero_image": "/assets/images/home-hero.jpeg",
+    "hero_image": "/assets/images/salons/noor-hero.jpeg",
     "gallery": [
       "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800",
@@ -239,7 +239,7 @@
     "weekly_off": "Monday",
     "color": "#7c5cbf",
     "price_level": "$$$",
-    "hero_image": "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&q=80&w=1200",
+    "hero_image": "/assets/images/salons/glamour-hero.jpeg",
     "gallery": [
       "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800",
@@ -467,7 +467,7 @@
     "weekly_off": "Sunday",
     "color": "#9b4f63",
     "price_level": "",
-    "hero_image": "/assets/images/home-hero.jpeg",
+    "hero_image": "/assets/images/salons/rose-beauty-parlour-hero.jpeg",
     "gallery": [
       "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800",

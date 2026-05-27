@@ -70,11 +70,19 @@
     }
 
     .brand {
-      font-family: "Playfair Display", serif;
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 1.1rem;
-      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      width: 178px;
+      height: 42px;
+    }
+
+    .brand img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: left center;
+      border-radius: 4px;
     }
 
     .nav-links {
@@ -651,6 +659,10 @@
     @media (max-width: 720px) {
       body { padding-bottom: 86px; }
       .shell { width: min(100% - 32px, 1180px); }
+      .brand {
+        width: 148px;
+        height: 36px;
+      }
       .nav-links, .nav-action { display: none; }
       .hero {
         min-height: 580px;
@@ -797,7 +809,7 @@
       document.getElementById("app").innerHTML = `
         <header class="topbar">
           <div class="shell nav">
-            <a class="brand" href="/">SalonMenu.pk</a>
+            <a class="brand" href="/"><img src="/assets/images/salonmenu-logo.jpeg" alt="SalonMenu.pk"></a>
             <nav class="nav-links" aria-label="Salon navigation">
               <a href="#services">Services</a>
               <a href="#packages">Packages</a>

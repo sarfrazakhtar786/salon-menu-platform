@@ -11,7 +11,7 @@
     "weekly_off": "Sunday",
     "color": "#845051",
     "price_level": "$$",
-    "hero_image": "https://images.unsplash.com/photo-1522335133618-2c06159670eb?auto=format&fit=crop&q=80&w=1200",
+    "hero_image": "/assets/images/home-hero.jpeg",
     "gallery": [
       "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800",
       "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800",
@@ -450,6 +450,234 @@
       {
         "author": "Laiba T.",
         "text": "Hydra facial relaxing tha aur staff friendly tha.",
+        "stars": 4,
+        "verified": false
+      }
+    ]
+  },
+  "rose-beauty-parlour": {
+    "name": "Rose Beauty Parlour",
+    "tagline": "Where every look blooms",
+    "city": "Islamabad",
+    "area": "F-7 Markaz",
+    "address": "Shop 18, F-7 Markaz, Islamabad",
+    "phone": "0333-4567890",
+    "whatsapp": "923334567890",
+    "timings": "Mon-Sat: 10am - 9pm",
+    "weekly_off": "Sunday",
+    "color": "#9b4f63",
+    "price_level": "",
+    "hero_image": "/assets/images/home-hero.jpeg",
+    "gallery": [
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=900"
+    ],
+    "socials": {
+      "instagram": "https://instagram.com/rosebeautyparlour",
+      "facebook": "",
+      "tiktok": ""
+    },
+    "business_tags": [
+      "Ladies Only",
+      "Makeup Artist",
+      "Hair Care",
+      "Nail Studio"
+    ],
+    "stats": {
+      "clients": "250+",
+      "experience": "6yr",
+      "rating": "4.7"
+    },
+    "packages": [
+      {
+        "name": "Rose Bridal Package",
+        "includes": [
+          "Bridal Makeup",
+          "Hair Styling",
+          "Gold Facial"
+        ],
+        "price": 16000,
+        "original_price": 20000,
+        "tag": "Bridal"
+      },
+      {
+        "name": "Weekend Glow Combo",
+        "includes": [
+          "Hydra Facial",
+          "Blow Dry",
+          "Gel Nails"
+        ],
+        "price": 6200,
+        "original_price": 7800,
+        "tag": "Popular"
+      },
+      {
+        "name": "Hair Smooth Package",
+        "includes": [
+          "Hair Cut",
+          "Protein Treatment",
+          "Blow Dry"
+        ],
+        "price": 7200,
+        "original_price": 9000,
+        "tag": "Hair Care"
+      },
+      {
+        "name": "Self Care Day",
+        "includes": [
+          "Basic Facial",
+          "Manicure",
+          "Luxury Pedicure"
+        ],
+        "price": 4200,
+        "original_price": 5400,
+        "tag": "Self Care"
+      }
+    ],
+    "services": {
+      "Facial": [
+        {
+          "name": "Basic Facial",
+          "time": "45 min",
+          "price": 1400,
+          "desc": "Fresh cleansing facial for everyday glow."
+        },
+        {
+          "name": "Gold Facial",
+          "time": "60 min",
+          "price": 3000,
+          "desc": "Radiance facial for events and special days."
+        },
+        {
+          "name": "Hydra Facial",
+          "time": "60 min",
+          "price": 4500,
+          "desc": "Hydrating facial for clean and plump skin."
+        }
+      ],
+      "Hair": [
+        {
+          "name": "Hair Cut",
+          "time": "30 min",
+          "price": 900,
+          "desc": "Modern haircut with shape and styling."
+        },
+        {
+          "name": "Hair Color",
+          "time": "120 min",
+          "price": 5200,
+          "desc": "Full hair color with consultation."
+        },
+        {
+          "name": "Protein Treatment",
+          "time": "90 min",
+          "price": 6000,
+          "desc": "Repair treatment for dry or damaged hair."
+        }
+      ],
+      "Makeup": [
+        {
+          "name": "Party Makeup",
+          "time": "60 min",
+          "price": 3800,
+          "desc": "Event-ready makeup with long-lasting finish."
+        },
+        {
+          "name": "Bridal Makeup",
+          "time": "180 min",
+          "price": 19000,
+          "desc": "Complete premium bridal makeup."
+        },
+        {
+          "name": "Engagement Makeup",
+          "time": "120 min",
+          "price": 13000,
+          "desc": "Soft glam look for engagement events."
+        }
+      ],
+      "Nails": [
+        {
+          "name": "Basic Manicure",
+          "time": "30 min",
+          "price": 900,
+          "desc": "Classic nail cleanup and polish."
+        },
+        {
+          "name": "Gel Nails",
+          "time": "60 min",
+          "price": 2400,
+          "desc": "Long-lasting gel nail finish."
+        },
+        {
+          "name": "Luxury Pedicure",
+          "time": "60 min",
+          "price": 2100,
+          "desc": "Pedicure with scrub, massage, and polish."
+        }
+      ]
+    },
+    "reviews": [
+      {
+        "text": "Makeup bohat clean aur natural tha.",
+        "author": "Areeba S., F-7",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Staff friendly aur salon clean tha.",
+        "author": "Maham K., G-9",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Hair treatment ke baad baal soft ho gaye.",
+        "author": "Sadia R., Blue Area",
+        "stars": 4,
+        "verified": false
+      },
+      {
+        "text": "Bridal look exactly reference jaisa tha.",
+        "author": "Hina A., E-11",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Gel nails ka finish bohat neat tha.",
+        "author": "Nimra J., F-10",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Hydra facial relaxing aur effective tha.",
+        "author": "Laiba M., I-8",
+        "stars": 4,
+        "verified": false
+      },
+      {
+        "text": "Booking aur service dono smooth thay.",
+        "author": "Zara T., F-6",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Party makeup all night fresh raha.",
+        "author": "Mina P., G-11",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "text": "Good value and professional team.",
+        "author": "Rabia N., F-8",
         "stars": 4,
         "verified": false
       }

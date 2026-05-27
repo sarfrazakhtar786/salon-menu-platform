@@ -254,7 +254,8 @@
     .service-card,
     .package-card,
     .review-card,
-    .info-card {
+    .info-card,
+    .qr-card {
       border: 1px solid rgba(132, 80, 81, 0.1);
       border-radius: 16px;
       background: white;
@@ -428,10 +429,76 @@
       padding: 24px;
     }
 
-    .info-card h3 {
+    .info-card h3,
+    .qr-card h3 {
       margin: 0 0 18px;
       font-family: "Playfair Display", serif;
       font-size: 1.45rem;
+    }
+
+    .qr-card {
+      padding: 22px;
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top, rgba(189, 130, 130, 0.18), transparent 44%),
+        white;
+    }
+
+    .qr-brand {
+      color: var(--primary);
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .qr-card p {
+      margin: 0 auto 16px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .qr-box {
+      width: min(220px, 100%);
+      margin: 0 auto 14px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: white;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+    }
+
+    .qr-box img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .qr-url {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto 14px;
+      overflow: hidden;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .qr-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .qr-actions .btn {
+      width: 100%;
+      min-height: 44px;
+      padding: 0 14px;
+      font-size: 0.88rem;
     }
 
     .info-row {
@@ -909,6 +976,20 @@
               <div class="booking-card" id="booking-card">No services selected yet</div>
               <button class="btn primary" style="width:100%; margin-top:14px" type="button" onclick="openBooking()">Book Appointment</button>
             </section>
+            <section class="qr-card" id="qr-menu">
+              <div class="qr-brand">SalonMenu.pk</div>
+              <h3>Scan this menu</h3>
+              <p>Customers can scan, view services, and book on WhatsApp.</p>
+              <div class="qr-box">
+                <img src="${getQrImageUrl()}" alt="QR code for ${salon.name} menu" loading="lazy">
+              </div>
+              <span class="qr-url">${getSalonPublicUrl()}</span>
+              <div class="qr-actions">
+                <button class="btn primary" type="button" onclick="downloadQrCard()">Download QR Card</button>
+                <button class="btn ghost" type="button" onclick="copySalonLink()">Copy Menu Link</button>
+                <button class="btn ghost" type="button" onclick="shareSalonOnWhatsApp()">Share on WhatsApp</button>
+              </div>
+            </section>
           </aside>
         </main>
 
@@ -996,6 +1077,22 @@
       render();
     }
 
+    function getSalonPublicUrl() {
+      return `${window.location.origin}/salons/${currentSlug}/`;
+    }
+
+    function getQrImageUrl(size = 220) {
+      return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&margin=12&data=${encodeURIComponent(getSalonPublicUrl())}`;
+    }
+
+    function xmlEscape(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
     function toggleItem(id, name, price) {
       const existing = cart.findIndex(item => item.id === id);
       if (existing >= 0) {
@@ -1050,13 +1147,59 @@
     }
 
     function shareSalon() {
-      const url = window.location.href;
+      const url = getSalonPublicUrl();
       if (navigator.share) {
         navigator.share({ title: currentSalon.name, text: currentSalon.tagline, url });
       } else {
         navigator.clipboard?.writeText(url);
         alert("Salon link copied.");
       }
+    }
+
+    async function copySalonLink() {
+      await navigator.clipboard.writeText(getSalonPublicUrl());
+      alert("Salon menu link copied.");
+    }
+
+    function shareSalonOnWhatsApp() {
+      const text = `View ${currentSalon.name} menu and book here: ${getSalonPublicUrl()}`;
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank");
+    }
+
+    function downloadQrCard() {
+      const salonUrl = getSalonPublicUrl();
+      const qrUrl = getQrImageUrl(620);
+      const salonName = xmlEscape(currentSalon.name);
+      const area = xmlEscape(`${currentSalon.area}, ${currentSalon.city}`);
+      const safeUrl = xmlEscape(salonUrl);
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffaf8"/>
+      <stop offset="1" stop-color="#f3e8e6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#845051" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <rect width="1080" height="1350" rx="56" fill="url(#bg)"/>
+  <rect x="70" y="70" width="940" height="1210" rx="44" fill="#ffffff" filter="url(#shadow)"/>
+  <text x="540" y="170" text-anchor="middle" font-family="Georgia, serif" font-size="54" font-weight="700" fill="#845051">SalonMenu.pk</text>
+  <text x="540" y="250" text-anchor="middle" font-family="Georgia, serif" font-size="64" font-weight="700" fill="#1b1c1c">${salonName}</text>
+  <text x="540" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="600" fill="#675858">${area}</text>
+  <rect x="230" y="395" width="620" height="620" rx="34" fill="#fffaf8" stroke="#eadbd9" stroke-width="3"/>
+  <image href="${xmlEscape(qrUrl)}" x="270" y="435" width="540" height="540"/>
+  <text x="540" y="1110" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="800" fill="#845051">Scan to view menu &amp; book on WhatsApp</text>
+  <text x="540" y="1172" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#675858">${safeUrl}</text>
+  <text x="540" y="1248" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#bd8282">Powered by SalonMenu.pk</text>
+</svg>`;
+      const blob = new Blob([svg], { type: "image/svg+xml" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${currentSlug}-qr-card.svg`;
+      link.click();
+      URL.revokeObjectURL(url);
     }
 
     document.getElementById("booking-form").addEventListener("submit", event => {

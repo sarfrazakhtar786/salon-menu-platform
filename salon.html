@@ -745,6 +745,11 @@
     let activeCategory = "";
     let cart = [];
     const platformBookingWhatsapp = "923007666376";
+    const slugAliases = {
+      "rose": "rose-beauty-parlour",
+      "rose-beauty-salon": "rose-beauty-parlour",
+      "rose-beauty-parlor": "rose-beauty-parlour"
+    };
 
     function getSalonSlug() {
       if (window.location.hash) return window.location.hash.substring(1);
@@ -770,7 +775,7 @@
     }
 
     async function init() {
-      currentSlug = getSalonSlug();
+      currentSlug = slugAliases[getSalonSlug()] || getSalonSlug();
       if (!currentSlug) {
         showError("Salon not found. Please open a valid salon link.");
         return;

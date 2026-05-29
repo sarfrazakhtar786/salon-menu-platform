@@ -1,0 +1,7 @@
+node_modules/
+package/
+.env
+.env.local
+
+# Local Supabase credentials (use supabase-config.example.js + Vercel env on deploy)
+assets/js/supabase-config.js

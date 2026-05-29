@@ -2,6 +2,9 @@
   "name": "salon-menu-platform",
   "private": true,
   "scripts": {
-    "validate:salons": "node scripts/validate-salons.mjs"
+    "build": "node scripts/write-supabase-config.mjs",
+    "build:config": "node scripts/write-supabase-config.mjs",
+    "validate:salons": "node scripts/validate-salons.mjs",
+    "db:seed-sql": "node scripts/generate-supabase-seed.mjs"
   }
 }

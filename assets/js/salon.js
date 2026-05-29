@@ -82,8 +82,7 @@ async function init() {
   }
 
   try {
-    const response = await fetch("/salons/data.json");
-    const salons = await response.json();
+    const salons = await SalonMenu.loadSalonsCatalog();
     currentSalon = salons[currentSlug];
     if (!currentSalon) {
       showError(`Salon "${currentSlug}" not found.`);
@@ -508,7 +507,7 @@ async function downloadQrCard() {
   URL.revokeObjectURL(url);
 }
 
-document.getElementById("booking-form").addEventListener("submit", event => {
+document.getElementById("booking-form").addEventListener("submit", async event => {
   event.preventDefault();
   const details = {
     name: document.getElementById("customer-name").value.trim(),
@@ -532,6 +531,26 @@ document.getElementById("booking-form").addEventListener("submit", event => {
     `Preferred Time: ${details.time || "Flexible"}`,
     `Notes: ${details.notes || "None"}`
   ].join("\n");
+
+  if (SalonMenu.supabase?.isEnabled() && currentSalon._dbId) {
+    try {
+      await SalonMenu.supabase.insertBookingRequest({
+        salon_id: currentSalon._dbId,
+        status: "sent_whatsapp",
+        customer_name: details.name,
+        customer_phone: details.phone,
+        preferred_date: details.date || null,
+        preferred_time: details.time || null,
+        notes: details.notes || null,
+        services_snapshot: cart,
+        total_pkr: getTotal(),
+        whatsapp_message: message,
+        source: "salon_menu"
+      });
+    } catch (error) {
+      console.warn("[SalonMenu] booking_requests insert failed", error);
+    }
+  }
 
   SalonMenu.analytics?.trackWhatsAppClick(currentSlug, "booking_submit");
   window.open(`https://wa.me/${platformBookingWhatsapp}?text=${encodeURIComponent(message)}`, "_blank");

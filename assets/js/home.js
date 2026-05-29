@@ -330,8 +330,7 @@ function syncSearchInputs(value) {
 
 async function init() {
   try {
-    const response = await fetch("/salons/data.json");
-    const data = await response.json();
+    const data = await SalonMenu.loadSalonsCatalog();
     state.salons = Object.entries(data).map(([slug, salon]) => ({ slug, salon }));
     renderFilters();
     renderHeroTags();
@@ -400,8 +399,22 @@ document.querySelectorAll(".nav-soon, .nav-soon-btn").forEach(el => {
   });
 });
 
-document.getElementById("newsletter-form")?.addEventListener("submit", event => {
+document.getElementById("newsletter-form")?.addEventListener("submit", async event => {
   event.preventDefault();
+  const email = document.getElementById("newsletter-email")?.value?.trim();
+  if (SalonMenu.supabase?.isEnabled() && email) {
+    try {
+      await SalonMenu.supabase.insertPlatformLead({
+        lead_type: "newsletter",
+        email,
+        metadata: { source: "homepage_footer" }
+      });
+      alert("Thanks! We will notify you when the newsletter launches.");
+      return;
+    } catch (error) {
+      console.warn("[SalonMenu] Newsletter lead insert failed", error);
+    }
+  }
   alert("Newsletter signup is coming soon. Thanks for your interest!");
 });
 

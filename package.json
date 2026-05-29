@@ -1,0 +1,7 @@
+{
+  "name": "salon-menu-platform",
+  "private": true,
+  "scripts": {
+    "validate:salons": "node scripts/validate-salons.mjs"
+  }
+}

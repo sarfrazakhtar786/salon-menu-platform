@@ -63,7 +63,7 @@ Example:
 0300-1234567 -> 923001234567
 ```
 
-Note: Current booking flow platform number `923007666376` par route hota hai. Salon ka own WhatsApp data future use ke liye record mein rakhein.
+Note: **Demo phase:** dummy salons (`noor`, `glamour`, `rose-beauty-parlour`) ki bookings abhi platform number `923007666376` par jaati hain — koi real owner onboard nahi. Form se `whatsapp` phir bhi collect karein (`data.json` schema ready). **Pehla real salon** onboard hone par bookings `salon.whatsapp` par switch karni hain — see [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) (Demo phase + Phase 1.1).
 
 ## 5. New Salon Data Template
 

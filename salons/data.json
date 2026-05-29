@@ -466,7 +466,7 @@
     "timings": "Mon-Sat: 10am - 9pm",
     "weekly_off": "Sunday",
     "color": "#9b4f63",
-    "price_level": "",
+    "price_level": "$$",
     "hero_image": "/assets/images/salons/rose-beauty-parlour-hero.jpeg",
     "gallery": [
       "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=800",
@@ -629,55 +629,55 @@
     "reviews": [
       {
         "text": "Makeup bohat clean aur natural tha.",
-        "author": "Areeba S., F-7",
+        "author": "Areeba S., 86/6R",
         "stars": 5,
         "verified": true
       },
       {
         "text": "Staff friendly aur salon clean tha.",
-        "author": "Maham K., G-9",
+        "author": "Maham K., Farid Town",
         "stars": 5,
         "verified": true
       },
       {
         "text": "Hair treatment ke baad baal soft ho gaye.",
-        "author": "Sadia R., Blue Area",
+        "author": "Sadia R., Sahiwal Cantt",
         "stars": 4,
         "verified": false
       },
       {
         "text": "Bridal look exactly reference jaisa tha.",
-        "author": "Hina A., E-11",
+        "author": "Hina A., Harappa Road",
         "stars": 5,
         "verified": true
       },
       {
         "text": "Gel nails ka finish bohat neat tha.",
-        "author": "Nimra J., F-10",
+        "author": "Nimra J., 86/6R",
         "stars": 5,
         "verified": true
       },
       {
         "text": "Hydra facial relaxing aur effective tha.",
-        "author": "Laiba M., I-8",
+        "author": "Laiba M., Pak Town",
         "stars": 4,
         "verified": false
       },
       {
         "text": "Booking aur service dono smooth thay.",
-        "author": "Zara T., F-6",
+        "author": "Zara T., Sahiwal",
         "stars": 5,
         "verified": true
       },
       {
         "text": "Party makeup all night fresh raha.",
-        "author": "Mina P., G-11",
+        "author": "Mina P., Main Bazaar",
         "stars": 5,
         "verified": true
       },
       {
         "text": "Good value and professional team.",
-        "author": "Rabia N., F-8",
+        "author": "Rabia N., Ghalla Mandi",
         "stars": 4,
         "verified": false
       }

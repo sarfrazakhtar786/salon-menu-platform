@@ -8,6 +8,21 @@ Ek codebase, multiple salons. Har salon ka apna public menu URL.
 salon-menu-platform/
 ├── index.html
 ├── salon.html
+├── assets/
+│   ├── css/
+│   │   ├── tokens.css
+│   │   ├── home.css
+│   │   └── salon.css
+│   ├── js/
+│   │   ├── utils.js
+│   │   ├── home.js
+│   │   ├── salon.js
+│   │   └── qrcode.min.js
+│   └── images/
+├── scripts/
+│   └── validate-salons.mjs
+├── docs/
+│   └── SALON_URL_ALIASES.md
 ├── salons/
 │   └── data.json
 ├── vercel.json
@@ -105,13 +120,21 @@ Open `salons/data.json` and add a new salon object using a unique slug.
 
 This project is designed for Vercel static hosting.
 
+Before adding or editing salons, validate data:
+
+```bash
+npm run validate:salons
+```
+
 1. Push changes to GitHub.
 2. Connect the repository to Vercel.
 3. Vercel will deploy automatically after each push.
 
 ## Product Plan
 
-See [PRODUCT_UPGRADE_PLAN.md](PRODUCT_UPGRADE_PLAN.md) for the roadmap.
+See [PRODUCT_UPGRADE_PLAN.md](PRODUCT_UPGRADE_PLAN.md) for the long-term roadmap.
+
+Track day-to-day implementation tasks (checkboxes) in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md).
 
 ## Salon Onboarding
 

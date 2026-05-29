@@ -31,7 +31,9 @@ SalonMenu.supabase = (function () {
       throw new Error(`Supabase ${response.status}: ${text}`);
     }
     if (response.status === 204) return null;
-    return response.json();
+    const text = await response.text();
+    if (!text) return null;
+    return JSON.parse(text);
   }
 
   function sortByOrder(a, b, key) {

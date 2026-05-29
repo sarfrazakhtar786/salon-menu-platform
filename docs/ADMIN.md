@@ -8,10 +8,14 @@ Admin-only salon onboarding form with Supabase Auth.
 
 | Page | URL |
 |------|-----|
-| Login | `/admin/login.html` |
-| Onboard form | `/admin/onboard.html` |
+| Login | `https://salon-menu-platform.vercel.app/admin/login.html` |
+| Onboard form | `https://salon-menu-platform.vercel.app/admin/onboard.html` |
+
+(Custom domain later: `/admin/login.html` on your domain.)
 
 Pages use `noindex` — not for public SEO.
+
+**If you get 404:** Vercel is serving an old deployment. Dashboard → **Deployments** → latest commit `e6556e9` or newer → **Redeploy**, or wait for the Git push after this doc update.
 
 ## One-time Supabase setup
 

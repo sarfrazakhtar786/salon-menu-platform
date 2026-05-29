@@ -33,49 +33,63 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/home.css">
 </head>
 <body>
   <header class="topbar">
     <div class="shell nav">
-      <a class="brand" href="/">
-        <img src="/assets/images/salonmenu-logo.svg" alt="SalonMenu.pk">
-      </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#explore">Explore</a>
-        <a href="#categories">Services</a>
-        <a href="#for-salons">For Salons</a>
-      </nav>
-      <a class="owner-cta" href="#for-salons">List Your Salon</a>
+      <div class="nav-start">
+        <a class="brand" href="/">
+          <img src="/assets/images/salonmenu-logo.svg" alt="SalonMenu.pk">
+        </a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="active" href="#explore">Explore</a>
+          <a href="#categories">Services</a>
+          <a href="#for-salons">For Salons</a>
+          <a class="nav-soon" href="#" title="Coming soon">Blog</a>
+          <a class="nav-soon" href="#" title="Coming soon">About Us</a>
+        </nav>
+      </div>
+      <div class="nav-end">
+        <label class="nav-search" aria-label="Quick search">
+          <span class="material-symbols-outlined" aria-hidden="true">search</span>
+          <input id="nav-search" type="search" placeholder="Search salons..." autocomplete="off">
+        </label>
+        <button class="nav-login nav-soon-btn" type="button" title="Login coming soon">Login</button>
+        <a class="owner-cta owner-cta-solid" href="#for-salons">List Your Salon <span aria-hidden="true">→</span></a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="shell">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="shell hero-inner">
         <h1>Discover luxury in every treatment</h1>
         <p>Find premium salons, compare services, and send booking requests on WhatsApp with a polished digital menu experience.</p>
-        <form class="search-panel" id="search-form">
-          <div class="field">
+        <form class="search-panel search-panel-labeled" id="search-form">
+          <div class="search-field labeled">
             <label for="search">Search</label>
-            <input id="search" type="search" placeholder="Salon, area, or service">
+            <input id="search" type="search" placeholder="Salon, area, or service" autocomplete="off">
           </div>
-          <div class="field">
+          <div class="search-field labeled">
             <label for="city-filter">City</label>
-            <select id="city-filter">
+            <select id="city-filter" aria-label="City">
               <option value="">All Cities</option>
             </select>
           </div>
-          <div class="field">
+          <div class="search-field labeled">
             <label for="service-filter">Service</label>
-            <select id="service-filter">
+            <select id="service-filter" aria-label="Service">
               <option value="">All Services</option>
             </select>
           </div>
           <button class="find-btn" type="submit">Find Beauty</button>
         </form>
+        <div class="hero-tags" id="hero-tags" aria-label="Quick service filters"></div>
       </div>
     </section>
 
@@ -85,66 +99,318 @@
       </div>
     </section>
 
-    <section class="section" id="explore">
+    <section class="trust-section" id="why-us">
+      <div class="shell">
+        <p class="trust-eyebrow">Why thousands of beauty lovers choose SalonMenu.pk</p>
+        <div class="trust-grid">
+          <article class="trust-item">
+            <span class="trust-icon material-symbols-outlined" aria-hidden="true">verified_user</span>
+            <h3>Verified Salon Profiles</h3>
+            <p>All salons are verified for your peace of mind.</p>
+          </article>
+          <article class="trust-item">
+            <span class="trust-icon material-symbols-outlined" aria-hidden="true">star</span>
+            <h3>Real Customer Reviews</h3>
+            <p>Genuine reviews from real customers you can trust.</p>
+          </article>
+          <article class="trust-item">
+            <span class="trust-icon material-symbols-outlined" aria-hidden="true">chat</span>
+            <h3>WhatsApp Instant Booking</h3>
+            <p>Send booking requests instantly on WhatsApp.</p>
+          </article>
+          <article class="trust-item">
+            <span class="trust-icon material-symbols-outlined" aria-hidden="true">sell</span>
+            <h3>Transparent Pricing</h3>
+            <p>Compare prices and choose what fits your budget.</p>
+          </article>
+          <article class="trust-item">
+            <span class="trust-icon material-symbols-outlined" aria-hidden="true">work</span>
+            <h3>Bridal Specialists</h3>
+            <p>Find expert bridal artists for your big day.</p>
+          </article>
+          <article class="trust-item">
+            <span class="trust-icon material-symbols-outlined" aria-hidden="true">groups</span>
+            <h3>Men &amp; Women Categories</h3>
+            <p>Services for everyone, all in one place.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="popular-section" id="popular-services">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Popular Services</span>
+            <h2>Explore our most booked services</h2>
+          </div>
+          <a class="view-all" href="#categories" id="view-all-services">
+            View All Services
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+        <div class="popular-carousel">
+          <button class="carousel-btn carousel-prev" type="button" id="popular-prev" aria-label="Previous services" disabled>
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+          </button>
+          <div class="popular-viewport" id="popular-viewport">
+            <div class="popular-track" id="popular-services-grid" aria-label="Popular services"></div>
+          </div>
+          <button class="carousel-btn carousel-next" type="button" id="popular-next" aria-label="Next services">
+            <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="promo-banner" id="bridal-banner">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy">
+      <div class="promo-banner-copy">
+        <h2>Find your perfect<br>bridal artist</h2>
+        <p>Compare bridal packages, explore portfolios and connect directly with top bridal artists across Pakistan.</p>
+        <div class="promo-actions">
+          <button class="btn primary" type="button" data-filter-query="bridal">Explore Bridal Experts →</button>
+          <button class="btn ghost-light nav-soon-btn" type="button" title="Coming soon">View Bridal Packages</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section transforms-section" id="transformations">
+      <div class="shell">
+        <p class="eyebrow">Real Transformations</p>
+        <div class="transforms-grid">
+          <article class="transform-card"><div class="before-after"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=300&q=80" alt="Before"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=300&q=80" alt="After"></div><h3>Hair Makeover</h3></article>
+          <article class="transform-card"><div class="before-after"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=300&q=80" alt="Before"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=300&q=80" alt="After"></div><h3>Skin Treatment</h3></article>
+          <article class="transform-card"><div class="before-after"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWjJzzvlTL5tti5mMLrivwdCe0u4GfvOmgv3rxqlPPJ5HNuItY_whVXdIt7rqzBxvGkiHixs5hJgIq1FN-89c9esFZjqr6uTJnh9oB60VDliKANsz_wdIJ_GK6DWZLUoKFa4NACxlwoCdQdx2nTVm7ihDbtK6RKXGIlA-NIxcz0ynX0VC9L9nQT6SqqNbOWCBBLyOsJ9jdmXT5kmFfI0U8SCfah7OertLGZIxBnapZPedKu8BZx6Ge_LrKcdNM4h9zxcNEstLtDvg-" alt="Before bridal makeup"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL8ZydI47uc95tPs6CY0R4-vl21C28lhrDNPbCd8LxDJM8tEic__Wa9QhrFnGwsqLmPZSTl7_zw5h1O7sWN9l7F33otn4Oa5oSRmoW4t_t0duKx6aFxibzGAOLQ9zHYFcYSfRVcb0W3pmTV4AA9E8Yr_l5ivqMH_Aj3wi0vtFrSPebQ35XNTljmHCmp4R2c6zcz8i_wPATo_UuDg1IWKtWKU7vTxO9453bTEaiS2RdjGc7yTwYWFWZ4CsuK5CBQrHfPHpTteBvfv67" alt="After bridal makeup"></div><h3>Bridal Makeup</h3></article>
+          <article class="transform-card"><div class="before-after"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=300&q=80" alt="Before"><img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=300&q=80" alt="After"></div><h3>Nail Art</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="city-section city-section-compact" id="browse-cities">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>Browse salons by city</h2>
+            <p class="section-sub">Find the best salons near you.</p>
+          </div>
+          <a class="btn compact" href="#browse-cities" id="view-all-cities">View All Cities</a>
+        </div>
+        <div class="city-grid-compact" id="city-grid" aria-label="Browse salons by city"></div>
+      </div>
+    </section>
+
+    <section class="section testimonials-section" id="testimonials">
+      <div class="shell">
+        <p class="eyebrow">What customers are saying</p>
+        <div class="testimonials-grid">
+          <article class="quote-card"><div class="stars" aria-hidden="true">★★★★★</div><p>"Finally a platform where I could compare salon services before booking. Super easy to use!"</p><span>— Hafsa A.</span></article>
+          <article class="quote-card"><div class="stars" aria-hidden="true">★★★★★</div><p>"Found my bridal makeup artist through SalonMenu.pk. Best decision ever!"</p><span>— Areeba Khan</span></article>
+          <article class="quote-card"><div class="stars" aria-hidden="true">★★★★★</div><p>"The WhatsApp booking feature is a game changer. So convenient!"</p><span>— Maria W.</span></article>
+          <article class="quote-card"><div class="stars" aria-hidden="true">★★★★★</div><p>"Great platform for both customers and salon owners. Highly recommended!"</p><span>— Sana B.</span></article>
+          <article class="quote-card"><div class="stars" aria-hidden="true">★★★★★</div><p>"I love how I can compare prices and services in my city."</p><span>— Nida R.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section" id="how-it-works">
+      <div class="shell">
+        <p class="eyebrow center">Beauty booking made simple</p>
+        <div class="process-steps">
+          <article class="process-step"><span class="step-num">01</span><span class="material-symbols-outlined" aria-hidden="true">search</span><h3>Search Salon</h3><p>Search by service, location or salon name.</p></article>
+          <span class="process-arrow" aria-hidden="true">→</span>
+          <article class="process-step"><span class="step-num">02</span><span class="material-symbols-outlined" aria-hidden="true">bar_chart</span><h3>Compare Services</h3><p>Compare services, prices, reviews and choose the best.</p></article>
+          <span class="process-arrow" aria-hidden="true">→</span>
+          <article class="process-step"><span class="step-num">03</span><span class="material-symbols-outlined" aria-hidden="true">send</span><h3>Send Booking Request</h3><p>Send request on WhatsApp and get confirmed.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experts-section" id="bridal-experts">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Featured bridal experts</h2>
+          <a class="view-all nav-soon" href="#" title="Coming soon">View All Experts <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+        </div>
+        <div class="experts-grid">
+          <article class="expert-card"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Makeup by Hina" loading="lazy"><div class="expert-body"><h3>Makeup by Hina</h3><p class="meta">Lahore · ★ 4.9 (120)</p><p>8+ Years Experience</p><strong>Packages from PKR 25,000</strong></div></article>
+          <article class="expert-card"><img src="https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&fit=crop&w=600&q=80" alt="Sana's Studio" loading="lazy"><div class="expert-body"><h3>Sana's Studio</h3><p class="meta">Karachi · ★ 4.8 (85)</p><p>7+ Years Experience</p><strong>Packages from PKR 20,000</strong></div></article>
+          <article class="expert-card soon-card"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=80" alt="Glam by Ayesha" loading="lazy"><div class="expert-body"><h3>Glam by Ayesha</h3><p class="meta">Islamabad · ★ 4.9 (110)</p><p>6+ Years Experience</p><strong>Packages from PKR 28,000 <span class="soon-tag">Soon</span></strong></div></article>
+          <article class="expert-card soon-card"><img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=600&q=80" alt="Bridal Secrets" loading="lazy"><div class="expert-body"><h3>Bridal Secrets</h3><p class="meta">Rawalpindi · ★ 4.7 (65)</p><p>5+ Years Experience</p><strong>Packages from PKR 18,000 <span class="soon-tag">Soon</span></strong></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section featured-section" id="explore">
       <div class="shell">
         <div class="section-head">
           <div>
             <span class="eyebrow">The Elite Collection</span>
-            <h2>Featured salons</h2>
+            <h2>Featured Destinations</h2>
           </div>
-          <span class="result-count" id="result-count">Loading salons...</span>
+          <div class="section-head-side">
+            <span class="result-count" id="result-count">Loading salons...</span>
+            <a class="view-all" href="#explore" id="view-all-salons">
+              View All Salons
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
         </div>
         <div class="salon-grid" id="salon-grid"></div>
       </div>
     </section>
 
-    <section class="owner-section" id="for-salons">
-      <div class="shell owner-layout">
-        <div class="owner-copy">
-          <span class="eyebrow">For Salon Partners</span>
-          <h2>Elevate your business with a premium digital menu.</h2>
-          <p>Salon owners can showcase services, packages, gallery, reviews, and booking CTAs in one beautiful link made for Pakistani beauty businesses.</p>
-          <div class="feature-list">
-            <div class="feature"><span class="feature-icon">01</span> Customized digital service menus</div>
-            <div class="feature"><span class="feature-icon">02</span> WhatsApp-first lead generation</div>
-            <div class="feature"><span class="feature-icon">03</span> Ready for future owner dashboard and analytics</div>
+    <section class="stats-section" id="platform-stats" aria-label="Platform statistics">
+      <div class="shell stats-grid">
+        <article><span class="material-symbols-outlined" aria-hidden="true">storefront</span><strong>500+</strong><span>Salons</span></article>
+        <article><span class="material-symbols-outlined" aria-hidden="true">content_paste</span><strong>15,000+</strong><span>Services</span></article>
+        <article><span class="material-symbols-outlined" aria-hidden="true">location_on</span><strong>50+</strong><span>Cities</span></article>
+        <article><span class="material-symbols-outlined" aria-hidden="true">groups</span><strong>20,000+</strong><span>Monthly Visitors</span></article>
+      </div>
+    </section>
+
+    <section class="section blog-section" id="blog">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Latest beauty tips &amp; trends</span>
+            <h2>Expert advice for your beauty routine</h2>
           </div>
-          <a class="primary-link" id="owner-whatsapp-cta" href="https://wa.me/923007666376?text=Hi! I want to list my salon on SalonMenu.pk." target="_blank" rel="noopener">Create your digital salon menu</a>
+          <a class="view-all nav-soon" href="#" title="Coming soon">View All Articles <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
         </div>
-        <div class="metric-board" aria-label="Platform highlights">
-          <div class="metric-card dark">
-            Premium partner experience
-            <strong>Pro</strong>
-          </div>
-          <div class="metric-card">
-            Interactive menus
-            <strong>24/7</strong>
-          </div>
-          <div class="metric-card rose">
-            WhatsApp-ready leads
-            <strong>Fast</strong>
-          </div>
-          <div class="metric-card">
-            Future dashboard
-            <strong>SaaS</strong>
-          </div>
+        <div class="blog-grid">
+          <article class="blog-card nav-soon"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy"><h3>Best Bridal Makeup Trends 2026</h3><p>May 10, 2026 · 5 min read</p></article>
+          <article class="blog-card nav-soon"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOsZWw4M9g4zeGKQtHVL60Kgp57_b_MONsb_iuBHTesDBhH16Ax2rBAuWxdIXlls4aNZCVm9go0ATjViRwkUaqFVo_yYDoYQFCuecrm3h-QbjPYsAi5pCoDFB0a-x98yHyTIYbVpYpKc667-A-m7oIe5BDyP0hNJ_2-3a0FWL880NpgsceA5GqSjpFz_sZx5Pwy_fdkEywL3fIZ7hffOBqBChb4qaA9T9ELTa-9ukwyqXIy8mdB66qGyncgpnCLhP3mBv91YEE0l5s" alt="Keratin vs Protein Treatment" loading="lazy"><h3>Keratin vs Protein Treatment</h3><p>May 8, 2026 · 4 min read</p></article>
+          <article class="blog-card nav-soon"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy"><h3>Top Hair Colors for Pakistani Skin Tones</h3><p>May 6, 2026 · 4 min read</p></article>
+          <article class="blog-card nav-soon"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy"><h3>Bridal Skin Care Timeline</h3><p>May 4, 2026 · 6 min read</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="shell">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-grid" id="faq-list">
+          <details class="faq-item"><summary>Is SalonMenu.pk free for customers?</summary><p>Yes. Browsing salons and sending WhatsApp booking requests is free for customers.</p></details>
+          <details class="faq-item"><summary>Are salons verified?</summary><p>Demo salons are curated manually. Full verification workflow is coming soon.</p></details>
+          <details class="faq-item"><summary>How do bookings work?</summary><p>Select services, fill the booking form, and send your request to WhatsApp instantly.</p></details>
+          <details class="faq-item"><summary>How do I list my salon on SalonMenu.pk?</summary><p>Tap List Your Salon and message us on WhatsApp to get your digital menu live.</p></details>
+          <details class="faq-item"><summary>Can I compare salon prices?</summary><p>Yes. Compare service menus, packages, and price levels across salons in your city.</p></details>
+          <details class="faq-item"><summary>Can I cancel or reschedule my booking?</summary><p>Contact the salon directly on WhatsApp. In-app rescheduling is coming soon.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="grow-section" id="for-salons">
+      <div class="grow-copy">
+        <h2>Grow your salon<br>business online</h2>
+        <p>Create your digital salon menu, get more leads on WhatsApp and grow your brand.</p>
+        <a class="primary-link" id="owner-whatsapp-cta" href="https://wa.me/923007666376?text=Hi! I want to list my salon on SalonMenu.pk." target="_blank" rel="noopener">List Your Salon Today →</a>
+        <div class="grow-features">
+          <div><span class="material-symbols-outlined" aria-hidden="true">smartphone</span><span>Digital Service Menu</span></div>
+          <div><span class="material-symbols-outlined" aria-hidden="true">chat</span><span>WhatsApp Leads</span></div>
+          <div><span class="material-symbols-outlined" aria-hidden="true">photo_library</span><span>Photo Gallery</span></div>
+          <div><span class="material-symbols-outlined" aria-hidden="true">star</span><span>Customer Reviews</span></div>
+          <div><span class="material-symbols-outlined" aria-hidden="true">monitoring</span><span>Analytics Dashboard</span></div>
+          <div><span class="material-symbols-outlined" aria-hidden="true">calendar_month</span><span>Future Booking System</span></div>
+        </div>
+      </div>
+      <div class="grow-media">
+        <img src="/assets/images/home-hero.jpeg" alt="Salon owner using digital menu" loading="lazy">
+      </div>
+    </section>
+
+    <section class="soon-band" aria-label="Upcoming platform features">
+      <div class="shell">
+        <p class="soon-band-title">Coming Soon — More Powerful Features</p>
+        <div class="soon-band-grid">
+          <div class="soon-band-item"><span class="material-symbols-outlined" aria-hidden="true">calendar_month</span><span>Online Appointment Booking</span></div>
+          <div class="soon-band-item"><span class="material-symbols-outlined" aria-hidden="true">bar_chart</span><span>Owner Dashboard</span></div>
+          <div class="soon-band-item"><span class="material-symbols-outlined" aria-hidden="true">monitoring</span><span>Analytics Reports</span></div>
+          <div class="soon-band-item"><span class="material-symbols-outlined" aria-hidden="true">subscriptions</span><span>Subscription Plans</span></div>
+          <div class="soon-band-item"><span class="material-symbols-outlined" aria-hidden="true">redeem</span><span>Customer Loyalty Programs</span></div>
+          <div class="soon-band-item"><span class="material-symbols-outlined" aria-hidden="true">smartphone</span><span>Mobile App</span></div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="shell footer-inner">
-      <strong>SalonMenu.pk</strong>
-      <span>Premium salon menus and booking experiences for Pakistan.</span>
-      <span class="footer-meta">Anonymous usage analytics when enabled. No ad cookies. See <a href="/docs/ANALYTICS.md">analytics notes</a>.</span>
+  <footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-brand-block">
+        <a class="footer-logo" href="/">
+          <span class="footer-logo-mark" aria-hidden="true">
+            <span class="material-symbols-outlined">favorite</span>
+          </span>
+          <span class="footer-logo-text">SalonMenu.pk</span>
+        </a>
+        <p class="footer-about">Premium salon menus and booking experiences for Pakistan. Elevating beauty standards through technology and transparency.</p>
+        <div class="footer-social-row">
+          <a class="footer-social-btn nav-soon" href="#" title="Facebook coming soon" aria-label="Facebook">fb</a>
+          <a class="footer-social-btn nav-soon" href="#" title="LinkedIn coming soon" aria-label="LinkedIn">in</a>
+          <a class="footer-social-btn nav-soon" href="#" title="YouTube coming soon" aria-label="YouTube">yt</a>
+          <a class="footer-social-btn" href="https://wa.me/923007666376" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+        </div>
+      </div>
+
+      <div class="footer-col-block">
+        <h4>Explore</h4>
+        <a href="#explore">Salons</a>
+        <a href="#categories">Services</a>
+        <a href="#explore">Offers</a>
+        <a class="nav-soon" href="#" title="Coming soon">Blog</a>
+      </div>
+
+      <div class="footer-col-block">
+        <h4>For Salons</h4>
+        <a href="#for-salons">List Your Salon</a>
+        <a href="#for-salons">Features</a>
+        <a class="nav-soon" href="#" title="Coming soon">Pricing (Soon)</a>
+        <a class="nav-soon" href="#" title="Coming soon">Resources</a>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Subscribe to our newsletter</h4>
+        <p>Get beauty tips, trends and offers straight to your inbox.</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <label class="visually-hidden" for="newsletter-email">Your email address</label>
+          <input id="newsletter-email" type="email" placeholder="Your email address" autocomplete="email">
+          <button type="submit" aria-label="Subscribe">
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="shell footer-bottom-inner">
+        <span>© 2026 SalonMenu.pk — All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a class="nav-soon" href="#" title="Coming soon">Privacy Policy</a>
+          <a class="nav-soon" href="#" title="Coming soon">Terms &amp; Conditions</a>
+        </div>
+        <span class="footer-made">Made with <span class="footer-heart" aria-hidden="true">♥</span> in Pakistan</span>
+      </div>
     </div>
   </footer>
 
   <nav class="mobile-bottom" aria-label="Mobile quick navigation">
-    <a href="#explore">Explore</a>
-    <a href="#categories">Services</a>
-    <a href="#for-salons">Owners</a>
+    <a class="mobile-tab active" href="#explore">
+      <span class="material-symbols-outlined" aria-hidden="true">search</span>
+      <span>Explore</span>
+    </a>
+    <a class="mobile-tab nav-soon" href="#" title="Bookings coming soon">
+      <span class="material-symbols-outlined" aria-hidden="true">event_note</span>
+      <span>Bookings</span>
+    </a>
+    <a class="mobile-tab nav-soon" href="#" title="Favorites coming soon">
+      <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+      <span>Favorites</span>
+    </a>
+    <a class="mobile-tab nav-soon" href="#" title="Profile coming soon">
+      <span class="material-symbols-outlined" aria-hidden="true">person</span>
+      <span>Profile</span>
+    </a>
   </nav>
 
   <script src="/assets/js/utils.js" defer></script>

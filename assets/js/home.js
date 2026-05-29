@@ -13,10 +13,6 @@ const navSearchInput = document.getElementById("nav-search");
 const cityFilter = document.getElementById("city-filter");
 const serviceFilter = document.getElementById("service-filter");
 const categoryChips = document.getElementById("category-chips");
-const popularServicesGrid = document.getElementById("popular-services-grid");
-const popularViewport = document.getElementById("popular-viewport");
-const popularPrevBtn = document.getElementById("popular-prev");
-const popularNextBtn = document.getElementById("popular-next");
 const cityGrid = document.getElementById("city-grid");
 const heroTagsContainer = document.getElementById("hero-tags");
 
@@ -67,73 +63,6 @@ const cityBrowseCatalog = [
     city: "Gujranwala",
     image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=640&q=80",
     comingSoon: true
-  }
-];
-
-const popularServices = [
-  {
-    name: "Bridal Makeup",
-    price: 8000,
-    rating: "4.8",
-    salons: "120+ Salons",
-    query: "bridal",
-    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=480&q=80"
-  },
-  {
-    name: "Hair Coloring",
-    price: 3500,
-    rating: "4.6",
-    salons: "90+ Salons",
-    query: "color",
-    image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=480&q=80"
-  },
-  {
-    name: "Keratin Treatment",
-    price: 4500,
-    rating: "4.7",
-    salons: "80+ Salons",
-    query: "keratin",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDmT0m0UA1HZJkDU7B7mSkfd0seof0zRBWlqZTHtgpVdHzECXj_kU3SMT1ibyiw7mPDXJhU-Ti3ySO-XMC5NRuebd2oZKw9Z4LSNe3LfPyVmailCxDRrNvz3gTpsKybEoOUH1rZit6dkNkLAFOUd6gkytGblpuxMv0MtrJm7b8IZbAm6scQJr6scABXETPNj78xkiqhKfL-zwq0D0CnkWHmfIHue8diaESH3wodth1hTUtUEXtE25Itw_GnORQH5_6K95_eecSkowxv"
-  },
-  {
-    name: "Hydra Facial",
-    price: 5000,
-    rating: "4.6",
-    salons: "110+ Salons",
-    query: "facial",
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=480&q=80"
-  },
-  {
-    name: "Nail Art",
-    price: 1500,
-    rating: "4.7",
-    salons: "70+ Salons",
-    query: "nail",
-    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=480&q=80"
-  },
-  {
-    name: "Mehndi Artist",
-    price: 3000,
-    rating: "4.9",
-    salons: "60+ Salons",
-    query: "mehndi",
-    image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=480&q=80"
-  },
-  {
-    name: "Party Makeup",
-    price: 4000,
-    rating: "4.6",
-    salons: "100+ Salons",
-    query: "makeup",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCNrVRTobrqMhAkSwP9X7hitzGIesNRsjv6srQhCAEDV8uzmghEGPhnvrjS4LTUf4sHvtd0rJl_q3yBjXnADh4z4w5HbSEKjun36ZZXBQvMeIuPOLxXOsT9du19NHhKFDkOKGfwnTdaCuMpr2BsJxT20ZhMzdxTy9x4SeFjlcgyZBioLxWiHTtx4XQn5474LJsyz8u0LMgvMoNSlp5FWrs5ybBgP_vsJ_PUJbfbZVr2pnNwL1jA7Nbzsnh0goqdfQFZqHfYs7qEyE5k"
-  },
-  {
-    name: "Hair Extensions",
-    price: 8000,
-    rating: "4.5",
-    salons: "50+ Salons",
-    query: "extension",
-    image: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=480&q=80"
   }
 ];
 
@@ -202,40 +131,6 @@ function renderChip(category, active) {
       ${SalonMenu.escapeHtml(label)}
     </button>
   `;
-}
-
-function renderPopularServices() {
-  if (!popularServicesGrid) return;
-
-  popularServicesGrid.innerHTML = popularServices.map(service => `
-    <button class="popular-card" type="button" data-query="${SalonMenu.escapeAttr(service.query)}" aria-label="Search ${SalonMenu.escapeAttr(service.name)}">
-      <div class="popular-media">
-        <img src="${SalonMenu.escapeAttr(service.image)}" alt="${SalonMenu.escapeHtml(service.name)}" loading="lazy">
-      </div>
-      <h3>${SalonMenu.escapeHtml(service.name)}</h3>
-      <p class="popular-price">From PKR ${Number(service.price).toLocaleString()}</p>
-      <div class="popular-meta">
-        <span class="material-symbols-outlined" aria-hidden="true">star</span>
-        <span>${SalonMenu.escapeHtml(service.rating)}</span>
-        <span>${SalonMenu.escapeHtml(service.salons)}</span>
-      </div>
-    </button>
-  `).join("");
-
-  popularServicesGrid.querySelectorAll(".popular-card").forEach(card => {
-    card.addEventListener("click", () => {
-      state.query = card.dataset.query || "";
-      state.category = "";
-      state.service = "";
-      serviceFilter.value = "";
-      syncSearchInputs(state.query);
-      categoryChips.querySelectorAll(".chip").forEach(item => item.classList.toggle("active", item.dataset.category === ""));
-      renderSalons();
-      document.getElementById("explore").scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-
-  setupPopularCarousel();
 }
 
 function getCitySalonCounts() {
@@ -359,53 +254,6 @@ function renderHeroTags() {
   });
 }
 
-function applySearchQuery(query) {
-  state.query = query || "";
-  state.category = "";
-  state.service = "";
-  serviceFilter.value = "";
-  syncSearchInputs(state.query);
-  heroTagsContainer?.querySelectorAll(".hero-tag").forEach(item => {
-    item.classList.toggle("active", item.dataset.query === state.query);
-  });
-  categoryChips.querySelectorAll(".chip").forEach(chip => chip.classList.toggle("active", chip.dataset.category === ""));
-  renderSalons();
-  document.getElementById("explore").scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-function getPopularScrollStep() {
-  const card = popularServicesGrid?.querySelector(".popular-card");
-  if (!card) return 190;
-  const styles = window.getComputedStyle(popularServicesGrid);
-  const gap = parseFloat(styles.columnGap || styles.gap || "22") || 22;
-  return card.offsetWidth + gap;
-}
-
-function updatePopularCarouselButtons() {
-  if (!popularViewport || !popularPrevBtn || !popularNextBtn) return;
-  const maxScroll = popularViewport.scrollWidth - popularViewport.clientWidth;
-  popularPrevBtn.disabled = popularViewport.scrollLeft <= 4;
-  popularNextBtn.disabled = popularViewport.scrollLeft >= maxScroll - 4;
-}
-
-function setupPopularCarousel() {
-  if (!popularViewport || !popularPrevBtn || !popularNextBtn) return;
-
-  const scrollByStep = direction => {
-    popularViewport.scrollBy({
-      left: direction * getPopularScrollStep(),
-      behavior: "smooth"
-    });
-  };
-
-  popularPrevBtn.addEventListener("click", () => scrollByStep(-1));
-  popularNextBtn.addEventListener("click", () => scrollByStep(1));
-  popularViewport.addEventListener("scroll", updatePopularCarouselButtons, { passive: true });
-  window.addEventListener("resize", updatePopularCarouselButtons);
-
-  updatePopularCarouselButtons();
-}
-
 function bindCategoryChips() {
   categoryChips.querySelectorAll(".chip").forEach(chip => {
     chip.addEventListener("click", () => {
@@ -487,7 +335,6 @@ async function init() {
     state.salons = Object.entries(data).map(([slug, salon]) => ({ slug, salon }));
     renderFilters();
     renderHeroTags();
-    renderPopularServices();
     renderCityBrowse();
     renderSalons();
     SalonMenu.analytics?.trackHomepageView();
@@ -496,12 +343,6 @@ async function init() {
     grid.innerHTML = '<div class="empty">Salon data could not be loaded. Please refresh the page.</div>';
   }
 }
-
-document.querySelectorAll("[data-filter-query]").forEach(button => {
-  button.addEventListener("click", () => {
-    applySearchQuery(button.dataset.filterQuery || "");
-  });
-});
 
 document.getElementById("search-form").addEventListener("submit", event => {
   event.preventDefault();

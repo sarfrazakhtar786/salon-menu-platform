@@ -1,6 +1,6 @@
 # Salon Onboarding Guide
 
-Ye guide current static MVP ke liye hai. Is phase mein salon owner khud dashboard se data update nahi karta; aap managed service ke taur par unka data collect karke `salons/data.json` mein add karte hain.
+Ye guide current MVP ke liye hai. **Live admin form:** [`/admin/onboard.html`](../admin/onboard.html) (login required — see [`docs/ADMIN.md`](../docs/ADMIN.md)). Neeche wala flow `salons/data.json` + seed SQL ke liye hai.
 
 ## 1. Client Se Data Collect Karein
 

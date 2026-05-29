@@ -38,7 +38,13 @@ node scripts/generate-supabase-seed.mjs
 
 Then re-run `seed-demo-salons.sql` in Supabase.
 
-## 4. What writes to the database
+## 4. Local onboarding form → Supabase
+
+**Production (admin-only):** [`/admin/login.html`](../admin/login.html) → onboard form. Setup: **[ADMIN.md](./ADMIN.md)**.
+
+**Local (no auth):** [`local-tools/salon-onboarding-form.html`](../local-tools/salon-onboarding-form.html) — run via local server.
+
+## 5. What writes to the database
 
 | Action | Table |
 |--------|--------|
@@ -46,13 +52,13 @@ Then re-run `seed-demo-salons.sql` in Supabase.
 | Booking form submit | `booking_requests` |
 | Newsletter (when enabled) | `platform_leads` |
 
-## 5. Security notes
+## 6. Security notes
 
 - **anon key** in frontend is normal for Supabase; RLS limits what it can do  
 - Never put **service_role** key in the browser  
 - Keep **database password** in a password manager (not in git)
 
-## 6. Git + deploy
+## 7. Git + deploy
 
 - `supabase-config.js` is in [`.gitignore`](../.gitignore) — never commit it  
 - Vercel builds it from env: [VERCEL.md](./VERCEL.md)

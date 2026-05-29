@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Login — SalonMenu.pk</title>
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body class="login-page">
+  <div class="login-card panel">
+    <h1>SalonMenu Admin</h1>
+    <p>Platform team only. Salon owners do not have accounts in this phase.</p>
+    <form id="loginForm">
+      <label>Email
+        <input id="email" type="email" autocomplete="username" required>
+      </label>
+      <label>Password
+        <input id="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button type="submit">Sign in</button>
+    </form>
+    <div class="status" id="status">Admin access only.</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/js/supabase-config.js"></script>
+  <script src="/assets/js/supabase-auth.js"></script>
+  <script>
+    const statusEl = document.getElementById("status");
+    const params = new URLSearchParams(window.location.search);
+    const nextUrl = params.get("next") || "/admin/onboard.html";
+
+    function setStatus(message, type = "") {
+      statusEl.className = `status ${type}`;
+      statusEl.textContent = message;
+    }
+
+    (async () => {
+      try {
+        const session = await SalonMenu.auth.getSession();
+        if (session) {
+          const profile = await SalonMenu.auth.getProfile();
+          if (SalonMenu.auth.isAdminProfile(profile)) {
+            window.location.replace(nextUrl);
+          }
+        }
+      } catch (error) {
+        console.warn(error);
+      }
+    })();
+
+    document.getElementById("loginForm").addEventListener("submit", async event => {
+      event.preventDefault();
+      setStatus("Signing in…", "");
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      try {
+        await SalonMenu.auth.signIn(email, password);
+        const profile = await SalonMenu.auth.getProfile();
+        if (!profile) {
+          await SalonMenu.auth.signOut();
+          setStatus("No profile found. Run supabase/admin-setup.sql for your user.", "bad");
+          return;
+        }
+        if (!SalonMenu.auth.isAdminProfile(profile)) {
+          await SalonMenu.auth.signOut();
+          setStatus("This account is not an admin.", "bad");
+          return;
+        }
+        window.location.replace(nextUrl);
+      } catch (error) {
+        setStatus(error.message || "Sign in failed.", "bad");
+      }
+    });
+  </script>
+</body>
+</html>

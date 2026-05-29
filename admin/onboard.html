@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Salon Onboarding — SalonMenu Admin</title>
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+  <div id="authGate" class="auth-gate">
+    <div class="panel">
+      <h2>Checking admin access…</h2>
+      <p id="authMessage">Please wait.</p>
+    </div>
+  </div>
+
+  <div id="app" hidden>
+    <header>
+      <div class="shell top">
+        <div>
+          <strong>SalonMenu Admin</strong>
+          <div class="admin-meta" id="adminMeta"></div>
+        </div>
+        <div class="actions">
+          <span id="loadedStatus">Loading salons…</span>
+          <button type="button" class="light" id="signOutBtn">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="intro">
+        <div>
+          <h1>Salon Onboarding</h1>
+          <p>Platform admin only — not for salon owners. Save leads, download JSON, publish via seed SQL after review.</p>
+        </div>
+        <div class="actions">
+          <button type="button" onclick="AdminOnboard.loadExistingData()">Reload data.json</button>
+          <button type="button" class="secondary" onclick="AdminOnboard.fillDemo()">Fill Demo Data</button>
+        </div>
+      </section>
+
+      <div class="grid">
+        <form id="salonForm" onsubmit="return false">
+          <section class="panel">
+            <h2>Basic Profile</h2>
+            <div class="form-grid">
+              <label>Salon Name<input id="name" required placeholder="Rose Beauty Parlour"></label>
+              <label>Slug<input id="slug" required placeholder="rose-beauty-parlour"><span class="hint">Live URL: /salons/slug</span></label>
+              <label>Tagline<input id="tagline" placeholder="Where every look blooms"></label>
+              <label>City<input id="city" required placeholder="Sahiwal"></label>
+              <label>Area<input id="area" required placeholder="86/6R"></label>
+              <label>Address<input id="address" required placeholder="86/6R, Sahiwal"></label>
+              <label>Phone<input id="phone" required placeholder="0300-1234567"></label>
+              <label>WhatsApp<input id="whatsapp" required placeholder="923001234567"><span class="hint">Country code, no +</span></label>
+              <label>Timings<input id="timings" required placeholder="Mon-Sat: 10am - 9pm"></label>
+              <label>Weekly Off<input id="weekly_off" placeholder="Sunday"></label>
+              <label>Brand Color<input id="color" type="color" value="#845051"></label>
+              <label>Price Level<select id="price_level"><option>$$</option><option>$</option><option>$$$</option><option>$$$$</option></select></label>
+              <label class="full">Hero Image URL<input id="hero_image" required placeholder="/assets/images/salons/client-hero.jpeg"></label>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>Social Links & Tags</h2>
+            <div class="form-grid">
+              <label>Instagram<input id="instagram" placeholder="https://instagram.com/example"></label>
+              <label>Facebook<input id="facebook" placeholder="https://facebook.com/example"></label>
+              <label>TikTok<input id="tiktok" placeholder="https://tiktok.com/@example"></label>
+              <label>Business Tags<input id="business_tags" placeholder="Ladies Only, Bridal Expert, Parking"></label>
+              <label>Clients<input id="clients" value="200+"></label>
+              <label>Experience<input id="experience" value="4yr"></label>
+              <label>Rating<input id="rating" value="4.8"></label>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="item-head"><h2>Gallery Images</h2><span class="count" id="galleryCount">0</span></div>
+            <p>12 image URLs recommended. One URL per line.</p>
+            <label class="full">Gallery URLs<textarea id="gallery" placeholder="https://example.com/image-1.jpg"></textarea></label>
+          </section>
+
+          <section class="panel">
+            <div class="item-head"><h2>Services</h2><span class="count" id="serviceCount">0</span></div>
+            <div class="actions" style="margin-bottom:14px">
+              <button type="button" class="secondary" onclick="AdminOnboard.addService()">Add Service</button>
+              <button type="button" class="light" onclick="AdminOnboard.addDefaultServices()">Add 12 Default Services</button>
+            </div>
+            <div id="services"></div>
+          </section>
+
+          <section class="panel">
+            <div class="item-head"><h2>Packages</h2><span class="count" id="packageCount">0</span></div>
+            <div class="actions" style="margin-bottom:14px">
+              <button type="button" class="secondary" onclick="AdminOnboard.addPackage()">Add Package</button>
+              <button type="button" class="light" onclick="AdminOnboard.addDefaultPackages()">Add 4 Default Packages</button>
+            </div>
+            <div id="packages"></div>
+          </section>
+
+          <section class="panel">
+            <div class="item-head"><h2>Reviews</h2><span class="count" id="reviewCount">0</span></div>
+            <div class="actions" style="margin-bottom:14px">
+              <button type="button" class="secondary" onclick="AdminOnboard.addReview()">Add Review</button>
+              <button type="button" class="light" onclick="AdminOnboard.addDefaultReviews()">Add 9 Default Reviews</button>
+            </div>
+            <div id="reviews"></div>
+          </section>
+        </form>
+
+        <aside class="sticky">
+          <section class="panel">
+            <h2>Generate & Save</h2>
+            <div class="actions">
+              <button type="button" onclick="AdminOnboard.generate()">Generate JSON</button>
+              <button type="button" class="secondary" onclick="AdminOnboard.saveToSupabase()">Save to Supabase</button>
+              <button type="button" class="secondary" onclick="AdminOnboard.downloadJson()">Download data.json</button>
+              <button type="button" class="light" onclick="AdminOnboard.copyOutput()">Copy JSON</button>
+            </div>
+            <p class="hint" style="margin:12px 0 0">Saves to <code>platform_leads</code>. Publish: merge JSON → <code>npm run db:seed-sql</code> → SQL Editor.</p>
+            <div class="status" id="status">Loading…</div>
+          </section>
+          <section class="panel">
+            <h2>Route / URL</h2>
+            <pre id="routeOutput">Generate data first.</pre>
+            <button type="button" class="light" onclick="AdminOnboard.copyRoute()">Copy Route HTML</button>
+          </section>
+          <section class="panel">
+            <h2>Updated data.json Preview</h2>
+            <pre id="output">Generate data first.</pre>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="/assets/js/supabase-config.js"></script>
+  <script src="/assets/js/supabase-auth.js"></script>
+  <script src="/assets/js/supabase-data.js"></script>
+  <script src="/assets/js/admin-onboard.js"></script>
+  <script>
+    document.getElementById("signOutBtn").addEventListener("click", async () => {
+      await SalonMenu.auth.signOut();
+      window.location.replace("/admin/login.html");
+    });
+
+    (async () => {
+      const gate = document.getElementById("authGate");
+      const app = document.getElementById("app");
+      const authMessage = document.getElementById("authMessage");
+
+      const result = await SalonMenu.auth.requireAdmin({ loginPath: "/admin/login.html" });
+      if (!result.ok) {
+        if (result.reason === "redirect") return;
+        authMessage.textContent = result.message || "Access denied.";
+        return;
+      }
+
+      gate.hidden = true;
+      app.hidden = false;
+      document.getElementById("adminMeta").textContent =
+        result.profile.full_name || result.session.user.email || "Admin";
+      AdminOnboard.init({ dataJsonPath: "/salons/data.json", leadSource: "admin_onboard_form" });
+    })();
+  </script>
+</body>
+</html>

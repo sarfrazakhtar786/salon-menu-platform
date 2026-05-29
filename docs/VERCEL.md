@@ -64,6 +64,8 @@ npm run build:config
 
 | Symptom | Fix |
 |--------|-----|
+| Build failed: **No Output Directory named `public`** | This repo is static at **root**, not `public/`. `vercel.json` sets `"outputDirectory": "."`. In Vercel → **Settings → Build** → clear **Output Directory** or set to `.` (not `public`). |
+| Live `/admin/*` or Supabase JS **404** | Deployment failed or is old — **Redeploy** latest `main` after build succeeds. |
 | Live site uses `data.json` only | Redeploy after adding env vars; confirm build log shows Supabase enabled |
 | `supabase-config.js` 404 locally | Copy example file or run `npm run build:config` |
 | CORS / 401 from Supabase | Wrong key (use **anon public**); check RLS policies in `mvp-schema.sql` |

@@ -151,18 +151,26 @@
       const app = document.getElementById("app");
       const authMessage = document.getElementById("authMessage");
 
-      const result = await SalonMenu.auth.requireAdmin({ loginPath: "/admin/login.html" });
-      if (!result.ok) {
-        if (result.reason === "redirect") return;
-        authMessage.textContent = result.message || "Access denied.";
-        return;
-      }
+      try {
+        const result = await SalonMenu.auth.requireAdmin({ loginPath: "/admin/login.html" });
+        if (!result.ok) {
+          if (result.reason === "redirect") return;
+          gate.querySelector("h2").textContent = "Admin access blocked";
+          authMessage.textContent = result.message || "Access denied.";
+          authMessage.innerHTML += ' <a href="/admin/login.html">Back to login</a>';
+          return;
+        }
 
-      gate.hidden = true;
-      app.hidden = false;
-      document.getElementById("adminMeta").textContent =
-        result.profile.full_name || result.session.user.email || "Admin";
-      AdminOnboard.init({ dataJsonPath: "/salons/data.json", leadSource: "admin_onboard_form" });
+        gate.hidden = true;
+        app.hidden = false;
+        document.getElementById("adminMeta").textContent =
+          result.profile.full_name || result.session.user.email || "Admin";
+        AdminOnboard.init({ leadSource: "admin_onboard_form" });
+      } catch (error) {
+        console.error(error);
+        gate.querySelector("h2").textContent = "Admin check failed";
+        authMessage.textContent = error.message || "Unknown error.";
+      }
     })();
   </script>
 </body>

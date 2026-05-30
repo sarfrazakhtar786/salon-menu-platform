@@ -399,8 +399,18 @@ window.AdminOnboard = (function () {
     $("gallery")?.addEventListener("input", updateCounts);
   }
 
+  function defaultDataJsonPath() {
+    if (options.dataJsonPath && options.dataJsonPath !== "/salons/data.json") {
+      return options.dataJsonPath;
+    }
+    return window.location.pathname.includes("/admin/")
+      ? "../salons/data.json"
+      : "/salons/data.json";
+  }
+
   function init(opts = {}) {
     options = { ...options, ...opts };
+    options.dataJsonPath = defaultDataJsonPath();
     bindForm();
     loadExistingData();
     addDefaultServices();

@@ -18,10 +18,19 @@ SalonMenu.auth = (function () {
       auth: {
         persistSession: true,
         autoRefreshToken: true,
-        detectSessionInUrl: true
+        detectSessionInUrl: false
       }
     });
     return client;
+  }
+
+  function withTimeout(promise, ms, message) {
+    return Promise.race([
+      promise,
+      new Promise((_, reject) => {
+        setTimeout(() => reject(new Error(message || "Request timed out")), ms);
+      })
+    ]);
   }
 
   async function getSession() {
@@ -32,14 +41,14 @@ SalonMenu.auth = (function () {
     return data.session;
   }
 
-  async function getProfile() {
+  async function getProfile(session) {
     const sb = getClient();
-    const session = await getSession();
-    if (!sb || !session) return null;
+    const activeSession = session || (await getSession());
+    if (!sb || !activeSession) return null;
     const { data, error } = await sb
       .from("profiles")
       .select("id, role, full_name")
-      .eq("id", session.user.id)
+      .eq("id", activeSession.user.id)
       .maybeSingle();
     if (error) throw error;
     return data;
@@ -73,32 +82,56 @@ SalonMenu.auth = (function () {
     if (!sb) {
       return { ok: false, reason: "config", message: "Supabase is not configured on this site." };
     }
-
-    const session = await getSession();
-    if (!session) {
-      const next = opts.next || window.location.pathname + window.location.search;
-      window.location.replace(`${loginPath}?next=${encodeURIComponent(next)}`);
-      return { ok: false, reason: "redirect" };
-    }
-
-    const profile = await getProfile();
-    if (!profile) {
+    if (typeof supabase === "undefined") {
       return {
         ok: false,
-        reason: "no_profile",
-        message: "No profile row found. Run supabase/admin-setup.sql for your user."
+        reason: "config",
+        message: "Supabase JS failed to load. Check internet or disable ad block, then refresh."
       };
     }
 
-    if (!isAdminProfile(profile)) {
+    try {
+      const session = await withTimeout(
+        getSession(),
+        12000,
+        "Session check timed out. Check internet connection and refresh."
+      );
+      if (!session) {
+        const next = opts.next || window.location.pathname + window.location.search;
+        window.location.replace(`${loginPath}?next=${encodeURIComponent(next)}`);
+        return { ok: false, reason: "redirect" };
+      }
+
+      const profile = await withTimeout(
+        getProfile(session),
+        12000,
+        "Could not load admin profile. Run supabase/admin-setup.sql and admin-auth-policies.sql."
+      );
+      if (!profile) {
+        return {
+          ok: false,
+          reason: "no_profile",
+          message: "No profile row found. Run supabase/admin-setup.sql for your user."
+        };
+      }
+
+      if (!isAdminProfile(profile)) {
+        return {
+          ok: false,
+          reason: "not_admin",
+          message: "This account is not an admin. Ask the platform owner to set profiles.role = admin."
+        };
+      }
+
+      return { ok: true, session, profile };
+    } catch (error) {
+      console.error("[SalonMenu.auth]", error);
       return {
         ok: false,
-        reason: "not_admin",
-        message: "This account is not an admin. Ask the platform owner to set profiles.role = admin."
+        reason: "error",
+        message: error.message || "Admin check failed."
       };
     }
-
-    return { ok: true, session, profile };
   }
 
   return {

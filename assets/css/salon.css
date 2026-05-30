@@ -716,8 +716,43 @@
     }
 
     @media (max-width: 720px) {
-      body { padding-bottom: 148px; }
-      .shell { width: min(100% - 32px, 1180px); }
+      html {
+        overflow-x: clip;
+      }
+
+      body {
+        padding-bottom: calc(158px + env(safe-area-inset-bottom, 0px));
+        overflow-x: clip;
+      }
+
+      #app {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+
+      .shell {
+        width: calc(100% - 32px);
+        max-width: calc(100% - 32px);
+        margin-inline: auto;
+      }
+
+      .main-grid {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 52px 0;
+      }
+
+      .main-grid > div,
+      .section {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .tabs {
+        max-width: 100%;
+        margin-inline: 0;
+      }
       .brand {
         width: 148px;
         height: 36px;
@@ -728,7 +763,6 @@
         padding-bottom: 48px;
       }
       .hero-actions .btn { flex: 1 1 100%; }
-      .main-grid { padding: 52px 0; }
       .section { margin-bottom: 54px; }
       .section-head {
         align-items: start;
@@ -741,31 +775,42 @@
       .gallery {
         grid-template-columns: 1fr;
         gap: 12px;
+        width: 100%;
       }
       .gallery img {
+        display: block;
         width: 100%;
+        max-width: 100%;
         min-width: 0;
+        height: auto;
         aspect-ratio: 4 / 3;
+        object-fit: cover;
       }
       .floating-checkout {
         display: flex;
         align-items: center;
         justify-content: center;
-        left: 14px;
-        right: 14px;
-        bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+        left: 16px;
+        right: 16px;
+        bottom: calc(82px + env(safe-area-inset-bottom, 0px));
         width: auto;
+        max-width: calc(100% - 32px);
         min-height: 52px;
         padding: 0 18px;
         border-radius: 16px;
         font-size: 0.92rem;
         z-index: 31;
+        box-sizing: border-box;
       }
       .bottom-nav {
         display: grid;
-        left: 14px;
-        right: 14px;
-        bottom: max(14px, env(safe-area-inset-bottom, 0px));
+        left: 16px;
+        right: 16px;
+        bottom: 0;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+      }
+      footer {
+        padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px));
       }
       .modal { padding: 0; }
       .sheet {

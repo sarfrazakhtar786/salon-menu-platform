@@ -739,12 +739,13 @@
       }
       .price { text-align: left; }
       .gallery {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
       .gallery img {
         width: 100%;
         min-width: 0;
+        aspect-ratio: 4 / 3;
       }
       .floating-checkout {
         display: flex;

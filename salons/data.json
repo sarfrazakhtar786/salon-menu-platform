@@ -682,5 +682,457 @@
         "verified": false
       }
     ]
+  },
+  "toch-of-glass-salon": {
+    "name": "Toch of Glass Salon",
+    "tagline": "Professional Bridal Makeup Expert",
+    "city": "Sahiwal",
+    "area": "Madhali Road Sahiwal",
+    "address": "Near Razzaq Royal Main Gate",
+    "phone": "03036242004",
+    "whatsapp": "923036242004",
+    "timings": "Mon-Sat 11AM to 8PM",
+    "weekly_off": "Friday Off",
+    "color": "#d20241",
+    "price_level": "$$",
+    "hero_image": "/assets/images/salons/areeba-hero.jpeg",
+    "gallery": [
+      "/assets/images/salons/areeba-g1.jpeg",
+      "/assets/images/salons/areeba-g2.jpeg",
+      "/assets/images/salons/areeba-g3.jpeg",
+      "/assets/images/salons/areeba-g4.jpeg",
+      "/assets/images/salons/areeba-g1.jpeg",
+      "/assets/images/salons/areeba-g2.jpeg",
+      "/assets/images/salons/areeba-g3.jpeg",
+      "/assets/images/salons/areeba-g4.jpeg",
+      "/assets/images/salons/areeba-g1.jpeg",
+      "/assets/images/salons/areeba-g2.jpeg",
+      "/assets/images/salons/areeba-g3.jpeg",
+      "/assets/images/salons/areeba-g4.jpeg"
+    ],
+    "socials": {
+      "instagram": "https://www.instagram.com/nabila_salon/",
+      "facebook": "https://www.facebook.com/nabila_salon/",
+      "tiktok": "https://www.tiktok.com/nabila_salon/"
+    },
+    "business_tags": [
+      "Ladies Only",
+      "Bridal Expert"
+    ],
+    "stats": {
+      "clients": "200+",
+      "experience": "4yr",
+      "rating": "4.8"
+    },
+    "packages": [
+      {
+        "name": "Bridal Glow Package",
+        "includes": [
+          "Gold Facial",
+          "Hair Styling",
+          "Bridal Makeup"
+        ],
+        "price": 18000,
+        "original_price": 22000,
+        "tag": "Best Value"
+      },
+      {
+        "name": "Party Ready Package",
+        "includes": [
+          "Party Makeup",
+          "Blow Dry",
+          "Gel Nails"
+        ],
+        "price": 6500,
+        "original_price": 8000,
+        "tag": "Popular"
+      },
+      {
+        "name": "Hair Revival Package",
+        "includes": [
+          "Hair Cut",
+          "Protein Treatment",
+          "Blow Dry"
+        ],
+        "price": 7500,
+        "original_price": 9500,
+        "tag": "Hair Care"
+      },
+      {
+        "name": "Nails & Glow Package",
+        "includes": [
+          "Manicure",
+          "Pedicure",
+          "Basic Facial"
+        ],
+        "price": 3500,
+        "original_price": 4500,
+        "tag": "Self Care"
+      }
+    ],
+    "services": {
+      "Facial": [
+        {
+          "name": "Basic Facial",
+          "time": "45 min",
+          "price": 1500,
+          "desc": "Fresh cleansing facial for everyday glow."
+        },
+        {
+          "name": "Gold Facial",
+          "time": "60 min",
+          "price": 3000,
+          "desc": "Radiance facial for events and special days."
+        },
+        {
+          "name": "Hydra Facial",
+          "time": "60 min",
+          "price": 4500,
+          "desc": "Hydrating facial for clean and plump skin."
+        }
+      ],
+      "Hair": [
+        {
+          "name": "Hair Cut",
+          "time": "30 min",
+          "price": 1000,
+          "desc": "Modern haircut with shape and styling."
+        },
+        {
+          "name": "Hair Color",
+          "time": "120 min",
+          "price": 5500,
+          "desc": "Full hair color with consultation."
+        },
+        {
+          "name": "Protein Treatment",
+          "time": "90 min",
+          "price": 6500,
+          "desc": "Repair treatment for dry or damaged hair."
+        }
+      ],
+      "Makeup": [
+        {
+          "name": "Party Makeup",
+          "time": "60 min",
+          "price": 4500,
+          "desc": "Event-ready makeup with long-lasting finish."
+        },
+        {
+          "name": "Bridal Makeup",
+          "time": "180 min",
+          "price": 22000,
+          "desc": "Complete premium bridal makeup."
+        },
+        {
+          "name": "Engagement Makeup",
+          "time": "120 min",
+          "price": 14000,
+          "desc": "Soft glam look for engagement events."
+        }
+      ],
+      "Nails": [
+        {
+          "name": "Basic Manicure",
+          "time": "30 min",
+          "price": 1000,
+          "desc": "Classic nail cleanup and polish."
+        },
+        {
+          "name": "Gel Nails",
+          "time": "60 min",
+          "price": 2500,
+          "desc": "Long-lasting gel nail finish."
+        },
+        {
+          "name": "Luxury Pedicure",
+          "time": "60 min",
+          "price": 2200,
+          "desc": "Pedicure with scrub, massage, and polish."
+        }
+      ]
+    },
+    "reviews": [
+      {
+        "author": "Ayesha K.",
+        "text": "Service bohat professional thi.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Sana M.",
+        "text": "Makeup long lasting aur natural tha.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Hira B.",
+        "text": "Salon clean aur staff friendly tha.",
+        "stars": 4,
+        "verified": false
+      },
+      {
+        "author": "Fatima A.",
+        "text": "Bridal trial detailed tha.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Maha F.",
+        "text": "Hair color result excellent aya.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Nida W.",
+        "text": "Nails bohat neat thay.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Rabia R.",
+        "text": "Good value for money.",
+        "stars": 4,
+        "verified": false
+      },
+      {
+        "author": "Komal S.",
+        "text": "Soft glam bilkul reference jaisa tha.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Laiba T.",
+        "text": "Facial relaxing aur fresh tha.",
+        "stars": 4,
+        "verified": false
+      }
+    ]
+  },
+  "areeba-beauty-salon": {
+    "name": "Areeba Beauty Salon",
+    "tagline": "Where Every Looks Bloom",
+    "city": "Sahiwal",
+    "area": "Madhali Road",
+    "address": "Near Razzaq Royal Main Gate",
+    "phone": "03143007177",
+    "whatsapp": "923215471256",
+    "timings": "Mon-Sat 11AM to 8PM",
+    "weekly_off": "Friday",
+    "color": "#cf0561",
+    "price_level": "$$",
+    "hero_image": "/assets/images/salons/areeba-hero.jpeg",
+    "gallery": [
+      "/assets/images/salons/areeba-g1.jpeg",
+      "/assets/images/salons/areeba-g2.jpeg",
+      "/assets/images/salons/areeba-g3.jpeg",
+      "/assets/images/salons/areeba-g4.jpeg",
+      "/assets/images/salons/areeba-g1.jpeg",
+      "/assets/images/salons/areeba-g2.jpeg",
+      "/assets/images/salons/areeba-g3.jpeg",
+      "/assets/images/salons/areeba-g4.jpeg",
+      "/assets/images/salons/areeba-g1.jpeg",
+      "/assets/images/salons/areeba-g2.jpeg",
+      "/assets/images/salons/areeba-g3.jpeg",
+      "/assets/images/salons/areeba-g4.jpeg"
+    ],
+    "socials": {
+      "instagram": "https://www.instagram.com/nabila_salon/",
+      "facebook": "https://www.facebook.com/nabila_salon/",
+      "tiktok": "https://www.tiktok.com/nabila_salon/"
+    },
+    "business_tags": [
+      "Ladies Only",
+      "Bridal Expert"
+    ],
+    "stats": {
+      "clients": "200+",
+      "experience": "4yr",
+      "rating": "4.8"
+    },
+    "packages": [
+      {
+        "name": "Bridal Glow Package",
+        "includes": [
+          "Gold Facial",
+          "Hair Styling",
+          "Bridal Makeup"
+        ],
+        "price": 18000,
+        "original_price": 22000,
+        "tag": "Best Value"
+      },
+      {
+        "name": "Party Ready Package",
+        "includes": [
+          "Party Makeup",
+          "Blow Dry",
+          "Gel Nails"
+        ],
+        "price": 6500,
+        "original_price": 8000,
+        "tag": "Popular"
+      },
+      {
+        "name": "Hair Revival Package",
+        "includes": [
+          "Hair Cut",
+          "Protein Treatment",
+          "Blow Dry"
+        ],
+        "price": 7500,
+        "original_price": 9500,
+        "tag": "Hair Care"
+      },
+      {
+        "name": "Nails & Glow Package",
+        "includes": [
+          "Manicure",
+          "Pedicure",
+          "Basic Facial"
+        ],
+        "price": 3500,
+        "original_price": 4500,
+        "tag": "Self Care"
+      }
+    ],
+    "services": {
+      "Facial": [
+        {
+          "name": "Basic Facial",
+          "time": "45 min",
+          "price": 1500,
+          "desc": "Fresh cleansing facial for everyday glow."
+        },
+        {
+          "name": "Gold Facial",
+          "time": "60 min",
+          "price": 3000,
+          "desc": "Radiance facial for events and special days."
+        },
+        {
+          "name": "Hydra Facial",
+          "time": "60 min",
+          "price": 4500,
+          "desc": "Hydrating facial for clean and plump skin."
+        }
+      ],
+      "Hair": [
+        {
+          "name": "Hair Cut",
+          "time": "30 min",
+          "price": 1000,
+          "desc": "Modern haircut with shape and styling."
+        },
+        {
+          "name": "Hair Color",
+          "time": "120 min",
+          "price": 5500,
+          "desc": "Full hair color with consultation."
+        },
+        {
+          "name": "Protein Treatment",
+          "time": "90 min",
+          "price": 6500,
+          "desc": "Repair treatment for dry or damaged hair."
+        }
+      ],
+      "Makeup": [
+        {
+          "name": "Party Makeup",
+          "time": "60 min",
+          "price": 4500,
+          "desc": "Event-ready makeup with long-lasting finish."
+        },
+        {
+          "name": "Bridal Makeup",
+          "time": "180 min",
+          "price": 22000,
+          "desc": "Complete premium bridal makeup."
+        },
+        {
+          "name": "Engagement Makeup",
+          "time": "120 min",
+          "price": 14000,
+          "desc": "Soft glam look for engagement events."
+        }
+      ],
+      "Nails": [
+        {
+          "name": "Basic Manicure",
+          "time": "30 min",
+          "price": 1000,
+          "desc": "Classic nail cleanup and polish."
+        },
+        {
+          "name": "Gel Nails",
+          "time": "60 min",
+          "price": 2500,
+          "desc": "Long-lasting gel nail finish."
+        },
+        {
+          "name": "Luxury Pedicure",
+          "time": "60 min",
+          "price": 2200,
+          "desc": "Pedicure with scrub, massage, and polish."
+        }
+      ]
+    },
+    "reviews": [
+      {
+        "author": "Ayesha K.",
+        "text": "Service bohat professional thi.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Sana M.",
+        "text": "Makeup long lasting aur natural tha.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Hira B.",
+        "text": "Salon clean aur staff friendly tha.",
+        "stars": 4,
+        "verified": false
+      },
+      {
+        "author": "Fatima A.",
+        "text": "Bridal trial detailed tha.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Maha F.",
+        "text": "Hair color result excellent aya.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Nida W.",
+        "text": "Nails bohat neat thay.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Rabia R.",
+        "text": "Good value for money.",
+        "stars": 4,
+        "verified": false
+      },
+      {
+        "author": "Komal S.",
+        "text": "Soft glam bilkul reference jaisa tha.",
+        "stars": 5,
+        "verified": true
+      },
+      {
+        "author": "Laiba T.",
+        "text": "Facial relaxing aur fresh tha.",
+        "stars": 4,
+        "verified": false
+      }
+    ]
   }
 }

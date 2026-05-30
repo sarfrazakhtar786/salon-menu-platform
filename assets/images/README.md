@@ -9,6 +9,8 @@ Replace placeholder hero JPEGs with real salon photography when onboarding clien
 | `salons/noor-hero.jpeg` | Noor Beauty Salon |
 | `salons/glamour-hero.jpeg` | Glamour Studio |
 | `salons/rose-beauty-parlour-hero.jpeg` | Rose Beauty Parlour |
+| `salons/areeba-hero.jpeg` | Touch of Glass / Areeba Beauty Salon |
+| `salons/areeba-g1.jpeg` … `areeba-g4.jpeg` | Gallery for above salons |
 
 Recommended: landscape heroes ~1200×800, 150–300 KB JPEG or WebP.
 

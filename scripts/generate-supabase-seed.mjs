@@ -34,14 +34,17 @@ Object.values(data).forEach(salon => {
   (salon.business_tags || []).forEach(tag => extraTags.add(tag));
 });
 
+const slugs = Object.keys(data);
+const slugListSql = slugs.map(s => sqlStr(s)).join(", ");
+
 let sql = `-- =============================================================================
--- SalonMenu.pk — Demo salon seed (generated from salons/data.json)
+-- SalonMenu.pk — Salon seed (generated from salons/data.json)
 -- Run in Supabase SQL Editor AFTER mvp-schema.sql
--- Safe to re-run: deletes demo slugs then re-inserts
+-- Safe to re-run: deletes all JSON slugs then re-inserts
 -- =============================================================================
 
 delete from public.salons
-where slug in ('noor', 'glamour', 'rose-beauty-parlour');
+where slug in (${slugListSql});
 
 `;
 

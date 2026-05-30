@@ -1,11 +1,11 @@
 -- =============================================================================
--- SalonMenu.pk — Demo salon seed (generated from salons/data.json)
+-- SalonMenu.pk — Salon seed (generated from salons/data.json)
 -- Run in Supabase SQL Editor AFTER mvp-schema.sql
--- Safe to re-run: deletes demo slugs then re-inserts
+-- Safe to re-run: deletes all JSON slugs then re-inserts
 -- =============================================================================
 
 delete from public.salons
-where slug in ('noor', 'glamour', 'rose-beauty-parlour');
+where slug in ('noor', 'glamour', 'rose-beauty-parlour', 'toch-of-glass-salon', 'areeba-beauty-salon');
 
 insert into public.business_tags (name, slug) values ('Ladies Only', 'ladies-only') on conflict (slug) do nothing;
 insert into public.business_tags (name, slug) values ('Bridal Expert', 'bridal-expert') on conflict (slug) do nothing;
@@ -469,6 +469,304 @@ insert into public.salon_reviews (salon_id, author_name, body, stars, is_verifie
 values ((select id from public.salons where slug = 'rose-beauty-parlour'), 'Mina P., Main Bazaar', 'Party makeup all night fresh raha.', 5, true);
 insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
 values ((select id from public.salons where slug = 'rose-beauty-parlour'), 'Rabia N., Ghalla Mandi', 'Good value and professional team.', 4, false);
+
+-- Toch of Glass Salon
+insert into public.salons (
+  slug, status, verification_status, name, tagline,
+  city_id, city_name, area, address, phone, whatsapp,
+  timings, weekly_off, brand_color, price_level, hero_image_url,
+  stats_clients_label, stats_experience_label, stats_rating,
+  is_featured, published_at
+) values (
+  'toch-of-glass-salon', 'published', 'verified',
+  'Toch of Glass Salon', 'Professional Bridal Makeup Expert',
+  (select id from public.cities where slug = 'sahiwal'),
+  'Sahiwal', 'Madhali Road Sahiwal', 'Near Razzaq Royal Main Gate',
+  '03036242004', '923036242004',
+  'Mon-Sat 11AM to 8PM', 'Friday Off',
+  '#d20241', '$$',
+  '/assets/images/salons/areeba-hero.jpeg',
+  '200+', '4yr',
+  4.8, true, now()
+);
+
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g1.jpeg', 0);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g2.jpeg', 1);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g3.jpeg', 2);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g4.jpeg', 3);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g1.jpeg', 4);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g2.jpeg', 5);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g3.jpeg', 6);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g4.jpeg', 7);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g1.jpeg', 8);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g2.jpeg', 9);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g3.jpeg', 10);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'toch-of-glass-salon'), '/assets/images/salons/areeba-g4.jpeg', 11);
+insert into public.salon_tags (salon_id, tag_id)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), bt.id from public.business_tags bt where bt.slug = 'ladies-only';
+insert into public.salon_tags (salon_id, tag_id)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), bt.id from public.business_tags bt where bt.slug = 'bridal-expert';
+insert into public.salon_social_links (salon_id, platform, url) values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'instagram'::public.social_platform, 'https://www.instagram.com/nabila_salon/')
+on conflict (salon_id, platform) do update set url = excluded.url;
+insert into public.salon_social_links (salon_id, platform, url) values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'facebook'::public.social_platform, 'https://www.facebook.com/nabila_salon/')
+on conflict (salon_id, platform) do update set url = excluded.url;
+insert into public.salon_social_links (salon_id, platform, url) values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'tiktok'::public.social_platform, 'https://www.tiktok.com/nabila_salon/')
+on conflict (salon_id, platform) do update set url = excluded.url;
+insert into public.service_categories (salon_id, name, slug, sort_order)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Facial', 'facial', 0);
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Basic Facial', 'Fresh cleansing facial for everyday glow.', '45 min', 1500, 0
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'facial';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Gold Facial', 'Radiance facial for events and special days.', '60 min', 3000, 1
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'facial';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Hydra Facial', 'Hydrating facial for clean and plump skin.', '60 min', 4500, 2
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'facial';
+insert into public.service_categories (salon_id, name, slug, sort_order)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Hair', 'hair', 1);
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Hair Cut', 'Modern haircut with shape and styling.', '30 min', 1000, 0
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'hair';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Hair Color', 'Full hair color with consultation.', '120 min', 5500, 1
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'hair';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Protein Treatment', 'Repair treatment for dry or damaged hair.', '90 min', 6500, 2
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'hair';
+insert into public.service_categories (salon_id, name, slug, sort_order)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Makeup', 'makeup', 2);
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Party Makeup', 'Event-ready makeup with long-lasting finish.', '60 min', 4500, 0
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'makeup';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Bridal Makeup', 'Complete premium bridal makeup.', '180 min', 22000, 1
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'makeup';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Engagement Makeup', 'Soft glam look for engagement events.', '120 min', 14000, 2
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'makeup';
+insert into public.service_categories (salon_id, name, slug, sort_order)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Nails', 'nails', 3);
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Basic Manicure', 'Classic nail cleanup and polish.', '30 min', 1000, 0
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'nails';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Gel Nails', 'Long-lasting gel nail finish.', '60 min', 2500, 1
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'nails';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'toch-of-glass-salon'), sc.id, 'Luxury Pedicure', 'Pedicure with scrub, massage, and polish.', '60 min', 2200, 2
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and sc.slug = 'nails';
+insert into public.packages (salon_id, name, price_pkr, original_price_pkr, promo_tag, sort_order)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Bridal Glow Package', 18000, 22000, 'Best Value', 0);
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Gold Facial', 0 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Bridal Glow Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Hair Styling', 1 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Bridal Glow Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Bridal Makeup', 2 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Bridal Glow Package';
+insert into public.packages (salon_id, name, price_pkr, original_price_pkr, promo_tag, sort_order)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Party Ready Package', 6500, 8000, 'Popular', 1);
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Party Makeup', 0 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Party Ready Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Blow Dry', 1 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Party Ready Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Gel Nails', 2 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Party Ready Package';
+insert into public.packages (salon_id, name, price_pkr, original_price_pkr, promo_tag, sort_order)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Hair Revival Package', 7500, 9500, 'Hair Care', 2);
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Hair Cut', 0 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Hair Revival Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Protein Treatment', 1 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Hair Revival Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Blow Dry', 2 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Hair Revival Package';
+insert into public.packages (salon_id, name, price_pkr, original_price_pkr, promo_tag, sort_order)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Nails & Glow Package', 3500, 4500, 'Self Care', 3);
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Manicure', 0 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Nails & Glow Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Pedicure', 1 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Nails & Glow Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Basic Facial', 2 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'toch-of-glass-salon') and p.name = 'Nails & Glow Package';
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Ayesha K.', 'Service bohat professional thi.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Sana M.', 'Makeup long lasting aur natural tha.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Hira B.', 'Salon clean aur staff friendly tha.', 4, false);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Fatima A.', 'Bridal trial detailed tha.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Maha F.', 'Hair color result excellent aya.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Nida W.', 'Nails bohat neat thay.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Rabia R.', 'Good value for money.', 4, false);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Komal S.', 'Soft glam bilkul reference jaisa tha.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'toch-of-glass-salon'), 'Laiba T.', 'Facial relaxing aur fresh tha.', 4, false);
+
+-- Areeba Beauty Salon
+insert into public.salons (
+  slug, status, verification_status, name, tagline,
+  city_id, city_name, area, address, phone, whatsapp,
+  timings, weekly_off, brand_color, price_level, hero_image_url,
+  stats_clients_label, stats_experience_label, stats_rating,
+  is_featured, published_at
+) values (
+  'areeba-beauty-salon', 'published', 'verified',
+  'Areeba Beauty Salon', 'Where Every Looks Bloom',
+  (select id from public.cities where slug = 'sahiwal'),
+  'Sahiwal', 'Madhali Road', 'Near Razzaq Royal Main Gate',
+  '03143007177', '923215471256',
+  'Mon-Sat 11AM to 8PM', 'Friday',
+  '#cf0561', '$$',
+  '/assets/images/salons/areeba-hero.jpeg',
+  '200+', '4yr',
+  4.8, true, now()
+);
+
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g1.jpeg', 0);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g2.jpeg', 1);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g3.jpeg', 2);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g4.jpeg', 3);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g1.jpeg', 4);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g2.jpeg', 5);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g3.jpeg', 6);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g4.jpeg', 7);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g1.jpeg', 8);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g2.jpeg', 9);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g3.jpeg', 10);
+insert into public.salon_gallery_images (salon_id, image_url, sort_order) values ((select id from public.salons where slug = 'areeba-beauty-salon'), '/assets/images/salons/areeba-g4.jpeg', 11);
+insert into public.salon_tags (salon_id, tag_id)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), bt.id from public.business_tags bt where bt.slug = 'ladies-only';
+insert into public.salon_tags (salon_id, tag_id)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), bt.id from public.business_tags bt where bt.slug = 'bridal-expert';
+insert into public.salon_social_links (salon_id, platform, url) values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'instagram'::public.social_platform, 'https://www.instagram.com/nabila_salon/')
+on conflict (salon_id, platform) do update set url = excluded.url;
+insert into public.salon_social_links (salon_id, platform, url) values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'facebook'::public.social_platform, 'https://www.facebook.com/nabila_salon/')
+on conflict (salon_id, platform) do update set url = excluded.url;
+insert into public.salon_social_links (salon_id, platform, url) values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'tiktok'::public.social_platform, 'https://www.tiktok.com/nabila_salon/')
+on conflict (salon_id, platform) do update set url = excluded.url;
+insert into public.service_categories (salon_id, name, slug, sort_order)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Facial', 'facial', 0);
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Basic Facial', 'Fresh cleansing facial for everyday glow.', '45 min', 1500, 0
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'facial';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Gold Facial', 'Radiance facial for events and special days.', '60 min', 3000, 1
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'facial';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Hydra Facial', 'Hydrating facial for clean and plump skin.', '60 min', 4500, 2
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'facial';
+insert into public.service_categories (salon_id, name, slug, sort_order)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Hair', 'hair', 1);
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Hair Cut', 'Modern haircut with shape and styling.', '30 min', 1000, 0
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'hair';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Hair Color', 'Full hair color with consultation.', '120 min', 5500, 1
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'hair';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Protein Treatment', 'Repair treatment for dry or damaged hair.', '90 min', 6500, 2
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'hair';
+insert into public.service_categories (salon_id, name, slug, sort_order)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Makeup', 'makeup', 2);
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Party Makeup', 'Event-ready makeup with long-lasting finish.', '60 min', 4500, 0
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'makeup';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Bridal Makeup', 'Complete premium bridal makeup.', '180 min', 22000, 1
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'makeup';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Engagement Makeup', 'Soft glam look for engagement events.', '120 min', 14000, 2
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'makeup';
+insert into public.service_categories (salon_id, name, slug, sort_order)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Nails', 'nails', 3);
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Basic Manicure', 'Classic nail cleanup and polish.', '30 min', 1000, 0
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'nails';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Gel Nails', 'Long-lasting gel nail finish.', '60 min', 2500, 1
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'nails';
+insert into public.services (salon_id, category_id, name, description, duration_label, price_pkr, sort_order)
+select (select id from public.salons where slug = 'areeba-beauty-salon'), sc.id, 'Luxury Pedicure', 'Pedicure with scrub, massage, and polish.', '60 min', 2200, 2
+from public.service_categories sc where sc.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and sc.slug = 'nails';
+insert into public.packages (salon_id, name, price_pkr, original_price_pkr, promo_tag, sort_order)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Bridal Glow Package', 18000, 22000, 'Best Value', 0);
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Gold Facial', 0 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Bridal Glow Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Hair Styling', 1 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Bridal Glow Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Bridal Makeup', 2 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Bridal Glow Package';
+insert into public.packages (salon_id, name, price_pkr, original_price_pkr, promo_tag, sort_order)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Party Ready Package', 6500, 8000, 'Popular', 1);
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Party Makeup', 0 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Party Ready Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Blow Dry', 1 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Party Ready Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Gel Nails', 2 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Party Ready Package';
+insert into public.packages (salon_id, name, price_pkr, original_price_pkr, promo_tag, sort_order)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Hair Revival Package', 7500, 9500, 'Hair Care', 2);
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Hair Cut', 0 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Hair Revival Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Protein Treatment', 1 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Hair Revival Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Blow Dry', 2 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Hair Revival Package';
+insert into public.packages (salon_id, name, price_pkr, original_price_pkr, promo_tag, sort_order)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Nails & Glow Package', 3500, 4500, 'Self Care', 3);
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Manicure', 0 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Nails & Glow Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Pedicure', 1 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Nails & Glow Package';
+insert into public.package_items (package_id, label, sort_order)
+select p.id, 'Basic Facial', 2 from public.packages p
+where p.salon_id = (select id from public.salons where slug = 'areeba-beauty-salon') and p.name = 'Nails & Glow Package';
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Ayesha K.', 'Service bohat professional thi.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Sana M.', 'Makeup long lasting aur natural tha.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Hira B.', 'Salon clean aur staff friendly tha.', 4, false);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Fatima A.', 'Bridal trial detailed tha.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Maha F.', 'Hair color result excellent aya.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Nida W.', 'Nails bohat neat thay.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Rabia R.', 'Good value for money.', 4, false);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Komal S.', 'Soft glam bilkul reference jaisa tha.', 5, true);
+insert into public.salon_reviews (salon_id, author_name, body, stars, is_verified)
+values ((select id from public.salons where slug = 'areeba-beauty-salon'), 'Laiba T.', 'Facial relaxing aur fresh tha.', 4, false);
 
 -- Verify
 select slug, name, city_name, status from public.salons order by name;

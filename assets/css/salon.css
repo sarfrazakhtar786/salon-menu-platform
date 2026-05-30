@@ -716,7 +716,7 @@
     }
 
     @media (max-width: 720px) {
-      body { padding-bottom: 86px; }
+      body { padding-bottom: 148px; }
       .shell { width: min(100% - 32px, 1180px); }
       .brand {
         width: 148px;
@@ -746,8 +746,26 @@
         width: 100%;
         min-width: 0;
       }
-      .floating-checkout { display: none; }
-      .bottom-nav { display: grid; }
+      .floating-checkout {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 14px;
+        right: 14px;
+        bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+        width: auto;
+        min-height: 52px;
+        padding: 0 18px;
+        border-radius: 16px;
+        font-size: 0.92rem;
+        z-index: 31;
+      }
+      .bottom-nav {
+        display: grid;
+        left: 14px;
+        right: 14px;
+        bottom: max(14px, env(safe-area-inset-bottom, 0px));
+      }
       .modal { padding: 0; }
       .sheet {
         max-height: 90vh;

@@ -240,6 +240,11 @@ pre {
   font-weight: 900;
 }
 
+#authGate[hidden],
+#app[hidden] {
+  display: none !important;
+}
+
 .auth-gate {
   position: fixed;
   inset: 0;

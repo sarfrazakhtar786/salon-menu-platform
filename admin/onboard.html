@@ -150,14 +150,27 @@
       const gate = document.getElementById("authGate");
       const app = document.getElementById("app");
       const authMessage = document.getElementById("authMessage");
+      const loginUrl = `/admin/login.html?next=${encodeURIComponent(window.location.pathname + window.location.search)}`;
+
+      authMessage.textContent = "Verifying admin session…";
 
       try {
-        const result = await SalonMenu.auth.requireAdmin({ loginPath: "/admin/login.html" });
+        const result = await SalonMenu.auth.requireAdmin({
+          loginPath: "/admin/login.html",
+          redirect: false
+        });
+
         if (!result.ok) {
-          if (result.reason === "redirect") return;
-          gate.querySelector("h2").textContent = "Admin access blocked";
+          gate.querySelector("h2").textContent = "Admin sign-in required";
+          if (result.reason === "no_session" || result.reason === "redirect") {
+            authMessage.innerHTML = `Please <a href="${result.loginUrl || loginUrl}">sign in</a> to open the onboarding form.`;
+            window.setTimeout(() => {
+              window.location.href = result.loginUrl || loginUrl;
+            }, 1200);
+            return;
+          }
           authMessage.textContent = result.message || "Access denied.";
-          authMessage.innerHTML += ' <a href="/admin/login.html">Back to login</a>';
+          authMessage.innerHTML += ` <a href="${loginUrl}">Back to login</a>`;
           return;
         }
 
@@ -170,6 +183,7 @@
         console.error(error);
         gate.querySelector("h2").textContent = "Admin check failed";
         authMessage.textContent = error.message || "Unknown error.";
+        authMessage.innerHTML += ` <a href="${loginUrl}">Try login again</a>`;
       }
     })();
   </script>

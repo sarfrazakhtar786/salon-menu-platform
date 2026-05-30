@@ -73,11 +73,12 @@ SalonMenu.auth = (function () {
   }
 
   /**
-   * @param {{ loginPath?: string, next?: string }} opts
+   * @param {{ loginPath?: string, next?: string, redirect?: boolean }} opts
    * @returns {Promise<{ ok: true, session: object, profile: object } | { ok: false, reason: string, message?: string }>}
    */
   async function requireAdmin(opts = {}) {
     const loginPath = opts.loginPath || "/admin/login.html";
+    const shouldRedirect = opts.redirect !== false;
     const sb = getClient();
     if (!sb) {
       return { ok: false, reason: "config", message: "Supabase is not configured on this site." };
@@ -93,18 +94,27 @@ SalonMenu.auth = (function () {
     try {
       const session = await withTimeout(
         getSession(),
-        12000,
+        8000,
         "Session check timed out. Check internet connection and refresh."
       );
       if (!session) {
         const next = opts.next || window.location.pathname + window.location.search;
-        window.location.replace(`${loginPath}?next=${encodeURIComponent(next)}`);
-        return { ok: false, reason: "redirect" };
+        const loginUrl = `${loginPath}?next=${encodeURIComponent(next)}`;
+        if (shouldRedirect) {
+          window.location.replace(loginUrl);
+          return { ok: false, reason: "redirect", message: loginUrl };
+        }
+        return {
+          ok: false,
+          reason: "no_session",
+          message: "Please sign in first.",
+          loginUrl
+        };
       }
 
       const profile = await withTimeout(
         getProfile(session),
-        12000,
+        8000,
         "Could not load admin profile. Run supabase/admin-setup.sql and admin-auth-policies.sql."
       );
       if (!profile) {

@@ -38,15 +38,20 @@
 
     (async () => {
       try {
+        if (typeof SalonMenu?.auth?.getSession !== "function") {
+          setStatus("Auth scripts failed to load. Refresh the page.", "bad");
+          return;
+        }
         const session = await SalonMenu.auth.getSession();
         if (session) {
-          const profile = await SalonMenu.auth.getProfile();
+          const profile = await SalonMenu.auth.getProfile(session);
           if (SalonMenu.auth.isAdminProfile(profile)) {
             window.location.replace(nextUrl);
           }
         }
       } catch (error) {
         console.warn(error);
+        setStatus(error.message || "Could not verify session.", "bad");
       }
     })();
 
